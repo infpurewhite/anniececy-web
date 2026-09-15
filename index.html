@@ -3,381 +3,266 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>anniececy.com | Expedición Biodiversidad Bolivia</title>
+  <title>anniececy.com | Guardianes de la Biodiversidad de Bolivia</title>
   <style>
     :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
+      --bg: #090d16;
+      --panel: #131b2e;
       --accent: #10b981;
       --accent-hover: #059669;
-      --cr-color: #ef4444;
-      --en-color: #f97316;
-      --vu-color: #eab308;
+      --cr: #ef4444;
+      --en: #f97316;
+      --vu: #eab308;
       --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --border: #334155;
+      --muted: #94a3b8;
+      --border: #1e293b;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 1rem; }
+    header { width: 100%; max-width: 900px; text-align: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.25rem; }
+    
+    .stats-container { display: flex; justify-content: space-around; background: var(--panel); padding: 0.75rem; border-radius: 8px; margin-top: 1rem; border: 1px solid var(--border); }
+    .stat-box { text-align: center; }
+    .stat-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .stat-val { font-size: 1.25rem; font-weight: bold; }
 
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
-    }
+    main { width: 100%; max-width: 900px; margin-top: 1.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .nav-tabs { display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; }
+    .tab-btn { background: var(--panel); border: 1px solid var(--border); color: var(--text); padding: 0.6rem 1rem; border-radius: 6px; cursor: pointer; white-space: nowrap; font-size: 0.9rem; }
+    .tab-btn.active { background: var(--accent); border-color: var(--accent); font-weight: bold; color: #fff; }
 
-    header {
-      width: 100%;
-      max-width: 900px;
-      text-align: center;
-      padding: 1.5rem 0;
-      border-bottom: 1px solid var(--border);
-    }
+    .card { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; }
+    .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .badge-cr { background: var(--cr); color: #fff; }
+    .badge-en { background: var(--en); color: #fff; }
+    .badge-vu { background: var(--vu); color: #000; }
 
-    h1 {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .meta-bar {
-      display: flex;
-      justify-content: space-around;
-      background: var(--card-bg);
-      padding: 0.75rem;
-      border-radius: 8px;
-      margin-top: 1rem;
-      border: 1px solid var(--border);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .stat-val {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    main {
-      width: 100%;
-      max-width: 900px;
-      margin-top: 1.5rem;
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    .region-nav {
-      display: flex;
-      gap: 0.5rem;
-      overflow-x: auto;
-    }
-
-    .region-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      white-space: nowrap;
-    }
-
-    .region-btn.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      color: #fff;
-    }
-
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1.5rem;
-    }
-
-    .badge {
-      display: inline-block;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.75rem;
-      font-weight: bold;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-
-    .badge-cr { background: var(--cr-color); color: #fff; }
-    .badge-en { background: var(--en-color); color: #fff; }
-    .badge-vu { background: var(--vu-color); color: #000; }
-
-    .threat-desc {
-      background: rgba(239, 68, 68, 0.1);
-      border-left: 4px solid var(--cr-color);
-      padding: 0.75rem;
-      margin: 1rem 0;
-      font-size: 0.95rem;
-      color: #fca5a5;
-    }
-
-    .action-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
-      margin-top: 1rem;
-    }
-
-    @media (min-width: 600px) {
-      .action-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .action-btn {
-      background: #334155;
-      border: 1px solid #475569;
-      color: var(--text);
-      padding: 1rem;
-      border-radius: 6px;
-      text-align: left;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.2s;
-    }
-
-    .action-btn:hover {
-      background: #475569;
-    }
-
-    .log {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      padding: 1rem;
-      border-radius: 6px;
-      display: none;
-    }
-
+    .threat-box { background: rgba(239, 68, 68, 0.1); border-left: 4px solid var(--cr); padding: 0.75rem; margin: 1rem 0; font-size: 0.95rem; color: #fca5a5; line-height: 1.4; }
+    .action-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-top: 1rem; }
+    @media (min-width: 600px) { .action-grid { grid-template-columns: 1fr 1fr; } }
+    
+    .action-btn { background: #1e293b; border: 1px solid #334155; color: var(--text); padding: 1rem; border-radius: 6px; text-align: left; cursor: pointer; font-size: 0.9rem; transition: background 0.2s; }
+    .action-btn:hover { background: #334155; }
+    .log-box { margin-top: 1rem; font-size: 0.9rem; line-height: 1.5; padding: 1rem; border-radius: 6px; display: none; }
     .log-success { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--accent); }
-    .log-failure { background: rgba(239, 68, 68, 0.2); border: 1px solid var(--cr-color); }
+    .log-failure { background: rgba(239, 68, 68, 0.2); border: 1px solid var(--cr); }
   </style>
 </head>
 <body>
 
   <header>
     <h1>anniececy.com</h1>
-    <p style="color: var(--text-muted); font-size: 0.9rem;">Simulador Táctico de Conservación — Fauna Silvestre de Bolivia</p>
-    <div class="meta-bar">
-      <div>
-        <div class="stat-label">Presupuesto de Gestión</div>
-        <div class="stat-val" id="budget">$100,000</div>
+    <p style="color: var(--muted); font-size: 0.9rem;">Simulador Táctico de Decisiones — Libro Rojo de Vertebrados de Bolivia</p>
+    <div class="stats-container">
+      <div class="stat-box">
+        <div class="stat-label">Fondo de Conservación</div>
+        <div class="stat-val" id="budget">$150,000</div>
       </div>
-      <div>
-        <div class="stat-label">Especies en Resguardo</div>
-        <div class="stat-val" id="saved">0 / 4</div>
+      <div class="stat-box">
+        <div class="stat-label">Especies Protegidas</div>
+        <div class="stat-val" id="saved">0 / 5</div>
       </div>
     </div>
   </header>
 
   <main>
-    <div class="region-nav" id="regionNav"></div>
+    <div class="nav-tabs" id="navTabs"></div>
 
     <section class="card" id="missionCard">
       <div id="statusBadge" class="badge"></div>
-      <h2 id="speciesName" style="font-size: 1.4rem;"></h2>
-      <p id="speciesMeta" style="color: var(--text-muted); font-style: italic; margin-bottom: 0.5rem;"></p>
-      <div class="threat-desc" id="threatText"></div>
+      <h2 id="speciesTitle" style="font-size: 1.3rem;"></h2>
+      <p id="speciesMeta" style="color: var(--muted); font-style: italic; margin-bottom: 0.5rem;"></p>
+      <div class="threat-box" id="threatText"></div>
 
-      <h3 style="font-size: 1rem; margin-top: 1rem;">Medida de Manejo a Implementar:</h3>
+      <h3 style="font-size: 0.95rem; margin-top: 1rem;">Selecciona la Medida Técnica de Manejo:</h3>
       <div class="action-grid" id="actionOptions"></div>
-
-      <div class="log" id="actionLog"></div>
+      <div class="log-box" id="logBox"></div>
     </section>
   </main>
 
   <script>
-    // Datos técnicos y biológicos estructurados desde los tomos del Libro Rojo
+    // Datos técnicos y biológicos estructurados desde los 5 Tomos oficiales (MPDYMA)
     const missions = [
       {
-        id: "moxos",
-        region: "Llanos de Moxos",
+        taxon: "Vol I: Tortugas",
         species: "Podocnemis expansa (Tataruga)",
         meta: "Orden: Testudines | Familia: Podocnemididae | Categoría: EN",
         status: "EN",
-        threat: "Saqueo masivo de playas de anidación sobre la cuenca del río Iténez para comercio de carne y huevos, agravado por inundaciones atípicas.",
+        threat: "Saqueo intensivo de nidadas en playas arenosas de la cuenca del río Iténez para tráfico comercial de huevos y carne, agravado por eventos hidrológicos extremos.",
         actions: [
           {
-            text: "Implementar campamentos comunales de vigilancia y traslocación de nidadas amenazadas a corralones de incubación.",
+            title: "Campamento Comunitario de Vigilancia",
             cost: 25000,
             success: true,
-            msg: "Acción respaldada por el modelo comunitario de Versalles: la protección física in situ asegura el reclutamiento y reduce el tráfico ilícito."
+            msg: "Medida respaldada por el modelo comunitario de Versalles (PN-ANMI Iténez): el patrullaje in situ y traslado técnico de nidadas a corralones asegura el reclutamiento de juveniles."
           },
           {
-            text: "Construir muros de contención de hormigón en las orillas arenosas del cauce fluvial.",
-            cost: 40000,
+            title: "Canalización y Dragado Fluvial",
+            cost: 35000,
             success: false,
-            msg: "Inviable técnica y ecológicamente: destruye el microhábitat hidrológico de desove y fragmenta el acceso natural de las hembras."
+            msg: "Error de manejo: la alteración de la hidrodinámica del río erosiona las barras arenosas naturales de desove y destruye las zonas bentónicas de descanso."
           }
         ]
       },
       {
-        id: "chiquitania",
-        region: "Chiquitanía / Chaco",
-        species: "Acanthochelys macrocephala (Galápago)",
-        meta: "Orden: Testudines | Familia: Chelidae | Categoría: VU",
-        status: "VU",
-        threat: "Quemas descontroladas y fuegos recurrentes que eliminan refugios en humedales efímeros durante su periodo de latencia terrestre.",
+        taxon: "Vol II: Reptiles",
+        species: "Liolaemus aparicioi (Lagartija del Valle de La Paz)",
+        meta: "Orden: Squamata | Familia: Liolaemidae | Categoría: CR (Endémica)",
+        status: "CR",
+        threat: "Pérdida de más del 50% de su hábitat original en el valle interandino debido al avance acelerado de urbanizaciones, remoción de taludes y compactación del suelo.",
         actions: [
           {
-            text: "Creación de cortafuegos perimetrales y protocolos de gestión del suelo en zonas de amortiguamiento comunal.",
+            title: "Micro-Reservas de Ecosistemas Andinos",
             cost: 20000,
             success: true,
-            msg: "Efectivo: protege las áreas de vegetación caducifolia y bordes riparios donde la especie permanece enterrada entre hojarasca."
+            msg: "Acción prioritaria: preserva taludes rocosos y matorrales xéricos nativos esenciales para la termorregulación de esta especie microendémica de La Paz."
           },
           {
-            text: "Drenar los curichis locales para reubicar a toda la fauna en zoológicos municipales.",
-            cost: 30000,
-            success: false,
-            msg: "Contraproducente: extirpa la población silvestre, elimina el régimen hidrológico natural y satura los centros de custodia ex situ."
-          }
-        ]
-      },
-      {
-        id: "yungas",
-        region: "Bosques de Yungas",
-        species: "Telmatobius yuracare (Rana acuática yuracaré)",
-        meta: "Orden: Anura | Familia: Telmatobiidae | Categoría: CR",
-        status: "CR",
-        threat: "Infección crítica por quitridiomicosis (Batrachochytrium dendrobatidis - Bd) combinada con deforestación para agricultura en laderas.",
-        actions: [
-          {
-            text: "Establecer módulos de conservación ex situ (bioseguridad K'ayra) y monitoreo genético de quebradas prístinas.",
-            cost: 35000,
-            success: true,
-            msg: "Crítico y correcto: permite la reproducción en cautiverio libre de Bd mientras se identifican microcuencas de refugio térmico."
-          },
-          {
-            text: "Fumigar los arroyos de cabecera con fungicidas agrícolas comerciales.",
+            title: "Aforestación Intensiva con Eucalipto",
             cost: 15000,
             success: false,
-            msg: "Letal: los anfibios presentan piel altamente permeable; los químicos colapsan el equilibrio osmótico y aniquilan la macrofauna bentónica."
+            msg: "Grave alteración: los árboles exóticos acidifican y resecan el suelo, bloquean la radiación solar indispensable para la ectotermia y erradican los insectos presa nativos."
           }
         ]
       },
       {
-        id: "titicaca",
-        region: "Puna / Lago Titicaca",
-        species: "Rollandia microptera (Zambullidor del Titicaca)",
-        meta: "Orden: Podicipediformes | Familia: Podicipedidae | Categoría: CR",
+        taxon: "Vol III: Anfibios",
+        species: "Telmatobius culeus (Rana gigante del Titicaca)",
+        meta: "Orden: Anura | Familia: Telmatobiidae | Categoría: CR (CITES I)",
         status: "CR",
-        threat: "Ahogamiento por enmalle en redes agalleras de pesca artesanal, sumado a la degradación por cosecha descontrolada de totorares.",
+        threat: "Contaminación hídrica por aguas servidas e hidrocarburos en bahías someras, sinergia con el hongo quitridio (Bd) y tráfico ilegal para consumo de 'jugos de rana'.",
         actions: [
           {
-            text: "Zonificación concertada de áreas de exclusión pesquera en bahías clave de desove y uso de alarmas acústicas/visuales en redes.",
-            cost: 20000,
+            title: "Bioseguridad Ex Situ y Protección Comunal",
+            cost: 40000,
             success: true,
-            msg: "Exitoso: reduce la mortalidad por enmalle de esta ave no voladora y asegura la integridad de los totorales para anidación."
+            msg: "Efectivo: fortalece la cría y rescate en el Centro K'ayra y apoya santuarios comunitarios acuáticos con exclusión de redes de pesca en la Isla de la Luna."
           },
           {
-            text: "Introducción intensiva de trucha arcoíris para diversificar las fuentes tróficas del lago.",
+            title: "Siembra Masiva de Trucha Arcoíris",
             cost: 25000,
             success: false,
-            msg: "Grave error: la trucha es una especie exótica que compite por recursos y depreda la ictiofauna nativa (Orestias), presa primaria del zambullidor."
+            msg: "Impacto destructivo: los salmónidos introducidos actúan como voraces depredadores de renacuajos y juveniles nativos, compitiendo además por macroinvertebrados."
+          }
+        ]
+      },
+      {
+        taxon: "Vol IV: Aves",
+        species: "Ara glaucogularis (Paraba barba azul)",
+        meta: "Orden: Psittaciformes | Familia: Psittacidae | Categoría: CR (Endémica)",
+        status: "CR",
+        threat: "Población global reducida a pocos centenares de individuos en los Llanos de Moxos, amenazada por la escasez de palmeras maduras para nidificación y quema recurrente de pastizales.",
+        actions: [
+          {
+            title: "Programa de Nidos Artificiales en Islas de Bosque",
+            cost: 30000,
+            success: true,
+            msg: "Exitoso: suple la falta de cavidades naturales en motacusales protegidos en el APM Gran Mojos y reservas comunitarias, elevando el éxito reproductivo por encima del 75%."
+          },
+          {
+            title: "Uso Tradicional de Plumas en Festividades",
+            cost: 10000,
+            success: false,
+            msg: "Práctica perjudicial: el sacrificio de adultos para confeccionar tocados tradicionales diezma las escasas parejas reproductoras; la alternativa legal es el plumaje sintético."
+          }
+        ]
+      },
+      {
+        taxon: "Vol V: Mamíferos",
+        species: "Panthera onca (Jaguar)",
+        meta: "Orden: Carnivora | Familia: Felidae | Categoría: EN (CITES I)",
+        status: "EN",
+        threat: "Tráfico ilegal de colmillos hacia mercados asiáticos, cacería en represalia por depredación de ganado y fragmentación crítica de corredores de bosque por incendios.",
+        actions: [
+          {
+            title: "Cercos Eléctricos y Fiscalización Penal",
+            cost: 30000,
+            success: true,
+            msg: "Correcto: implementa métodos antidepredatorios no letales con ganaderos locales e intensifica los controles judiciales bajo la Ley N° 1525 contra el tráfico de partes silvestres."
+          },
+          {
+            title: "Cacería Selectiva de Control de Depredadores",
+            cost: 20000,
+            success: false,
+            msg: "Ilegal y contraproducente: elimina ejemplares en densidades poblacionales críticas y agrava los desequilibrios ecológicos en las cadenas tróficas del bosque."
           }
         ]
       }
     ];
 
-    let currentBudget = 100000;
-    let savedCount = 0;
-    let activeIndex = 0;
-    const completedMissions = new Set();
+    let budget = 150000;
+    let saved = 0;
+    let currentTab = 0;
+    const completed = new Set();
 
-    function renderNav() {
-      const nav = document.getElementById("regionNav");
+    function initNav() {
+      const nav = document.getElementById("navTabs");
       nav.innerHTML = "";
-      missions.forEach((m, idx) => {
+      missions.forEach((m, i) => {
         const btn = document.createElement("button");
-        btn.className = `region-btn ${idx === activeIndex ? "active" : ""}`;
-        btn.textContent = m.region;
-        btn.onclick = () => {
-          activeIndex = idx;
-          renderNav();
-          renderMission();
-        };
+        btn.className = `tab-btn ${i === currentTab ? "active" : ""}`;
+        btn.textContent = m.taxon;
+        btn.onclick = () => { currentTab = i; initNav(); renderMission(); };
         nav.appendChild(btn);
       });
     }
 
     function renderMission() {
-      const m = missions[activeIndex];
+      const m = missions[currentTab];
       const badge = document.getElementById("statusBadge");
-      badge.textContent = m.status === "CR" ? "En Peligro Crítico" : m.status === "EN" ? "En Peligro" : "Vulnerable";
+      badge.textContent = m.status === "CR" ? "En Peligro Crítico (CR)" : "En Peligro (EN)";
       badge.className = `badge badge-${m.status.toLowerCase()}`;
 
-      document.getElementById("speciesName").textContent = m.species;
+      document.getElementById("speciesTitle").textContent = m.species;
       document.getElementById("speciesMeta").textContent = m.meta;
       document.getElementById("threatText").textContent = m.threat;
 
-      const actionsDiv = document.getElementById("actionOptions");
-      actionsDiv.innerHTML = "";
-
-      const log = document.getElementById("actionLog");
+      const actionsContainer = document.getElementById("actionOptions");
+      actionsContainer.innerHTML = "";
+      const log = document.getElementById("logBox");
       log.style.display = "none";
 
-      m.actions.forEach((act) => {
+      m.actions.forEach(act => {
         const btn = document.createElement("button");
         btn.className = "action-btn";
-        btn.innerHTML = `<strong>Opción ($${act.cost.toLocaleString()}):</strong><br>${act.text}`;
-        btn.disabled = completedMissions.has(m.id);
-        btn.onclick = () => executeAction(m, act);
-        actionsDiv.appendChild(btn);
+        btn.innerHTML = `<strong>${act.title}</strong><br><span style="color: var(--muted); font-size: 0.8rem;">Costo: $${act.cost.toLocaleString()}</span>`;
+        btn.disabled = completed.has(currentTab);
+        btn.onclick = () => executePlan(act);
+        actionsContainer.appendChild(btn);
       });
     }
 
-    function executeAction(mission, action) {
-      const log = document.getElementById("actionLog");
+    function executePlan(act) {
+      const log = document.getElementById("logBox");
       log.style.display = "block";
 
-      if (currentBudget < action.cost) {
-        log.className = "log log-failure";
-        log.innerHTML = "<strong>Fondos insuficientes:</strong> No cuentas con presupuesto asignado para costear esta medida técnica.";
+      if (budget < act.cost) {
+        log.className = "log-box log-failure";
+        log.innerHTML = "<strong>Presupuesto Agotado:</strong> No cuentas con fondos para financiar esta medida técnica.";
         return;
       }
 
-      currentBudget -= action.cost;
-      document.getElementById("budget").textContent = `$${currentBudget.toLocaleString()}`;
+      budget -= act.cost;
+      document.getElementById("budget").textContent = `$${budget.toLocaleString()}`;
 
-      if (action.success) {
-        log.className = "log log-success";
-        log.innerHTML = `<strong>Éxito de Manejo:</strong> ${action.msg}`;
-        if (!completedMissions.has(mission.id)) {
-          completedMissions.add(mission.id);
-          savedCount++;
-          document.getElementById("saved").textContent = `${savedCount} / ${missions.length}`;
+      if (act.success) {
+        log.className = "log-box log-success";
+        log.innerHTML = `<strong>Éxito de Manejo:</strong> ${act.msg}`;
+        if (!completed.has(currentTab)) {
+          completed.add(currentTab);
+          saved++;
+          document.getElementById("saved").textContent = `${saved} / ${missions.length}`;
         }
       } else {
-        log.className = "log log-failure";
-        log.innerHTML = `<strong>Fallo de Evaluación:</strong> ${action.msg}`;
+        log.className = "log-box log-failure";
+        log.innerHTML = `<strong>Fallo de Evaluación:</strong> ${act.msg}`;
       }
       renderMission();
     }
 
-    // Inicialización al cargar la página
-    renderNav();
+    initNav();
     renderMission();
   </script>
 </body>
