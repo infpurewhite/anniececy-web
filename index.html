@@ -1,40 +1,40 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Annie Cecy Espinoza Arispe | Senior QHSE & Sustainability Leader</title>
+  <title>Annie Cecy Espinoza Arispe | Líder QHSE & Ingeniera Industrial</title>
   
+  <!-- Tailwind CSS & Lucide Icons -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Google Fonts: Inter & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+          },
           colors: {
             brand: {
               50: '#f0fdf4',
-              navy: '#070D18',
-              slate: '#0F172A',
-              card: '#131F37',
-              border: '#1E293B',
-              gold: '#E5A93C',
-              goldHover: '#F59E0B',
-              accent: '#38BDF8',
-              emerald: '#10B981'
+              100: '#dcfce7',
+              500: '#10b981',
+              600: '#059669',
+              gold: '#d97706',
+              goldLight: '#fef3c7',
+              dark: '#0a0f1d',
+              card: '#111827',
+              border: '#1f2937'
             }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['"Outfit"', 'sans-serif'],
           }
         }
       }
@@ -42,1080 +42,660 @@
   </script>
 
   <style>
-    .glass-panel {
-      background: rgba(19, 31, 55, 0.72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .glass-card-hover {
-      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    .glass-card:hover {
+      border-color: rgba(16, 185, 129, 0.3);
     }
-    .glass-card-hover:hover {
-      transform: translateY(-5px);
-      border-color: rgba(229, 169, 60, 0.4);
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 25px -5px rgba(229, 169, 60, 0.15);
-    }
-    .text-gradient-gold {
-      background: linear-gradient(135deg, #FFF7ED 20%, #F59E0B 70%, #D97706 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .text-gradient-cyan {
-      background: linear-gradient(135deg, #FFFFFF 30%, #38BDF8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .radial-bg {
-      background: radial-gradient(circle at 50% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 60%),
-                  radial-gradient(circle at 85% 30%, rgba(229, 169, 60, 0.06) 0%, transparent 50%),
-                  radial-gradient(circle at 15% 70%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
-    }
-    .dot-pattern {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
-      background-size: 28px 28px;
+    .badge-gold {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.3);
     }
   </style>
 </head>
+<body class="bg-brand-dark text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
-<body class="bg-brand-navy text-slate-100 font-sans antialiased selection:bg-brand-gold selection:text-brand-navy min-h-screen relative overflow-x-hidden">
-
-  <div class="fixed inset-0 radial-bg pointer-events-none z-0"></div>
-  <div class="fixed inset-0 dot-pattern opacity-40 pointer-events-none z-0"></div>
-
-  <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-navy/80 backdrop-blur-md border-b border-brand-border/60">
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      
-      <!-- Brand Identity -->
       <a href="#hero" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-gold to-amber-300 flex items-center justify-center text-brand-navy font-display font-extrabold text-lg shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center font-display font-bold text-white shadow-lg shadow-emerald-900/30 group-hover:scale-105 transition-transform">
           AE
         </div>
         <div>
-          <span class="font-display font-bold text-lg tracking-tight text-white block group-hover:text-brand-gold transition-colors">
-            Annie Espinoza <span class="text-xs font-normal text-brand-gold px-1.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 ml-1">MSc</span>
-          </span>
-          <span class="text-xs text-slate-400 tracking-wide uppercase font-medium" data-i18n="nav.subtitle">QHSE & Sustainability Leader</span>
+          <span class="font-display font-bold text-lg text-white tracking-wide block leading-tight">Annie Espinoza</span>
+          <span class="text-xs text-brand-500 font-medium tracking-wider uppercase" data-i18n="nav.role">Especialista QHSE</span>
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-brand-gold transition-colors" data-i18n="nav.about">Profile</a>
-        <a href="#metrics" class="hover:text-brand-gold transition-colors" data-i18n="nav.metrics">Impact</a>
-        <a href="#experience" class="hover:text-brand-gold transition-colors" data-i18n="nav.experience">Experience</a>
-        <a href="#competencies" class="hover:text-brand-gold transition-colors" data-i18n="nav.standards">Standards & ISO</a>
-        <a href="#education" class="hover:text-brand-gold transition-colors" data-i18n="nav.education">Education</a>
+        <a href="#about" class="hover:text-emerald-400 transition" data-i18n="nav.about">Perfil</a>
+        <a href="#standards" class="hover:text-emerald-400 transition" data-i18n="nav.standards">Sistemas de Gestión</a>
+        <a href="#experience" class="hover:text-emerald-400 transition" data-i18n="nav.experience">Experiencia</a>
+        <a href="#education" class="hover:text-emerald-400 transition" data-i18n="nav.education">Formación</a>
+        <a href="#contact" class="hover:text-emerald-400 transition" data-i18n="nav.contact">Contacto</a>
       </nav>
 
-      <!-- Action Utilities: Language switcher & Hire CTA -->
-      <div class="flex items-center gap-3">
-        <!-- Language Switcher -->
-        <button id="langToggle" class="px-3 py-1.5 text-xs font-semibold rounded-lg border border-slate-700 bg-brand-card/80 hover:border-brand-gold/60 text-slate-300 transition-all flex items-center gap-1.5" title="Switch Language">
-          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-gold"></i>
-          <span id="langLabel">ES</span>
+      <!-- Language Toggle & CTA -->
+      <div class="flex items-center gap-4">
+        <!-- Language Switcher Button -->
+        <button id="langToggleBtn" onclick="toggleLanguage()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 bg-slate-800/80 text-xs font-semibold hover:border-emerald-500/50 transition">
+          <i data-lucide="globe" class="w-4 h-4 text-emerald-400"></i>
+          <span id="langLabel">EN / ES</span>
         </button>
 
-        <!-- CTA Button -->
-        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs md:text-sm font-semibold rounded-lg bg-brand-gold hover:bg-brand-goldHover text-brand-navy shadow-md shadow-amber-500/20 hover:shadow-amber-500/35 transition-all transform hover:-translate-y-0.5" data-i18n="nav.hire">
-          <span>Schedule Executive Briefing</span>
-          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white px-5 py-2.5 rounded-xl font-medium text-sm shadow-lg shadow-emerald-900/20 hover:shadow-emerald-900/40 transition">
+          <span data-i18n="nav.cta">Contactar</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-
-        <!-- Mobile Menu Toggle Button -->
-        <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-brand-card border border-brand-border text-slate-300 hover:text-white" aria-label="Toggle Navigation">
-          <i data-lucide="menu" id="menuIcon" class="w-5 h-5"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Dropdown Nav -->
-    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-6 border-b border-brand-border bg-brand-navy/95 backdrop-blur-xl">
-      <div class="flex flex-col space-y-3 text-sm font-medium pt-2">
-        <a href="#about" class="mobile-link text-slate-300 hover:text-brand-gold py-1">Profile</a>
-        <a href="#metrics" class="mobile-link text-slate-300 hover:text-brand-gold py-1">Impact & Metrics</a>
-        <a href="#experience" class="mobile-link text-slate-300 hover:text-brand-gold py-1">Track Record</a>
-        <a href="#competencies" class="mobile-link text-slate-300 hover:text-brand-gold py-1">ISO & Frameworks</a>
-        <a href="#education" class="mobile-link text-slate-300 hover:text-brand-gold py-1">Education & Academics</a>
-        <a href="#contact" class="mobile-link text-brand-gold font-bold py-1">Get in Touch</a>
       </div>
     </div>
   </header>
 
-  <main class="relative z-10 pt-28">
+  <!-- HERO SECTION -->
+  <section id="hero" class="relative pt-36 pb-20 md:pt-44 md:pb-32 overflow-hidden">
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[128px] pointer-events-none"></div>
 
-    <section id="hero" class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         
-        <!-- Left Hero Column: Headline & Value Proposition -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-semibold tracking-wide text-brand-gold shadow-inner">
+        <div class="flex-1 text-center lg:text-left">
+          <!-- Availability Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-6">
             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-            <span data-i18n="hero.badge">Available for Senior QHSE & ESG Leadership Roles</span>
+            <span data-i18n="hero.badge">Disponible para Oportunidades Globales & Consultoría</span>
           </div>
 
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight text-white leading-[1.12]">
-            Engineering Zero-Harm Safety, <br class="hidden sm:inline"/>
-            <span class="text-gradient-gold" data-i18n="hero.headlineHighlight">Environmental Governance</span> & Total Compliance.
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.1] mb-6">
+            <span data-i18n="hero.greeting">Ingeniería de Excelencia en</span><br>
+            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-300 bg-clip-text text-transparent" data-i18n="hero.highlight">Seguridad, Calidad y Medio Ambiente</span>
           </h1>
 
-          <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed" data-i18n="hero.summary">
-            Industrial Engineer with an MSc in Occupational Health, Safety & Environment from the <strong class="text-white">University of Birmingham (Merit)</strong>. 10+ years driving operational excellence, high-stakes risk audits, and international decarbonization schemes across <strong class="text-white">Aviation (CORSIA), Oil & Gas, and Heavy EPC Infrastructure</strong>.
+          <p class="text-lg text-slate-300 max-w-2xl mb-8 font-normal leading-relaxed" data-i18n="hero.summary">
+            Ingeniera Industrial con Maestría (MSc) por la Universidad de Birmingham (con Distinción al Mérito). Más de 10 años liderando sistemas de gestión integral (QHSE), cumplimiento regulatorio, estándares ISO y descarbonización en aviación comercial, sector petrolero y academia.
           </p>
 
-          <!-- Core Call-to-Actions -->
-          <div class="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <a href="#contact" class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-400 hover:to-amber-500 text-brand-navy shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 transition-all flex items-center gap-2 transform hover:-translate-y-0.5">
-              <i data-lucide="briefcase" class="w-4 h-4"></i>
-              <span data-i18n="hero.ctaPrimary">Hire Annie for Your Organization</span>
+          <!-- Location & Details -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-5 text-sm text-slate-400 mb-8">
+            <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i> Dundee, UK</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4 text-emerald-400"></i> anniececy@gmail.com</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="phone" class="w-4 h-4 text-emerald-400"></i> (+44) 07511325637</span>
+          </div>
+
+          <!-- CTAs -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#contact" class="px-7 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm shadow-xl shadow-emerald-500/20 transition flex items-center gap-2">
+              <span data-i18n="hero.btnSchedule">Iniciar Conversación</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
             </a>
-            
-            <button onclick="openCvModal()" class="px-6 py-3.5 rounded-xl font-semibold text-sm bg-brand-card hover:bg-slate-800 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all flex items-center gap-2 group">
-              <i data-lucide="file-text" class="w-4 h-4 text-brand-gold group-hover:scale-110 transition-transform"></i>
-              <span data-i18n="hero.ctaResume">Inspect Full CV & Credentials</span>
-            </button>
+            <a href="mailto:anniececy@gmail.com" class="px-7 py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-200 font-semibold text-sm transition flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-slate-400"></i>
+              <span data-i18n="hero.btnResume">Solicitar CV Completo</span>
+            </a>
           </div>
-
-          <!-- Quick trust badges / location info -->
-          <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400">
-            <div class="flex items-center gap-2">
-              <i data-lucide="map-pin" class="w-4 h-4 text-brand-accent"></i>
-              <span class="text-slate-300">Dundee, Scotland, UK (Eligible / Relocatable)</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="award" class="w-4 h-4 text-brand-gold"></i>
-              <span class="text-slate-300">YPFB Presidential Honor Awardee</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="plane-takeoff" class="w-4 h-4 text-brand-emerald"></i>
-              <span class="text-slate-300">ICAO CORSIA Reporting Lead</span>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Right Hero Column: Executive Feature Card -->
-        <div class="lg:col-span-5 relative">
-          <div class="relative mx-auto max-w-md lg:max-w-none">
-            
-            <!-- Glow background effect -->
-            <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-gold/20 to-brand-accent/20 rounded-3xl blur-2xl opacity-60"></div>
-            
-            <!-- Glass card container -->
-            <div class="relative glass-panel rounded-3xl p-6 sm:p-8 border border-slate-700/60 shadow-2xl">
-              
-              <!-- Avatar / Professional Profile Header -->
-              <div class="flex items-center gap-4 mb-6">
-                <div class="relative">
-                  <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 to-slate-900 border-2 border-brand-gold/70 flex items-center justify-center text-brand-gold shadow-lg">
-                    <i data-lucide="shield-check" class="w-8 h-8"></i>
-                  </div>
-                  <div class="absolute -bottom-1 -right-1 bg-emerald-500 w-4 h-4 rounded-full border-2 border-brand-card"></div>
-                </div>
-                <div>
-                  <h3 class="font-display font-bold text-lg text-white">Annie Cecy Espinoza Arispe</h3>
-                  <p class="text-xs text-brand-gold font-medium">BSc Industrial Eng • MSc HSE (Distinction/Merit)</p>
-                  <p class="text-xs text-slate-400 mt-0.5">Dundee, UK • Global Mobility</p>
-                </div>
-              </div>
-
-              <!-- Executive Snapshot Matrix -->
-              <div class="space-y-3.5 mb-6 text-xs">
-                
-                <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
-                  <span class="text-slate-400 flex items-center gap-2">
-                    <i data-lucide="layers" class="w-3.5 h-3.5 text-brand-accent"></i> Core Domains
-                  </span>
-                  <span class="font-semibold text-slate-200">QHSE, OHS, Process Safety, ESG</span>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
-                  <span class="text-slate-400 flex items-center gap-2">
-                    <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Certified Lead Scope
-                  </span>
-                  <span class="font-semibold text-slate-200">ISO 45001, 14001, 9001, 50010</span>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
-                  <span class="text-slate-400 flex items-center gap-2">
-                    <i data-lucide="flame" class="w-3.5 h-3.5 text-amber-400"></i> High-Hazard Proven
-                  </span>
-                  <span class="font-semibold text-slate-200">Aviation Fleet & YPFB Oil Refineries</span>
-                </div>
-
-                <div class="p-3 rounded-xl bg-slate-800/60 border border-slate-700/50 flex items-center justify-between">
-                  <span class="text-slate-400 flex items-center gap-2">
-                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-purple-400"></i> Academic Standing
-                  </span>
-                  <span class="font-semibold text-slate-200">Lecturer @ UMSS, EMI, UCB, UNIVALLE</span>
-                </div>
-
-              </div>
-
-              <!-- Quick Contact Bar -->
-              <div class="pt-4 border-t border-slate-700/50 flex items-center justify-between">
-                <button onclick="copyToClipboard('anniececy@gmail.com', 'Email copied to clipboard!')" class="text-xs text-slate-300 hover:text-white flex items-center gap-1.5 py-1 px-2.5 rounded-lg bg-slate-800 hover:bg-slate-700 transition-colors">
-                  <i data-lucide="copy" class="w-3.5 h-3.5 text-brand-gold"></i>
-                  <span>anniececy@gmail.com</span>
-                </button>
-                <a href="tel:+447511325637" class="text-xs text-brand-gold hover:text-amber-300 flex items-center gap-1 font-semibold">
-                  <i data-lucide="phone" class="w-3.5 h-3.5"></i>
-                  <span>+44 07511 325637</span>
-                </a>
-              </div>
-
-            </div>
+        <!-- Metric Highlight Cards -->
+        <div class="w-full lg:w-[460px] grid grid-cols-2 gap-4">
+          <div class="glass-card p-6 rounded-2xl border-l-4 border-l-emerald-500">
+            <div class="text-3xl font-display font-bold text-white mb-1">10+</div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider" data-i18n="metrics.experience">Años de Trayectoria</div>
+            <div class="text-xs text-slate-500 mt-2" data-i18n="metrics.experienceDesc">Liderando auditorías y programas de seguridad integral</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl border-l-4 border-l-amber-500">
+            <div class="text-3xl font-display font-bold text-white mb-1">4</div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider" data-i18n="metrics.iso">Estándares ISO</div>
+            <div class="text-xs text-slate-500 mt-2" data-i18n="metrics.isoDesc">ISO 45001, 14001, 9001 y Eficiencia Energética</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl border-l-4 border-l-teal-500">
+            <div class="text-3xl font-display font-bold text-white mb-1">CORSIA</div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider" data-i18n="metrics.corsia">Descarbonización</div>
+            <div class="text-xs text-slate-500 mt-2" data-i18n="metrics.corsiaDesc">Liderazgo en compensación de emisiones en aviación</div>
+          </div>
+          <div class="glass-card p-6 rounded-2xl border-l-4 border-l-indigo-500">
+            <div class="text-3xl font-display font-bold text-white mb-1">4+</div>
+            <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider" data-i18n="metrics.academic">Universidades</div>
+            <div class="text-xs text-slate-500 mt-2" data-i18n="metrics.academicDesc">Docencia en posgrado y pregrado (UMSS, EMI, UCB, UNIVALLE)</div>
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="metrics" class="py-12 border-y border-brand-border/70 bg-brand-slate/40 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
-          
-          <!-- Metric 1: Experience -->
-          <div class="glass-panel p-6 rounded-2xl text-center border-slate-800">
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              <span class="counter" data-target="10">0</span><span class="text-brand-gold">+</span>
-            </div>
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 mt-2" data-i18n="metrics.yearsTitle">Years Executive Practice</p>
-            <p class="text-xs text-slate-400 mt-0.5" data-i18n="metrics.yearsSub">Heavy Industry & Regulatory Safety</p>
-          </div>
-
-          <!-- Metric 2: Standards Implemented -->
-          <div class="glass-panel p-6 rounded-2xl text-center border-slate-800">
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              <span class="counter" data-target="4">0</span><span class="text-brand-accent"> ISO</span>
-            </div>
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 mt-2" data-i18n="metrics.isoTitle">Management Frameworks</p>
-            <p class="text-xs text-slate-400 mt-0.5">45001 • 14001 • 9001 • 50010</p>
-          </div>
-
-          <!-- Metric 3: CORSIA & Decarbonization -->
-          <div class="glass-panel p-6 rounded-2xl text-center border-slate-800">
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              <span class="counter" data-target="100">0</span><span class="text-emerald-400">%</span>
-            </div>
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 mt-2" data-i18n="metrics.corsiaTitle">Aviation Carbon Compliance</p>
-            <p class="text-xs text-slate-400 mt-0.5">CORSIA Airline Reporting Verified</p>
-          </div>
-
-          <!-- Metric 4: Universities Lectured -->
-          <div class="glass-panel p-6 rounded-2xl text-center border-slate-800">
-            <div class="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              <span class="counter" data-target="4">0</span><span class="text-purple-400">+</span>
-            </div>
-            <p class="text-xs sm:text-sm font-semibold text-slate-300 mt-2" data-i18n="metrics.acadTitle">Universities Mentored</p>
-            <p class="text-xs text-slate-400 mt-0.5">Undergrad & Postgrad Engineering</p>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-    <section id="experience" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- STANDARDS & CORE COMPETENCIES -->
+  <section id="standards" class="py-20 bg-slate-950/60 border-y border-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-brand-gold px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20" data-i18n="exp.badge">Verified Track Record</span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-4" data-i18n="exp.heading">High-Stakes Leadership Experience</h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-3" data-i18n="exp.sub">Demonstrated governance in national carriers, state oil & gas infrastructure, heavy engineering EPCs, and higher education academies.</p>
+        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2 block" data-i18n="standards.subtitle">Marcos de Trabajo y Cumplimiento</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight" data-i18n="standards.title">Sistemas Integrados de Gestión</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base" data-i18n="standards.desc">
+          Especialización integral en diseño, implementación, auditoría y certificación de marcos de gestión reconocidos internacionalmente.
+        </p>
       </div>
 
-      <!-- Timeline container -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- ISO 45001 -->
+        <div class="glass-card p-6 rounded-2xl relative group">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-2">ISO 45001:2018</h3>
+          <h4 class="text-xs font-semibold text-emerald-400 uppercase tracking-wider mb-3" data-i18n="standards.iso45Title">Seguridad y Salud en el Trabajo</h4>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="standards.iso45Desc">
+            Mitigación de riesgos laborales, protocolos proactivos de prevención y cultura de seguridad cero accidentes en refinerías y operaciones aéreas.
+          </p>
+        </div>
+
+        <!-- ISO 14001 -->
+        <div class="glass-card p-6 rounded-2xl relative group">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="leaf" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-2">ISO 14001:2015</h3>
+          <h4 class="text-xs font-semibold text-teal-400 uppercase tracking-wider mb-3" data-i18n="standards.iso14Title">Gestión Ambiental</h4>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="standards.iso14Desc">
+            Evaluación de impacto ambiental, gestión de residuos, normativas ecológicas y planes de descarbonización alineados con CORSIA.
+          </p>
+        </div>
+
+        <!-- ISO 9001 -->
+        <div class="glass-card p-6 rounded-2xl relative group">
+          <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-2">ISO 9001:2015</h3>
+          <h4 class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-3" data-i18n="standards.iso9Title">Gestión de Calidad</h4>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="standards.iso9Desc">
+            Implementación exitosa en la división de redes de gas de YPFB, reconocida por la presidencia institucional por excelencia y optimización operativa.
+          </p>
+        </div>
+
+        <!-- ISO 50010 -->
+        <div class="glass-card p-6 rounded-2xl relative group">
+          <div class="w-12 h-12 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-display font-bold text-white mb-2">ISO 50010:2018</h3>
+          <h4 class="text-xs font-semibold text-indigo-400 uppercase tracking-wider mb-3" data-i18n="standards.iso50Title">Gestión de la Energía</h4>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="standards.iso50Desc">
+            Estrategias de optimización energética, balance de recursos y reducción de huella de carbono para sectores industriales de alta exigencia.
+          </p>
+        </div>
+      </div>
+
+      <!-- Languages Bar -->
+      <div class="mt-12 glass-card p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-base font-display font-bold text-white" data-i18n="langSection.title">Competencia Lingüística</h3>
+          <p class="text-xs text-slate-400" data-i18n="langSection.subtitle">Capacidad para liderar equipos multiculturales y auditorías internacionales</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-medium text-slate-200">
+            <strong class="text-emerald-400" data-i18n="lang.es">Español:</strong> <span data-i18n="lang.native">Nativo</span>
+          </span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-medium text-slate-200">
+            <strong class="text-emerald-400" data-i18n="lang.en">Inglés:</strong> <span data-i18n="lang.adv">Avanzado (C1/C2 - UK MSc)</span>
+          </span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-medium text-slate-200">
+            <strong class="text-slate-400" data-i18n="lang.fr">Francés:</strong> <span data-i18n="lang.basic">Básico</span>
+          </span>
+          <span class="px-3.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-medium text-slate-200">
+            <strong class="text-slate-400" data-i18n="lang.qu">Quechua:</strong> <span data-i18n="lang.basic">Básico</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL EXPERIENCE -->
+  <section id="experience" class="py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2 block" data-i18n="exp.subtitle">Trayectoria Demostrada</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight" data-i18n="exp.title">Experiencia Profesional</h2>
+        <p class="text-slate-400 mt-3 text-sm sm:text-base" data-i18n="exp.desc">
+          Liderazgo riguroso y gestión técnica en entornos de alta exigencia: aviación internacional, refinerías de petróleo y gas, y consultoría de ingeniería.
+        </p>
+      </div>
+
       <div class="relative border-l border-slate-800 ml-4 md:ml-32 space-y-12">
-
-        <!-- Role 1: BoA -->
-        <div class="relative pl-6 md:pl-10 group">
-          <!-- Timeline icon node -->
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-accent flex items-center justify-center text-brand-accent group-hover:scale-110 transition-transform shadow-lg shadow-sky-500/20">
-            <i data-lucide="plane" class="w-4 h-4"></i>
-          </div>
-
-          <div class="glass-panel glass-card-hover p-6 sm:p-8 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-sky-500/10 text-brand-accent border border-sky-500/20">Commercial Aviation</span>
-                <h3 class="text-xl font-bold text-white font-display mt-2">Quality & Safety Specialist</h3>
-                <p class="text-sm font-medium text-slate-300">BoA (Boliviana de Aviación) • Cochabamba, Bolivia</p>
-              </div>
-              <span class="text-xs font-bold text-brand-gold bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 w-fit self-start sm:self-auto">July 2021 – Nov 2023</span>
-            </div>
-
-            <p class="text-sm text-slate-300 leading-relaxed mt-4" data-i18n="exp.boaDesc">
-              Spearheaded comprehensive occupational health, safety, and environmental management systems across airline operations and fleet maintenance.
-            </p>
-
-            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Directly headed and delivered official reporting for the <strong>Carbon Offsetting and Reduction Scheme for International Aviation (CORSIA)</strong> under ICAO mandates.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Executed enterprise-level risk assessments, emergency response audits, and occupational wellness frameworks adhering to strict aerospace standards.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Harmonized environmental management KPIs with operational ground handling and flight maintenance teams.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">CORSIA Scheme</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Aviation Safety</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Environmental Audits</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">ISO 14001</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Role 2: YPFB Oil & Gas -->
-        <div class="relative pl-6 md:pl-10 group">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-brand-gold flex items-center justify-center text-brand-gold group-hover:scale-110 transition-transform shadow-lg shadow-amber-500/20">
-            <i data-lucide="flame" class="w-4 h-4"></i>
-          </div>
-
-          <div class="glass-panel glass-card-hover p-6 sm:p-8 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-amber-500/10 text-brand-gold border border-amber-500/20">Oil & Gas Energy Major</span>
-                <h3 class="text-xl font-bold text-white font-display mt-2">Safety, Environment, Health & Quality Management Technician</h3>
-                <p class="text-sm font-medium text-slate-300">YPFB (Yacimientos Petrolíferos Fiscales Bolivianos) • Cochabamba, Bolivia</p>
-              </div>
-              <span class="text-xs font-bold text-brand-gold bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 w-fit self-start sm:self-auto">Oct 2014 – Sept 2019</span>
-            </div>
-
-            <!-- Presidential recognition highlight badge -->
-            <div class="p-3.5 my-3 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center gap-3">
-              <i data-lucide="trophy" class="w-5 h-5 text-brand-gold shrink-0"></i>
-              <p class="text-xs text-amber-200 font-medium">
-                <strong>Executive Honor:</strong> Officially recognized and commended for outstanding high performance and operational discipline directly by the <strong>President of YPFB</strong>.
-              </p>
-            </div>
-
-            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Implemented the complete <strong>ISO 9001 Quality Management System</strong> within the complex gas distribution division of YPFB.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Managed field audits, toxic gas isolation protocols, pipeline distribution safety checks, and critical contractor compliance.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Reduced systemic operational incident risks across urban and regional pipeline deployment grids.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">ISO 9001 Implementation</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">High-Pressure Gas</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Process Safety</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Presidential Commendation</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Role 3: KAZEN EPC Service -->
-        <div class="relative pl-6 md:pl-10 group">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-emerald-400 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform shadow-lg shadow-emerald-500/20">
-            <i data-lucide="hard-hat" class="w-4 h-4"></i>
-          </div>
-
-          <div class="glass-panel glass-card-hover p-6 sm:p-8 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">EPC Engineering & Construction</span>
-                <h3 class="text-xl font-bold text-white font-display mt-2">Safety, Environment & Health Management Monitor</h3>
-                <p class="text-sm font-medium text-slate-300">KAZEN SRL • Cochabamba, Bolivia</p>
-              </div>
-              <span class="text-xs font-bold text-brand-gold bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 w-fit self-start sm:self-auto">Feb 2013 – Sept 2013</span>
-            </div>
-
-            <p class="text-sm text-slate-300 leading-relaxed mt-4" data-i18n="exp.kazenDesc">
-              Delivered front-line on-site safety stewardship for high-hazard EPC projects directly embedded within the <strong>YPFB Oil Refinery</strong>.
-            </p>
-
-            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Oversaw ongoing compliance with the <strong>OHSAS 18001 / ISO 45001</strong> occupational health and safety standard in refinery construction zones.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Administered hot-work permits, confined space entry validations, contractor safety drills, and zero-accident policies.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">OHSAS 18001 / ISO 45001</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Refinery Turnaround</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">EPC Management</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Role 4: Higher Education Lecturer -->
-        <div class="relative pl-6 md:pl-10 group">
-          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-slate-900 border-2 border-purple-400 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform shadow-lg shadow-purple-500/20">
-            <i data-lucide="book-open" class="w-4 h-4"></i>
-          </div>
-
-          <div class="glass-panel glass-card-hover p-6 sm:p-8 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-              <div>
-                <span class="text-xs font-semibold px-2.5 py-1 rounded bg-purple-500/10 text-purple-300 border border-purple-500/20">Academia & Thought Leadership</span>
-                <h3 class="text-xl font-bold text-white font-display mt-2">University Lecturer (Undergraduate & Postgraduate)</h3>
-                <p class="text-sm font-medium text-slate-300">UMSS • EMI • UCB • UNIVALLE</p>
-              </div>
-              <span class="text-xs font-bold text-brand-gold bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20 w-fit self-start sm:self-auto">Concurrent / Multiple Terms</span>
-            </div>
-
-            <p class="text-sm text-slate-300 leading-relaxed mt-4" data-i18n="exp.lecturerDesc">
-              Appointed lecturer at Bolivia’s most esteemed public and military engineering faculties: Universidad Mayor de San Simón (UMSS), Escuela Militar de Ingeniería (EMI), Universidad Católica Boliviana (UCB), and UNIVALLE.
-            </p>
-
-            <ul class="mt-4 space-y-2.5 text-xs sm:text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Lectured on Advanced Occupational Risk Management, Environmental Impact Assessment, and ISO Audit Protocols to future engineering executives.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i data-lucide="check" class="w-4 h-4 text-brand-gold mt-0.5 shrink-0"></i>
-                <span>Trained over 500+ future engineers in practical regulatory compliance, hazard mitigation, and environmental economics.</span>
-              </li>
-            </ul>
-
-            <div class="mt-5 pt-4 border-t border-slate-800 flex flex-wrap gap-2">
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Academic Instruction</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Postgraduate Engineering</span>
-              <span class="text-[11px] px-2.5 py-0.5 rounded-md bg-slate-800 text-slate-300 font-mono">Curriculum Leadership</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="competencies" class="py-20 bg-brand-slate/40 border-y border-brand-border/70 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-xs font-bold uppercase tracking-wider text-brand-accent px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20" data-i18n="standards.badge">Standards Mastery</span>
-          <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-4" data-i18n="standards.heading">Integrated Management Systems</h2>
-          <p class="text-slate-400 text-sm sm:text-base mt-3" data-i18n="standards.sub">Proven implementation, auditing, and maintenance of world-recognized international standardization frameworks.</p>
+        <!-- BOA -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-emerald-500 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full bg-emerald-400"></div>
+          </div>
+          
+          <span class="hidden md:block absolute -left-36 top-1 text-xs font-semibold text-emerald-400">2021 — 2023</span>
+
+          <div class="glass-card p-6 md:p-8 rounded-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="md:hidden text-xs font-semibold text-emerald-400 block mb-1">Julio 2021 — Noviembre 2023</span>
+                <h3 class="text-xl font-display font-bold text-white" data-i18n="exp.boaRole">Especialista en Calidad, Seguridad y Medio Ambiente (QHSE)</h3>
+                <h4 class="text-sm font-medium text-emerald-400">BoA — Boliviana de Aviación</h4>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Cochabamba, Bolivia</span>
+            </div>
+
+            <p class="text-sm text-slate-300 mb-4" data-i18n="exp.boaDesc">
+              Liderazgo estratégico en seguridad operacional, salud en el trabajo y gestión ambiental corporativa en la aerolínea bandera de Bolivia.
+            </p>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 space-y-2">
+              <div class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span data-i18n="exp.boaItem1"><strong>Responsable Oficial de CORSIA:</strong> Lideró la formulación, monitoreo y auditorías de reporte del Plan de Reducción y Compensación de Emisiones de Carbono para la Aviación Internacional ante organismos regulatorios.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span data-i18n="exp.boaItem2"><strong>Cultura de Prevención:</strong> Supervisó la gestión integral de salud ocupacional, auditorías ambientales continuas y programas de prevención de riesgos operativos.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- YPFB -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-amber-500 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full bg-amber-400"></div>
+          </div>
+          
+          <span class="hidden md:block absolute -left-36 top-1 text-xs font-semibold text-amber-400">2014 — 2019</span>
 
-          <!-- Card 1: ISO 45001 -->
-          <div class="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-brand-gold mb-5">
-                <i data-lucide="shield" class="w-6 h-6"></i>
+          <div class="glass-card p-6 md:p-8 rounded-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="md:hidden text-xs font-semibold text-amber-400 block mb-1">Octubre 2014 — Septiembre 2019</span>
+                <h3 class="text-xl font-display font-bold text-white" data-i18n="exp.ypfbRole">Técnico en Seguridad, Salud Ocupacional, Medio Ambiente y Calidad</h3>
+                <h4 class="text-sm font-medium text-amber-400">YPFB — Yacimientos Petrolíferos Fiscales Bolivianos</h4>
               </div>
-              <span class="text-xs font-mono text-brand-gold uppercase tracking-wider">ISO 45001:2018</span>
-              <h3 class="text-lg font-bold text-white font-display mt-1">Occupational Health & Safety</h3>
-              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                Comprehensive zero-incident framework design, worker hazard prevention, safety culture empowerment, and audit preparedness for high-risk industrial plants.
-              </p>
+              <span class="badge-gold px-3 py-1 rounded-full text-xs font-bold text-amber-300" data-i18n="exp.ypfbBadge">Reconocimiento Presidencial</span>
             </div>
-            <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="check-circle2" class="w-3.5 h-3.5 text-emerald-400"></i> Field Tested in Oil & EPC
+
+            <p class="text-sm text-slate-300 mb-4" data-i18n="exp.ypfbDesc">
+              Implementación exitosa del Sistema de Gestión de Calidad bajo el estándar ISO 9001 en la división de redes y distribución de gas.
+            </p>
+
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 text-xs text-slate-300 space-y-2">
+              <div class="flex items-start gap-2">
+                <i data-lucide="award" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5"></i>
+                <span data-i18n="exp.ypfbItem1"><strong>Distinción Presidencial:</strong> Condecorada por el Presidente Ejecutivo de YPFB por alto desempeño y rigor en la ejecución del sistema de gestión.</span>
+              </div>
+              <div class="flex items-start gap-2">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                <span data-i18n="exp.ypfbItem2">Estandarización de procesos críticos de distribución de gas, matrices de riesgos de seguridad y programas de cumplimiento de medio ambiente.</span>
+              </div>
             </div>
           </div>
-
-          <!-- Card 2: ISO 14001 -->
-          <div class="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-5">
-                <i data-lucide="leaf" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">ISO 14001:2015</span>
-              <h3 class="text-lg font-bold text-white font-display mt-1">Environmental Governance</h3>
-              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                Ecological footprint reduction, industrial waste management, carbon reporting, mitigation strategies, and environmental life-cycle evaluations.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="check-circle2" class="w-3.5 h-3.5 text-emerald-400"></i> CORSIA & Aviation Certified
-            </div>
-          </div>
-
-          <!-- Card 3: ISO 9001 -->
-          <div class="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-brand-accent mb-5">
-                <i data-lucide="badge-check" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-brand-accent uppercase tracking-wider">ISO 9001:2015</span>
-              <h3 class="text-lg font-bold text-white font-display mt-1">Quality Management System</h3>
-              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                Process optimization, continuous performance loops, customer quality assurance, and institutional QMS rollout for large utility operators.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="check-circle2" class="w-3.5 h-3.5 text-emerald-400"></i> Full Rollout at YPFB Gas
-            </div>
-          </div>
-
-          <!-- Card 4: ISO 50001 / 50010 -->
-          <div class="glass-panel glass-card-hover p-6 rounded-2xl flex flex-col justify-between">
-            <div>
-              <div class="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400 mb-5">
-                <i data-lucide="zap" class="w-6 h-6"></i>
-              </div>
-              <span class="text-xs font-mono text-purple-400 uppercase tracking-wider">ISO 50010 / 50001</span>
-              <h3 class="text-lg font-bold text-white font-display mt-1">Energy Management</h3>
-              <p class="text-xs text-slate-300 mt-2 leading-relaxed">
-                Energy efficiency benchmarks, carbon baseline calculations, industrial energy conservation metrics, and sustainable facility transition strategies.
-              </p>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center gap-1.5">
-              <i data-lucide="check-circle2" class="w-3.5 h-3.5 text-emerald-400"></i> Net-Zero Roadmap Ready
-            </div>
-          </div>
-
         </div>
 
-        <!-- Languages & Global Mobility Card -->
-        <div class="mt-12 glass-panel p-6 sm:p-8 rounded-2xl">
-          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            <div>
-              <h3 class="text-xl font-bold font-display text-white">Multilingual Communications</h3>
-              <p class="text-xs text-slate-400 mt-1">Seamless cross-cultural liaison with international audit teams and multi-jurisdictional stakeholders.</p>
+        <!-- ACADEMIA -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-indigo-500 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full bg-indigo-400"></div>
+          </div>
+          
+          <span class="hidden md:block absolute -left-36 top-1 text-xs font-semibold text-indigo-400" data-i18n="exp.acadYears">2015 — Presente</span>
+
+          <div class="glass-card p-6 md:p-8 rounded-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="md:hidden text-xs font-semibold text-indigo-400 block mb-1" data-i18n="exp.acadYears">2015 — Presente</span>
+                <h3 class="text-xl font-display font-bold text-white" data-i18n="exp.acadRole">Docente Universitaria (Pregrado y Posgrado)</h3>
+                <h4 class="text-sm font-medium text-indigo-400">UMSS · EMI · UCB · UNIVALLE</h4>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/10 text-indigo-300 border border-indigo-500/20" data-i18n="exp.acadBadge">Cátedra Superior</span>
             </div>
 
-            <div class="lg:col-span-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
-              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p class="text-xs text-slate-400 uppercase font-semibold">Spanish</p>
-                <p class="text-sm font-bold text-white mt-1">Native Proficiency</p>
-                <div class="w-full bg-slate-700 h-1 rounded-full mt-2">
-                  <div class="bg-brand-gold h-1 rounded-full w-full"></div>
-                </div>
-              </div>
+            <p class="text-sm text-slate-300 mb-2" data-i18n="exp.acadDesc">
+              Formación de profesionales e ingenieros en programas de pregrado y posgrado en las instituciones de educación superior más prestigiosas de Bolivia (Universidad Mayor de San Simón, Escuela Militar de Ingeniería, Universidad del Valle, Universidad Católica Boliviana).
+            </p>
+          </div>
+        </div>
 
-              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p class="text-xs text-slate-400 uppercase font-semibold">English</p>
-                <p class="text-sm font-bold text-white mt-1">Advanced / C1 (UK Educated)</p>
-                <div class="w-full bg-slate-700 h-1 rounded-full mt-2">
-                  <div class="bg-brand-accent h-1 rounded-full w-[90%]"></div>
-                </div>
-              </div>
+        <!-- KAZEN SRL -->
+        <div class="relative pl-8 md:pl-10">
+          <div class="absolute -left-3 top-1.5 w-6 h-6 rounded-full bg-brand-dark border-2 border-slate-600 flex items-center justify-center">
+            <div class="w-2 h-2 rounded-full bg-slate-400"></div>
+          </div>
+          
+          <span class="hidden md:block absolute -left-36 top-1 text-xs font-semibold text-slate-400">2013</span>
 
-              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p class="text-xs text-slate-400 uppercase font-semibold">French</p>
-                <p class="text-sm font-bold text-white mt-1">Basic Working Knowledge</p>
-                <div class="w-full bg-slate-700 h-1 rounded-full mt-2">
-                  <div class="bg-purple-400 h-1 rounded-full w-[35%]"></div>
-                </div>
+          <div class="glass-card p-6 md:p-8 rounded-2xl">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+              <div>
+                <span class="md:hidden text-xs font-semibold text-slate-400 block mb-1">Febrero 2013 — Septiembre 2013</span>
+                <h3 class="text-xl font-display font-bold text-white" data-i18n="exp.kazenRole">Monitora de Seguridad, Salud Ocupacional y Medio Ambiente</h3>
+                <h4 class="text-sm font-medium text-slate-400">KAZEN SRL · Refinería YPFB</h4>
               </div>
-
-              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
-                <p class="text-xs text-slate-400 uppercase font-semibold">Quechua</p>
-                <p class="text-sm font-bold text-white mt-1">Indigenous Culture / Basic</p>
-                <div class="w-full bg-slate-700 h-1 rounded-full mt-2">
-                  <div class="bg-emerald-400 h-1 rounded-full w-[30%]"></div>
-                </div>
-              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-400 border border-slate-700">EPC Service</span>
             </div>
+
+            <p class="text-sm text-slate-300 leading-relaxed" data-i18n="exp.kazenDesc">
+              Control de seguridad de campo y monitoreo del sistema OHSAS 18001 en obras EPC (Ingeniería, Procura y Construcción) en la Refinería de YPFB.
+            </p>
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="education" class="py-20 lg:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- EDUCATION & POSTGRADUATE CREDENTIALS -->
+  <section id="education" class="py-20 bg-slate-950/60 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-16">
-        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20" data-i18n="edu.badge">Academic Rigor</span>
-        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-4" data-i18n="edu.heading">World-Class Education & Credentials</h2>
-        <p class="text-slate-400 text-sm sm:text-base mt-3" data-i18n="edu.sub">Distinguished academic achievements from the Russell Group in the United Kingdom and premier South American engineering institutions.</p>
+        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2 block" data-i18n="edu.subtitle">Formación de Clase Mundial</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight" data-i18n="edu.title">Educación y Calificaciones</h2>
+        <p class="text-slate-400 mt-3 text-sm" data-i18n="edu.desc">
+          Rigor académico respaldado por la membresía británica en el Russell Group y graduación de honores en ingeniería.
+        </p>
       </div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-
-        <!-- University of Birmingham -->
-        <div class="glass-panel glass-card-hover p-8 rounded-3xl relative overflow-hidden">
-          <div class="absolute -right-8 -bottom-8 opacity-10 text-white pointer-events-none">
-            <i data-lucide="graduation-cap" class="w-48 h-48"></i>
-          </div>
-
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-500/10 text-brand-gold border border-amber-500/20">Distinguished with Merit</span>
-              <h3 class="text-2xl font-bold font-display text-white mt-3">MSc. Occupational Health, Safety & Environment Management</h3>
-              <p class="text-base text-slate-300 font-semibold mt-1">University of Birmingham</p>
-              <p class="text-xs text-slate-400">Birmingham, United Kingdom • 2019 – 2020</p>
-            </div>
-          </div>
-
-          <p class="text-sm text-slate-300 leading-relaxed mt-5">
-            Rigorous UK postgraduate program specializing in modern HSE systems, toxicological hazard reduction, environmental risk governance, human factors engineering, and sustainability management. Graduated with official <strong class="text-white">Merit distinction</strong>.
-          </p>
-
-          <div class="mt-6 flex flex-wrap gap-2 text-xs">
-            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">Russell Group UK</span>
-            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">Advanced Risk Strategy</span>
-            <span class="px-3 py-1 rounded-lg bg-slate-800 text-slate-300 border border-slate-700">Global Ergonomics</span>
-          </div>
-        </div>
-
-        <!-- Universidad Mayor de San Simón -->
-        <div class="glass-panel glass-card-hover p-8 rounded-3xl relative overflow-hidden">
-          <div class="absolute -right-8 -bottom-8 opacity-10 text-white pointer-events-none">
-            <i data-lucide="award" class="w-48 h-48"></i>
-          </div>
-
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <span class="text-xs font-bold px-2.5 py-1 rounded bg-sky-500/10 text-brand-accent border border-sky-500/20">Distinguished with Honors</span>
-              <h3 class="text-2xl font-bold font-display text-white mt-3">Bachelor of Science (BS) in Industrial Engineering</h3>
-              <p class="text-base text-slate-300 font-semibold mt-1">Universidad Mayor de San Simón (UMSS)</p>
-              <p class="text-xs text-slate-400">Cochabamba, Bolivia • 2007 – 2015</p>
-            </div>
-          </div>
-
-          <p class="text-sm text-slate-300 leading-relaxed mt-5">
-            Distinguished with top honors in degree project defense. Served as esteemed <strong class="text-white">Professor's Assistant</strong> in industrial modeling, thermodynamics, and manufacturing workflows.
-          </p>
-
-          <!-- Post-Graduate Diplomas -->
-          <div class="mt-5 space-y-2">
-            <p class="text-xs font-bold text-slate-300 uppercase tracking-wider">Specialized Diplomas Earned:</p>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
-              <div class="p-2 rounded bg-slate-800/80 border border-slate-700 text-slate-200">
-                Diploma in Occupational Safety
-              </div>
-              <div class="p-2 rounded bg-slate-800/80 border border-slate-700 text-slate-200">
-                Diploma in Environment Management
-              </div>
-              <div class="p-2 rounded bg-slate-800/80 border border-slate-700 text-slate-200">
-                Diploma in Higher Education
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="contact" class="py-20 lg:py-28 bg-gradient-to-b from-brand-slate/50 to-brand-navy border-t border-brand-border/70 relative">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          <!-- Contact Pitch -->
-          <div class="lg:col-span-5 space-y-6">
-            <span class="text-xs font-bold uppercase tracking-wider text-brand-gold px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20" data-i18n="contact.badge">Direct Access</span>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-white tracking-tight leading-tight">
-              Ready to Strengthen Your Safety, ESG & Compliance Bench?
-            </h2>
-            <p class="text-sm sm:text-base text-slate-300 leading-relaxed" data-i18n="contact.desc">
-              Whether you require a proven Senior QHSE Manager, a lead auditor for ISO certifications, or an aviation/energy sustainability expert, Annie brings decade-long battle-tested execution.
-            </p>
-
-            <div class="space-y-4 pt-2">
-              
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-gold">
-                  <i data-lucide="map-pin" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400">Current Base</p>
-                  <p class="text-sm font-semibold text-white">Dundee, Scotland, UK (Available for relocation)</p>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-gold">
-                  <i data-lucide="mail" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400">Direct Email</p>
-                  <a href="mailto:anniececy@gmail.com" class="text-sm font-semibold text-brand-gold hover:underline">anniececy@gmail.com</a>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-brand-gold">
-                  <i data-lucide="phone" class="w-5 h-5"></i>
-                </div>
-                <div>
-                  <p class="text-xs text-slate-400">Direct Phone / WhatsApp</p>
-                  <a href="tel:+447511325637" class="text-sm font-semibold text-white hover:text-brand-gold">(+44) 07511 325637</a>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Download Button -->
-            <div class="pt-4">
-              <button onclick="openCvModal()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-xs sm:text-sm border border-slate-600 flex items-center justify-center gap-2 transition-all">
-                <i data-lucide="download" class="w-4 h-4 text-brand-gold"></i>
-                <span>Download Executive Profile Sheet</span>
-              </button>
-            </div>
-
+        <!-- University of Birmingham -->
+        <div class="glass-card p-8 rounded-2xl relative border-t-4 border-t-emerald-500">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Reino Unido · 2019 — 2020</span>
+            <span class="badge-gold px-2.5 py-0.5 rounded text-xs font-bold text-amber-300" data-i18n="edu.merit">MSc con Mérito</span>
           </div>
+          <h3 class="text-2xl font-display font-bold text-white mb-2">MSc. Occupational Health, Safety and Environment Management</h3>
+          <h4 class="text-sm font-semibold text-slate-300 mb-4">University of Birmingham, UK</h4>
+          <p class="text-xs text-slate-400 leading-relaxed" data-i18n="edu.uobDesc">
+            Estudios de posgrado con distinción al mérito en una de las instituciones líderes del Reino Unido. Especialización en evaluación de riesgos complejos, marco legal internacional y sostenibilidad.
+          </p>
+        </div>
 
-          <!-- Interactive Contact Form -->
-          <div class="lg:col-span-7">
-            <div class="glass-panel p-6 sm:p-10 rounded-3xl border-slate-700 shadow-2xl relative">
-              
-              <div id="formSuccessMessage" class="hidden p-6 text-center space-y-3 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl">
-                <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center">
-                  <i data-lucide="check-check" class="w-6 h-6"></i>
-                </div>
-                <h4 class="text-lg font-bold text-white font-display">Inquiry Sent Successfully</h4>
-                <p class="text-xs sm:text-sm text-slate-300">Thank you for reaching out. Annie will review your executive opportunity and respond promptly within 24 hours.</p>
-                <button onclick="resetContactForm()" class="mt-4 px-4 py-2 rounded-lg bg-slate-800 text-xs font-semibold text-slate-200 hover:bg-slate-700">Send Another Message</button>
-              </div>
+        <!-- UMSS -->
+        <div class="glass-card p-8 rounded-2xl relative border-t-4 border-t-amber-500">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-bold text-amber-400 uppercase tracking-wider">Bolivia · 2007 — 2015</span>
+            <span class="badge-gold px-2.5 py-0.5 rounded text-xs font-bold text-amber-300" data-i18n="edu.honors">Distinción con Honores</span>
+          </div>
+          <h3 class="text-2xl font-display font-bold text-white mb-2" data-i18n="edu.bsTitle">Licenciatura en Ingeniería Industrial</h3>
+          <h4 class="text-sm font-semibold text-slate-300 mb-4">Universidad Mayor de San Simón (UMSS)</h4>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4" data-i18n="edu.umssDesc">
+            Graduada con honores en la defensa de tesis de grado. Ex-auxiliar de docencia universitaria.
+          </p>
 
-              <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2" for="fullName">Your Name / Title *</label>
-                    <input type="text" id="fullName" required placeholder="e.g. Eleanor Vance (VP of Talent)" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-slate-500">
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2" for="emailAddr">Work Email *</label>
-                    <input type="email" id="emailAddr" required placeholder="name@company.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-slate-500">
-                  </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2" for="orgName">Organization / Institution</label>
-                    <input type="text" id="orgName" placeholder="e.g. Energy Transition Corp" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-slate-500">
-                  </div>
-                  <div>
-                    <label class="block text-xs font-semibold text-slate-300 mb-2" for="engagementType">Inquiry Nature</label>
-                    <select id="engagementType" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors">
-                      <option value="Executive Hiring">Executive / Full-Time Hiring</option>
-                      <option value="Consultancy & ISO Audit">Consultancy / ISO 45001/14001 Audit</option>
-                      <option value="Aviation CORSIA Advising">Aviation CORSIA Decarbonization</option>
-                      <option value="Academic Lecture">Guest Lecture / Academic Program</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label class="block text-xs font-semibold text-slate-300 mb-2" for="msgBody">Brief Scope or Position Overview *</label>
-                  <textarea id="msgBody" rows="4" required placeholder="Share brief parameters of your requirements, timelines, and location..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700 text-white text-sm focus:outline-none focus:border-brand-gold transition-colors placeholder:text-slate-500"></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-400 hover:to-amber-500 text-brand-navy shadow-lg shadow-amber-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
-                  <span>Send Direct Executive Message</span>
-                  <i data-lucide="send" class="w-4 h-4"></i>
-                </button>
-              </form>
-
+          <div class="border-t border-slate-800 pt-3">
+            <span class="text-xs font-semibold text-slate-300 block mb-2" data-i18n="edu.diplomas">Diplomados de Especialización:</span>
+            <div class="flex flex-wrap gap-1.5 text-[11px] text-slate-400">
+              <span class="bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700" data-i18n="edu.dip1">Diplomado en Seguridad Ocupacional</span>
+              <span class="bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700" data-i18n="edu.dip2">Diplomado en Gestión Ambiental</span>
+              <span class="bg-slate-800/80 px-2 py-0.5 rounded border border-slate-700" data-i18n="edu.dip3">Diplomado en Educación Superior</span>
             </div>
           </div>
-
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+  <!-- CONTACT & HIRING PROPOSAL -->
+  <section id="contact" class="py-24 relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-6">
+        <i data-lucide="handshake" class="w-4 h-4"></i>
+        <span data-i18n="contact.badge">Colaboración Estratégica Inmediata</span>
+      </div>
 
-  <footer class="border-t border-brand-border bg-brand-navy relative z-10 py-10 text-center text-xs text-slate-400">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2">
-        <span class="w-2.5 h-2.5 rounded-full bg-brand-gold"></span>
-        <span class="text-white font-semibold">Annie Cecy Espinoza Arispe</span>
-        <span>• MSc QHSE & Sustainability</span>
-      </div>
-      <div class="text-slate-400">
-        Dundee, United Kingdom • Available for Global Roles
-      </div>
-      <p class="text-slate-400">
-        &copy; <span id="currentYear"></span> Annie Espinoza. All rights reserved.
+      <h2 class="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight mb-6" data-i18n="contact.title">
+        ¿Listo para elevar los estándares QHSE de su organización?
+      </h2>
+
+      <p class="text-base text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed" data-i18n="contact.desc">
+        Ya sea para coordinar auditorías ISO, descarbonización de operaciones de transporte, gestión de refinerías o liderazgo de programas de seguridad y salud, conversemos sobre el impacto que podemos construir.
       </p>
+
+      <div class="glass-card p-8 rounded-3xl max-w-xl mx-auto shadow-2xl">
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
+          <a href="mailto:anniececy@gmail.com" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-sm transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/25">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span>anniececy@gmail.com</span>
+          </a>
+          <a href="tel:+4407511325637" class="w-full sm:w-auto px-6 py-3.5 rounded-xl border border-slate-700 bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm transition flex items-center justify-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4"></i>
+            <span>(+44) 07511325637</span>
+          </a>
+        </div>
+
+        <div class="text-xs text-slate-400 flex items-center justify-center gap-2">
+          <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
+          <span>Dundee, Scotland, UK · <span data-i18n="contact.mobility">Disponibilidad de reubicación y viajes de auditoría</span></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 Annie Cecy Espinoza Arispe. <span data-i18n="footer.rights">Todos los derechos reservados. Portafolio QHSE & Ingeniería Industrial.</span></p>
     </div>
   </footer>
 
-  <!-- CV Preview Modal -->
-  <div id="cvModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-    <div class="glass-panel w-full max-w-2xl rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-      <div class="flex items-center justify-between border-b border-slate-700 pb-4 mb-6">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-brand-gold flex items-center justify-center">
-            <i data-lucide="file-check" class="w-5 h-5"></i>
-          </div>
-          <div>
-            <h3 class="font-display font-bold text-white text-lg">Curriculum Vitae Snapshot</h3>
-            <p class="text-xs text-slate-400">Annie Cecy Espinoza Arispe • Industrial Engineer, MSc</p>
-          </div>
-        </div>
-        <button onclick="closeCvModal()" class="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="space-y-4 text-xs sm:text-sm text-slate-300">
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-          <h4 class="font-bold text-white mb-1">Professional Summary</h4>
-          <p class="text-slate-300 leading-relaxed">
-            Industrial Engineer with an MSc in Occupational Health, Safety and Environment Management (University of Birmingham, Merit). 10+ years driving international aviation CORSIA decarbonization, ISO 9001/14001/45001 integrated systems, refinery EPC contractor safety, and university engineering professorship.
-          </p>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-          <h4 class="font-bold text-white mb-2">Key Positions Held</h4>
-          <ul class="space-y-2">
-            <li><strong>BoA (Boliviana de Aviación)</strong> – Quality & Safety Specialist (CORSIA Lead)</li>
-            <li><strong>YPFB (Oil & Gas)</strong> – QHSE Technician (Presidential Commendation)</li>
-            <li><strong>Kazen SRL (Refinery EPC)</strong> – Safety & Health Monitor (OHSAS 18001)</li>
-            <li><strong>UMSS / EMI / UCB / UNIVALLE</strong> – Higher Education Engineering Lecturer</li>
-          </ul>
-        </div>
-
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800">
-          <h4 class="font-bold text-white mb-2">Certifications & Frameworks</h4>
-          <p class="text-slate-300">ISO 45001:2018 (Health & Safety), ISO 14001:2015 (Environment), ISO 9001:2015 (Quality), ISO 50010:2018 (Energy), CORSIA ICAO Aviation Reporting.</p>
-        </div>
-      </div>
-
-      <div class="mt-6 pt-4 border-t border-slate-700 flex flex-col sm:flex-row gap-3">
-        <button onclick="triggerPrintCV()" class="flex-1 py-3 rounded-xl bg-brand-gold hover:bg-brand-goldHover text-brand-navy font-bold text-xs flex items-center justify-center gap-2">
-          <i data-lucide="printer" class="w-4 h-4"></i>
-          <span>Print / Save Clean PDF</span>
-        </button>
-        <button onclick="copyToClipboard('anniececy@gmail.com', 'Annie\'s email address copied to clipboard!')" class="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs border border-slate-600 flex items-center justify-center gap-2">
-          <i data-lucide="mail" class="w-4 h-4 text-brand-gold"></i>
-          <span>Copy Contact Email</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Toast Notification Box -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 hidden transform transition-all duration-300 translate-y-4 opacity-0">
-    <div class="glass-panel px-4 py-3 rounded-xl border border-brand-gold/40 shadow-xl flex items-center gap-3 text-xs text-white">
-      <i data-lucide="info" class="w-4 h-4 text-brand-gold"></i>
-      <span id="toastMsg">Action completed!</span>
-    </div>
-  </div>
-
+  <!-- JAVASCRIPT TRANSLATION LOGIC -->
   <script>
-    // Initialize Year
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-    // Initialize Lucide Icons
-    lucide.createIcons();
-
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('.mobile-link').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-      });
-    });
-
-    // Modal Handlers
-    function openCvModal() {
-      const modal = document.getElementById('cvModal');
-      modal.classList.remove('hidden');
-      lucide.createIcons();
-    }
-
-    function closeCvModal() {
-      const modal = document.getElementById('cvModal');
-      modal.classList.add('hidden');
-    }
-
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeCvModal();
-    });
-
-    // Copy to clipboard helper
-    function copyToClipboard(text, successMsg) {
-      const tempInput = document.createElement('input');
-      tempInput.value = text;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      try {
-        document.execCommand('copy');
-        showToast(successMsg || 'Copied to clipboard');
-      } catch (err) {
-        showToast('Unable to copy automatically');
-      }
-      document.body.removeChild(tempInput);
-    }
-
-    // Toast Messenger
-    function showToast(message) {
-      const toast = document.getElementById('toast');
-      const toastMsg = document.getElementById('toastMsg');
-      toastMsg.textContent = message;
-      toast.classList.remove('hidden', 'translate-y-4', 'opacity-0');
-      toast.classList.add('translate-y-0', 'opacity-100');
-
-      setTimeout(() => {
-        toast.classList.add('translate-y-4', 'opacity-0');
-        setTimeout(() => toast.classList.add('hidden'), 300);
-      }, 3500);
-    }
-
-    // Print / CV Trigger
-    function triggerPrintCV() {
-      window.print();
-    }
-
-    // Contact Form Submission Handler
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      document.getElementById('contactForm').classList.add('hidden');
-      document.getElementById('formSuccessMessage').classList.remove('hidden');
-      lucide.createIcons();
-    }
-
-    function resetContactForm() {
-      document.getElementById('contactForm').reset();
-      document.getElementById('contactForm').classList.remove('hidden');
-      document.getElementById('formSuccessMessage').classList.add('hidden');
-    }
-
-    // Animated Numbers Counter on Viewport Entry
-    let countersTriggered = false;
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !countersTriggered) {
-          countersTriggered = true;
-          startCounters();
-        }
-      });
-    }, { threshold: 0.3 });
-
-    const metricsSection = document.getElementById('metrics');
-    if (metricsSection) {
-      observer.observe(metricsSection);
-    }
-
-    function startCounters() {
-      const counters = document.querySelectorAll('.counter');
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        const duration = 1500; // ms
-        const increment = target / (duration / 25);
-        let current = 0;
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            counter.textContent = target;
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.ceil(current);
-          }
-        }, 25);
-      });
-    }
-
-    // Bilingual Content Support (EN / ES)
-    let currentLang = 'EN';
-    const langToggle = document.getElementById('langToggle');
-    const langLabel = document.getElementById('langLabel');
-
     const translations = {
-      EN: {
-        'nav.subtitle': 'QHSE & Sustainability Leader',
-        'nav.about': 'Profile',
-        'nav.metrics': 'Impact',
-        'nav.experience': 'Experience',
-        'nav.standards': 'Standards & ISO',
-        'nav.education': 'Education',
-        'nav.hire': 'Schedule Executive Briefing',
-        'hero.badge': 'Available for Senior QHSE & ESG Leadership Roles',
-        'hero.headlineHighlight': 'Environmental Governance',
-        'hero.summary': 'Industrial Engineer with an MSc in Occupational Health, Safety & Environment from the University of Birmingham (Merit). 10+ years driving operational excellence, high-stakes risk audits, and international decarbonization schemes across Aviation (CORSIA), Oil & Gas, and Heavy EPC Infrastructure.',
-        'hero.ctaPrimary': 'Hire Annie for Your Organization',
-        'hero.ctaResume': 'Inspect Full CV & Credentials',
-        'metrics.yearsTitle': 'Years Executive Practice',
-        'metrics.yearsSub': 'Heavy Industry & Regulatory Safety',
-        'metrics.isoTitle': 'Management Frameworks',
-        'metrics.corsiaTitle': 'Aviation Carbon Compliance',
-        'metrics.acadTitle': 'Universities Mentored',
-        'exp.badge': 'Verified Track Record',
-        'exp.heading': 'High-Stakes Leadership Experience',
-        'exp.sub': 'Demonstrated governance in national carriers, state oil & gas infrastructure, heavy engineering EPCs, and higher education academies.',
-        'exp.boaDesc': 'Spearheaded comprehensive occupational health, safety, and environmental management systems across airline operations and fleet maintenance.',
-        'exp.kazenDesc': 'Delivered front-line on-site safety stewardship for high-hazard EPC projects directly embedded within the YPFB Oil Refinery.',
-        'exp.lecturerDesc': 'Appointed lecturer at Bolivia’s most esteemed public and military engineering faculties: UMSS, EMI, UCB, and UNIVALLE.',
-        'standards.badge': 'Standards Mastery',
-        'standards.heading': 'Integrated Management Systems',
-        'standards.sub': 'Proven implementation, auditing, and maintenance of world-recognized international standardization frameworks.',
-        'edu.badge': 'Academic Rigor',
-        'edu.heading': 'World-Class Education & Credentials',
-        'edu.sub': 'Distinguished academic achievements from the Russell Group in the United Kingdom and premier South American engineering institutions.',
-        'contact.badge': 'Direct Access',
-        'contact.desc': 'Whether you require a proven Senior QHSE Manager, a lead auditor for ISO certifications, or an aviation/energy sustainability expert, Annie brings decade-long battle-tested execution.'
+      es: {
+        "nav.role": "Especialista QHSE",
+        "nav.about": "Perfil",
+        "nav.standards": "Sistemas de Gestión",
+        "nav.experience": "Experiencia",
+        "nav.education": "Formación",
+        "nav.contact": "Contacto",
+        "nav.cta": "Contactar",
+
+        "hero.badge": "Disponible para Oportunidades Globales & Consultoría",
+        "hero.greeting": "Ingeniería de Excelencia en",
+        "hero.highlight": "Seguridad, Calidad y Medio Ambiente",
+        "hero.summary": "Ingeniera Industrial con Maestría (MSc) por la Universidad de Birmingham (con Distinción al Mérito). Más de 10 años liderando sistemas de gestión integral (QHSE), cumplimiento regulatorio, estándares ISO y descarbonización en aviación comercial, sector petrolero y academia.",
+        "hero.btnSchedule": "Iniciar Conversación",
+        "hero.btnResume": "Solicitar CV Completo",
+
+        "metrics.experience": "Años de Trayectoria",
+        "metrics.experienceDesc": "Liderando auditorías y programas de seguridad integral",
+        "metrics.iso": "Estándares ISO",
+        "metrics.isoDesc": "ISO 45001, 14001, 9001 y Eficiencia Energética",
+        "metrics.corsia": "Descarbonización",
+        "metrics.corsiaDesc": "Liderazgo en compensación de emisiones en aviación",
+        "metrics.academic": "Universidades",
+        "metrics.academicDesc": "Docencia en posgrado y pregrado (UMSS, EMI, UCB, UNIVALLE)",
+
+        "standards.subtitle": "Marcos de Trabajo y Cumplimiento",
+        "standards.title": "Sistemas Integrados de Gestión",
+        "standards.desc": "Especialización integral en diseño, implementación, auditoría y certificación de marcos de gestión reconocidos internacionalmente.",
+        "standards.iso45Title": "Seguridad y Salud en el Trabajo",
+        "standards.iso45Desc": "Mitigación de riesgos laborales, protocolos proactivos de prevención y cultura de seguridad cero accidentes en refinerías y operaciones aéreas.",
+        "standards.iso14Title": "Gestión Ambiental",
+        "standards.iso14Desc": "Evaluación de impacto ambiental, gestión de residuos, normativas ecológicas y planes de descarbonización alineados con CORSIA.",
+        "standards.iso9Title": "Gestión de Calidad",
+        "standards.iso9Desc": "Implementación exitosa en la división de redes de gas de YPFB, reconocida por la presidencia institucional por excelencia y optimización operativa.",
+        "standards.iso50Title": "Gestión de la Energía",
+        "standards.iso50Desc": "Estrategias de optimización energética, balance de recursos y reducción de huella de carbono para sectores industriales de alta exigencia.",
+
+        "langSection.title": "Competencia Lingüística",
+        "langSection.subtitle": "Capacidad para liderar equipos multiculturales y auditorías internacionales",
+        "lang.es": "Español:",
+        "lang.native": "Nativo",
+        "lang.en": "Inglés:",
+        "lang.adv": "Avanzado (C1/C2 - UK MSc)",
+        "lang.fr": "Francés:",
+        "lang.qu": "Quechua:",
+        "lang.basic": "Básico",
+
+        "exp.subtitle": "Trayectoria Demostrada",
+        "exp.title": "Experiencia Profesional",
+        "exp.desc": "Liderazgo riguroso y gestión técnica en entornos de alta exigencia: aviación internacional, refinerías de petróleo y gas, y consultoría de ingeniería.",
+        "exp.boaRole": "Especialista en Calidad, Seguridad y Medio Ambiente (QHSE)",
+        "exp.boaDesc": "Liderazgo estratégico en seguridad operacional, salud en el trabajo y gestión ambiental corporativa en la aerolínea bandera de Bolivia.",
+        "exp.boaItem1": "<strong>Responsable Oficial de CORSIA:</strong> Lideró la formulación, monitoreo y auditorías de reporte del Plan de Reducción y Compensación de Emisiones de Carbono para la Aviación Internacional ante organismos regulatorios.",
+        "exp.boaItem2": "<strong>Cultura de Prevención:</strong> Supervisó la gestión integral de salud ocupacional, auditorías ambientales continuas y programas de prevención de riesgos operativos.",
+        "exp.ypfbRole": "Técnico en Seguridad, Salud Ocupacional, Medio Ambiente y Calidad",
+        "exp.ypfbBadge": "Reconocimiento Presidencial",
+        "exp.ypfbDesc": "Implementación exitosa del Sistema de Gestión de Calidad bajo el estándar ISO 9001 en la división de redes y distribución de gas.",
+        "exp.ypfbItem1": "<strong>Distinción Presidencial:</strong> Condecorada por el Presidente Ejecutivo de YPFB por alto desempeño y rigor en la ejecución del sistema de gestión.",
+        "exp.ypfbItem2": "Estandarización de procesos críticos de distribución de gas, matrices de riesgos de seguridad y programas de cumplimiento de medio ambiente.",
+        "exp.acadYears": "2015 — Presente",
+        "exp.acadRole": "Docente Universitaria (Pregrado y Posgrado)",
+        "exp.acadBadge": "Cátedra Superior",
+        "exp.acadDesc": "Formación de profesionales e ingenieros en programas de pregrado y posgrado en las instituciones de educación superior más prestigiosas de Bolivia (Universidad Mayor de San Simón, Escuela Militar de Ingeniería, Universidad del Valle, Universidad Católica Boliviana).",
+        "exp.kazenRole": "Monitora de Seguridad, Salud Ocupacional y Medio Ambiente",
+        "exp.kazenDesc": "Control de seguridad de campo y monitoreo del sistema OHSAS 18001 en obras EPC (Ingeniería, Procura y Construcción) en la Refinería de YPFB.",
+
+        "edu.subtitle": "Formación de Clase Mundial",
+        "edu.title": "Educación y Calificaciones",
+        "edu.desc": "Rigor académico respaldado por la membresía británica en el Russell Group y graduación de honores en ingeniería.",
+        "edu.merit": "MSc con Mérito",
+        "edu.uobDesc": "Estudios de posgrado con distinción al mérito en una de las instituciones líderes del Reino Unido. Especialización en evaluación de riesgos complejos, marco legal internacional y sostenibilidad.",
+        "edu.honors": "Distinción con Honores",
+        "edu.bsTitle": "Licenciatura en Ingeniería Industrial",
+        "edu.umssDesc": "Graduada con honores en la defensa de tesis de grado. Ex-auxiliar de docencia universitaria.",
+        "edu.diplomas": "Diplomados de Especialización:",
+        "edu.dip1": "Diplomado en Seguridad Ocupacional",
+        "edu.dip2": "Diplomado en Gestión Ambiental",
+        "edu.dip3": "Diplomado en Educación Superior",
+
+        "contact.badge": "Colaboración Estratégica Inmediata",
+        "contact.title": "¿Listo para elevar los estándares QHSE de su organización?",
+        "contact.desc": "Ya sea para coordinar auditorías ISO, descarbonización de operaciones de transporte, gestión de refinerías o liderazgo de programas de seguridad y salud, conversemos sobre el impacto que podemos construir.",
+        "contact.mobility": "Disponibilidad de reubicación y viajes de auditoría",
+        "footer.rights": "Todos los derechos reservados. Portafolio QHSE & Ingeniería Industrial."
       },
-      ES: {
-        'nav.subtitle': 'Líder en QHSE y Sostenibilidad',
-        'nav.about': 'Perfil',
-        'nav.metrics': 'Impacto',
-        'nav.experience': 'Experiencia',
-        'nav.standards': 'Normas ISO',
-        'nav.education': 'Educación',
-        'nav.hire': 'Agendar Reunión Ejecutiva',
-        'hero.badge': 'Disponible para Roles de Liderazgo QHSE & ESG',
-        'hero.headlineHighlight': 'Gobernanza Ambiental',
-        'hero.summary': 'Ingeniera Industrial con Maestría (MSc) en Gestión de Seguridad, Salud Ocupacional y Medio Ambiente por la Universidad de Birmingham (Con Mérito). Más de 10 años de experiencia liderando excelencia operacional, auditorías de riesgo y esquemas de descarbonización en Aviación (CORSIA), Petróleo y Gas, y Proyectos EPC.',
-        'hero.ctaPrimary': 'Contratar a Annie para su Organización',
-        'hero.ctaResume': 'Ver CV y Credenciales',
-        'metrics.yearsTitle': 'Años de Práctica Ejecutiva',
-        'metrics.yearsSub': 'Industria Pesada y Seguridad Normativa',
-        'metrics.isoTitle': 'Sistemas de Gestión',
-        'metrics.corsiaTitle': 'Cumplimiento de Carbono Aéreo',
-        'metrics.acadTitle': 'Universidades Catedrática',
-        'exp.badge': 'Trayectoria Comprobada',
-        'exp.heading': 'Experiencia en Liderazgo de Alto Nivel',
-        'exp.sub': 'Gestión demostrada en aerolíneas nacionales, infraestructura estatal de gas y petróleo, firmas EPC y facultades universitarias.',
-        'exp.boaDesc': 'Lideró los sistemas integrados de seguridad ocupacional, salud y medio ambiente en operaciones de aerolínea y mantenimiento de flota.',
-        'exp.kazenDesc': 'Lideró la seguridad in-situ en proyectos EPC de alto riesgo directamente dentro de la Refinería de YPFB.',
-        'exp.lecturerDesc': 'Docente designada en las facultades de ingeniería más prestigiosas: UMSS, EMI, UCB y UNIVALLE.',
-        'standards.badge': 'Dominio Normativo',
-        'standards.heading': 'Sistemas Integrados de Gestión',
-        'standards.sub': 'Implementación, auditoría y mantenimiento comprobado de marcos internacionales ISO.',
-        'edu.badge': 'Rigor Académico',
-        'edu.heading': 'Formación Académica y Distinciones',
-        'edu.sub': 'Logros académicos distinguidos en el Grupo Russell del Reino Unido y las principales instituciones de ingeniería.',
-        'contact.badge': 'Contacto Directo',
-        'contact.desc': 'Ya sea que requiera una Gerente Senior de QHSE, una auditora líder para certificaciones ISO, o una experta en sostenibilidad aeronáutica/energética, Annie aporta ejecución comprobada.'
+      en: {
+        "nav.role": "QHSE Specialist",
+        "nav.about": "About",
+        "nav.standards": "Management Systems",
+        "nav.experience": "Experience",
+        "nav.education": "Education",
+        "nav.contact": "Contact",
+        "nav.cta": "Get in Touch",
+
+        "hero.badge": "Available for Global Opportunities & Consulting",
+        "hero.greeting": "Engineering Excellence in",
+        "hero.highlight": "Health, Safety, Quality & Environment",
+        "hero.summary": "Industrial Engineer with an MSc from the University of Birmingham (awarded with Merit). Over 10 years leading integrated QHSE management systems, regulatory compliance, ISO frameworks, and aviation decarbonization across commercial aviation, oil & gas, and academia.",
+        "hero.btnSchedule": "Start Conversation",
+        "hero.btnResume": "Request Full CV",
+
+        "metrics.experience": "Years of Experience",
+        "metrics.experienceDesc": "Leading integrated safety programs & QHSE audits",
+        "metrics.iso": "ISO Frameworks",
+        "metrics.isoDesc": "ISO 45001, 14001, 9001 & Energy Efficiency",
+        "metrics.corsia": "Decarbonization",
+        "metrics.corsiaDesc": "Aviation carbon offsetting leadership under ICAO",
+        "metrics.academic": "Universities",
+        "metrics.academicDesc": "Lecturer at top institutions (UMSS, EMI, UCB, UNIVALLE)",
+
+        "standards.subtitle": "Compliance & Frameworks",
+        "standards.title": "Integrated Management Systems",
+        "standards.desc": "Comprehensive mastery across design, execution, auditing, and certification of internationally benchmarked standards.",
+        "standards.iso45Title": "Occupational Health & Safety",
+        "standards.iso45Desc": "Operational risk mitigation, proactive safety protocols, and zero-accident culture across oil refineries and aviation operations.",
+        "standards.iso14Title": "Environmental Management",
+        "standards.iso14Desc": "Environmental impact mitigation, waste management, regulatory compliance, and decarbonization strategies aligned with CORSIA.",
+        "standards.iso9Title": "Quality Management",
+        "standards.iso9Desc": "Successfully implemented at YPFB Gas Distribution division, earning Presidential Recognition for operational excellence.",
+        "standards.iso50Title": "Energy Management",
+        "standards.iso50Desc": "Energy performance optimization, resource efficiency, and carbon footprint reduction strategies for demanding industries.",
+
+        "langSection.title": "Language Proficiency",
+        "langSection.subtitle": "Equipped to direct multinational teams and international compliance audits",
+        "lang.es": "Spanish:",
+        "lang.native": "Native",
+        "lang.en": "English:",
+        "lang.adv": "Advanced (C1/C2 - UK MSc)",
+        "lang.fr": "French:",
+        "lang.qu": "Quechua:",
+        "lang.basic": "Basic",
+
+        "exp.subtitle": "Proven Track Record",
+        "exp.title": "Work Experience",
+        "exp.desc": "Rigorous technical leadership across safety-critical domains: international aviation, oil & gas refining, and higher education.",
+        "exp.boaRole": "Quality, Safety & Environmental Specialist (QHSE)",
+        "exp.boaDesc": "Strategic leadership over operational safety, occupational health, and environmental compliance at Bolivia's flag carrier airline.",
+        "exp.boaItem1": "<strong>Official CORSIA Lead:</strong> Spearheaded the monitoring, reporting, and verification for the Carbon Offsetting and Reduction Scheme for International Aviation.",
+        "exp.boaItem2": "<strong>Prevention Culture:</strong> Supervised workplace health systems, continuous environmental audits, and root-cause risk mitigations.",
+        "exp.ypfbRole": "Safety, Environment, Health and Quality Specialist",
+        "exp.ypfbBadge": "Presidential Recognition",
+        "exp.ypfbDesc": "Direct execution and audit of the ISO 9001 Quality Management System at the YPFB Gas Distribution division.",
+        "exp.ypfbItem1": "<strong>Presidential Award:</strong> Commended by the President of YPFB for exemplary performance and operational rigor.",
+        "exp.ypfbItem2": "Standardized gas network distribution protocols, risk matrices, and full environmental regulatory compliance.",
+        "exp.acadYears": "2015 — Present",
+        "exp.acadRole": "University Lecturer (Undergraduate & Postgraduate)",
+        "exp.acadBadge": "Higher Education",
+        "exp.acadDesc": "Lecturer for engineering students and postgraduates across Bolivia's leading public and private universities (UMSS, EMI, UNIVALLE, UCB).",
+        "exp.kazenRole": "Safety, Health & Environmental Monitor",
+        "exp.kazenDesc": "On-site safety oversight and OHSAS 18001 management system compliance during EPC (Engineering, Procurement, Construction) projects at YPFB Refinery.",
+
+        "edu.subtitle": "World-Class Credentials",
+        "edu.title": "Education & Qualifications",
+        "edu.desc": "Academic rigor backed by the UK Russell Group and high-honors engineering credentials.",
+        "edu.merit": "MSc with Merit",
+        "edu.uobDesc": "Postgraduate qualification with merit distinction from a top-tier UK institution. Core focus on complex risk governance and environmental systems.",
+        "edu.honors": "Distinction with Honors",
+        "edu.bsTitle": "Bachelor of Science (BSc) in Industrial Engineering",
+        "edu.umssDesc": "Graduated with highest honors in degree project defense. Former university teaching assistant.",
+        "edu.diplomas": "Specialized Postgraduate Diplomas:",
+        "edu.dip1": "Diploma in Occupational Safety",
+        "edu.dip2": "Diploma in Environmental Management",
+        "edu.dip3": "Diploma in Higher Education",
+
+        "contact.badge": "Available for Immediate Engagement",
+        "contact.title": "Ready to elevate your organization's QHSE standards?",
+        "contact.desc": "Whether managing ISO compliance, CORSIA aviation decarbonization, or refinery safety governance, let's discuss how we can build an impactful partnership.",
+        "contact.mobility": "Open to relocation and international travel",
+        "footer.rights": "All rights reserved. QHSE & Industrial Engineering Portfolio."
       }
     };
 
-    langToggle.addEventListener('click', () => {
-      currentLang = currentLang === 'EN' ? 'ES' : 'EN';
-      langLabel.textContent = currentLang === 'EN' ? 'ES' : 'EN';
+    let currentLang = 'es';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
       
       const elements = document.querySelectorAll('[data-i18n]');
       elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
-        if (translations[currentLang] && translations[currentLang][key]) {
-          el.textContent = translations[currentLang][key];
+        if (translations[lang] && translations[lang][key]) {
+          el.innerHTML = translations[lang][key];
         }
       });
 
-      showToast(`Language switched to ${currentLang === 'EN' ? 'English' : 'Español'}`);
+      // Update button label
+      const label = document.getElementById('langLabel');
+      if (label) {
+        label.textContent = lang === 'es' ? 'ES (Cambiar a EN)' : 'EN (Switch to ES)';
+      }
+
+      // Re-initialize icons for newly inserted content if needed
+      lucide.createIcons();
+    }
+
+    function toggleLanguage() {
+      const nextLang = currentLang === 'es' ? 'en' : 'es';
+      setLanguage(nextLang);
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      setLanguage('es'); // Default in Spanish as requested
     });
   </script>
 </body>
