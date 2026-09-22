@@ -443,22 +443,43 @@
     </div>
   </section>
 
-<section id="projects" aria-label="Selected Technical Projects">
-  <h2>Technical Portfolio</h2>
+<!-- TECHNICAL PORTFOLIO & PROJECTS -->
+  <section id="projects" class="py-20 bg-slate-950/40 border-t border-slate-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2 block" data-i18n="proj.subtitle">Desarrollo Técnico & Analítica</span>
+        <h2 class="text-3xl sm:text-4xl font-display font-bold text-white tracking-tight" data-i18n="proj.title">Portafolio de Proyectos</h2>
+        <p class="text-slate-400 mt-3 text-sm" data-i18n="proj.desc">
+          Aplicaciones interactivas, modelado de datos y sistemas de observación técnica.
+        </p>
+      </div>
 
-  <div class="project-grid">
-    <article class="project-card">
-      <h3>Andean Agricultural Observatory</h3>
-      <p>Interactive biochemical and macronutrient database of indigenous Andean cultivars per 100g dry basis.</p>
-      
-      <!-- If using Strategy 1 (Separate Repos) -->
-      <a href="/andean-crops/" class="project-link">Launch Observatory &rarr;</a>
-      
-      <!-- If using Strategy 2 (Monorepo) -->
-      <!-- <a href="./projects/andean-crops/" class="project-link">Launch Observatory &rarr;</a> -->
-    </article>
-  </div>
-</section>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Project Card: Andean Observatory -->
+        <article class="glass-card p-8 rounded-2xl relative border-t-4 border-t-emerald-500 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Agrobiología & Nutrición</span>
+              <span class="badge-gold px-2.5 py-0.5 rounded text-xs font-bold text-amber-300">Web App</span>
+            </div>
+            <h3 class="text-2xl font-display font-bold text-white mb-2">Andean Agricultural Observatory</h3>
+            <p class="text-xs text-slate-300 leading-relaxed mb-6" data-i18n="proj.andeanDesc">
+              Base de datos interactiva y comparador analítico de perfiles bioquímicos y macronutrientes de cultivos andinos normalizados por 100g de porción comestible.
+            </p>
+          </div>
+
+          <div>
+            <a href="/andean-crops/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white font-semibold text-xs transition shadow-lg shadow-emerald-500/20">
+              <span data-i18n="proj.viewApp">Explorar Aplicación</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+  </section>
   
   <!-- FOOTER -->
   <footer class="py-8 border-t border-slate-900 text-center text-xs text-slate-500">
@@ -592,6 +613,12 @@
         "contact.desc": "Ya sea para coordinar auditorías ISO, descarbonización de operaciones de transporte, gestión de refinerías o liderazgo de programas de seguridad y salud, conversemos sobre el impacto que podemos construir.",
         "contact.mobility": "Disponibilidad de reubicación y viajes de auditoría",
         "footer.rights": "Todos los derechos reservados. Portafolio QHSE & Ingeniería Industrial."
+  
+        "proj.subtitle": "Desarrollo Técnico & Analítica",
+        "proj.title": "Portafolio de Proyectos",
+        "proj.desc": "Aplicaciones interactivas, modelado de datos y sistemas de observación técnica.",
+        "proj.andeanDesc": "Base de datos interactiva y comparador analítico de perfiles bioquímicos y macronutrientes de cultivos andinos normalizados por 100g de porción comestible.",
+        "proj.viewApp": "Explorar Aplicación",
       },
       en: {
         "nav.role": "QHSE Specialist",
@@ -617,7 +644,7 @@
         "metrics.corsiaDesc": "Aviation carbon offsetting leadership under ICAO",
         "metrics.academic": "Universities",
         "metrics.academicDesc": "Lecturer at top institutions (UMSS, EMI, UCB, UNIVALLE)",
-
+        
         "standards.subtitle": "Compliance & Frameworks",
         "standards.title": "Integrated Management Systems",
         "standards.desc": "Comprehensive mastery across design, execution, auditing, and certification of internationally benchmarked standards.",
@@ -677,6 +704,12 @@
         "contact.desc": "Whether managing ISO compliance, CORSIA aviation decarbonization, or refinery safety governance, let's discuss how we can build an impactful partnership.",
         "contact.mobility": "Open to relocation and international travel",
         "footer.rights": "All rights reserved. QHSE & Industrial Engineering Portfolio."
+        
+        "proj.subtitle": "Technical Development & Analytics",
+        "proj.title": "Projects Portfolio",
+        "proj.desc": "Interactive applications, data modeling, and technical observation systems.",
+        "proj.andeanDesc": "Interactive database and analytical comparator for biochemical and macronutrient profiles of Andean crops normalized per 100g edible portion.",
+        "proj.viewApp": "Launch Application",
       }
     };
 
