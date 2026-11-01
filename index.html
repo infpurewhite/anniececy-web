@@ -104,8 +104,8 @@
       <!-- Brand Identity -->
       <a href="#" class="flex items-center gap-3 group">
         <div class="w-10 h-10 rounded-lg bg-slate-900 dark:bg-brand-600 text-white flex items-center justify-center font-display font-bold text-lg tracking-tight shadow-sm group-hover:bg-brand-600 transition-colors overflow-hidden">
-          <img id="nav-avatar" src="Annie%20photo.jpg" alt="Annie Cecy Espinoza Arispe" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-          <span class="hidden w-full h-full items-center justify-center">AE</span>
+          <img id="nav-avatar" src="Annie%20photo.jpg" alt="Annie Cecy Espinoza Arispe" class="hidden w-full h-full object-cover" />
+          <span id="nav-initials" class="flex w-full h-full items-center justify-center">AE</span>
         </div>
         <div>
           <span class="font-display font-bold text-base sm:text-lg tracking-tight block leading-none text-slate-900 dark:text-white">
@@ -181,12 +181,711 @@
         <div class="lg:col-span-5">
           <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none space-y-6">
             
-            <!-- Executive Portrait Block (Links to "Annie photo") -->
+            <!-- Executive Portrait Block (Opens Lightbox or Direct Image) -->
             <div class="flex flex-col sm:flex-row items-center gap-5 pb-6 border-b border-slate-100 dark:border-slate-800">
-              <a id="photo-link" href="Annie%20photo.jpg" target="_blank" rel="noopener noreferrer" title="Annie Cecy Espinoza Arispe"
-                class="relative group shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-600/40 dark:border-brand-500/40 shadow-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+              <button id="photo-trigger" type="button" title="Annie Cecy Espinoza Arispe"
+                class="relative group shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-600/40 dark:border-brand-500/40 shadow-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500">
                 <img id="annie-portrait" src="Annie%20photo.jpg" alt="Annie Cecy Espinoza Arispe"
-                  class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
-                <div id="portrait-fallback" class="hidden flex-col items-center justify-center text-center p-2">
+                  class="hidden w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300" />
+                <div id="portrait-fallback" class="flex flex-col items-center justify-center text-center p-2">
                   <span class="font-display font-bold text-2xl text-brand-600">AE</span>
-                  <span class="font-mono
+                  <span class="font-mono text-[10px] text-slate-400 mt-1">Annie photo</span>
+                </div>
+                <span class="absolute bottom-1.5 right-1.5 p-1 rounded-md bg-slate-900/75 text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                  <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
+                </span>
+              </button>
+
+              <div class="text-center sm:text-left">
+                <p class="font-mono text-xs uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold" data-i18n="card.header">Perfil Ejecutivo</p>
+                <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">Annie Cecy Espinoza Arispe</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="card.role">Arquitectura QHSE · Investigadora PhD · MSc</p>
+                <button id="photo-text-trigger" type="button"
+                  class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline mt-2.5 cursor-pointer">
+                  <i data-lucide="image" class="w-3.5 h-3.5"></i>
+                  <span data-i18n="card.photolink">Ver fotografía oficial</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Credentials List -->
+            <ul class="space-y-4 text-sm">
+              <li class="flex items-start gap-3">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item1.title">Investigadora PhD (Reino Unido)</strong>
+                  <span class="text-slate-600 dark:text-slate-400" data-i18n="card.item1.desc">Benchmarking de fiabilidad en costo, carbono y plazo en obras viales.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="award" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item2.title">MSc University of Birmingham</strong>
+                  <span class="text-slate-600 dark:text-slate-400" data-i18n="card.item2.desc">Graduada con Distinción al Mérito · Ingeniería Industrial.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="layers" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item3.title">Liderazgo Multisectorial QHSE</strong>
+                  <span class="text-slate-600 dark:text-slate-400" data-i18n="card.item3.desc">Sistemas integrados ISO 9001, ISO 14001 e ISO 45001 en aviación y energía.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="terminal" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item4.title">Ingeniería Computacional & IA</strong>
+                  <span class="text-slate-600 dark:text-slate-400" data-i18n="card.item4.desc">Python, NLP, PyTorch, GCP Vertex AI y automatización de carbono embebido.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Key Metrics Bar -->
+      <div class="mt-14 pt-10 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ISO 3x</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m1">Auditoría e Implementación ISO 9001 · 14001 · 45001</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-brand-600 dark:text-brand-500">A1–A3</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m2">Modelado Automatizado de Carbono Embebido (ICE Database)</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">PRISMA</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m3">Síntesis Metodológica Rigurosa y Benchmarking Empírico</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ES / EN</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m4">Ejecución Técnica Bilingüe en Entornos Internacionales</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE PILLARS SECTION -->
+  <section id="pillars" class="py-20 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="pillars.kicker">Arquitectura de Competencias</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="pillars.title">
+          Tres Dimensiones de Impacto Técnico
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg" data-i18n="pillars.desc">
+          Integración de gobernanza operativa industrial, rigor metodológico doctoral e ingeniería de software orientada a datos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Pillar 1 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="shield" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p1.title">
+              1. Gobernanza QHSE & Cumplimiento Industrial
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p1.body">
+              Diseño, auditoría y optimización de Sistemas Integrados de Gestión (Calidad, Seguridad y Salud Ocupacional, y Medio Ambiente) en sectores de alta criticidad como aviación y energía. Mitigación operativa de riesgos y cultura de cero incidentes.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 9001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 14001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 45001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Risk Bowtie</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="scale" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p2.title">
+              2. Descarbonización de Infraestructura (PhD)
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p2.body">
+              Desarrollo de marcos de fiabilidad empírica para evaluar compensaciones entre costo, emisiones de carbono y cronograma en proyectos de construcción vial. Contabilidad de carbono embebido (etapas A1–A3) alineada con estándares internacionales PAS 2080, EN 15978 y factores de la base de datos ICE.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">LCA A1–A3</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ICE Database</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">PRISMA SLR</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">PAS 2080</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="code-2" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p3.title">
+              3. Pipelines de Datos, NLP & IA Aplicada
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p3.body">
+              Arquitectura de herramientas computacionales en Python para extracción automatizada de entidades en presupuestos de obra (BoQ), mapeo semántico de factores de emisión y despliegue de agentes inteligentes sobre infraestructura Google Cloud (Vertex AI / Cloud Run).
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Python / PyTorch</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">spaCy / Transformers</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">XGBoost</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Vertex AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & COMPUTATIONAL SYSTEMS SECTION -->
+  <section id="research" class="py-20 bg-white dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div class="max-w-2xl">
+          <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="research.kicker">I+D+i & Ingeniería de Software</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="research.title">
+            Proyectos de Investigación y Sistemas Computacionales
+          </h2>
+        </div>
+        <p class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="research.note">
+          Metodología empírica · Validación reproducible
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Project 1: boq2carbon -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">
+                Python Pipeline · Embodied Carbon
+              </span>
+              <span class="font-mono text-xs text-slate-400">ICE Database · A1–A3</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="research.p1.title">
+              boq2carbon: Inventario Automatizado de Carbono Embebido
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="research.p1.desc">
+              Pipeline modular en Python diseñado para ingerir presupuestos de construcción (Bill of Quantities en PDF y hojas de cálculo), normalizar unidades mediante diccionarios de datos estandarizados y vincular partidas con factores de emisión del Inventory of Carbon and Energy (ICE Database) para cuantificar emisiones A1–A3 con trazabilidad auditable.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Stack: Python · NLP Entity Mapping · Pandas</span>
+            <span class="text-brand-600 dark:text-brand-400 font-semibold" data-i18n="research.p1.status">Prototipo Validado</span>
+          </div>
+        </div>
+
+        <!-- Project 2: PhD Reliability Framework -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                Doctoral Research · PRISMA
+              </span>
+              <span class="font-mono text-xs text-slate-400">Cost · Carbon · Time</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="research.p2.title">
+              Marco de Fiabilidad para Infraestructura de Transporte
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="research.p2.desc">
+              Investigación doctoral enfocada en el benchmarking simultáneo de desviaciones de costo, cronograma e intensidad de carbono en proyectos viales. Incluye revisiones sistemáticas de literatura bajo directrices PRISMA y modelado predictivo para la toma de decisiones en etapas tempranas de diseño.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Methods: Econometrics · ML · PRISMA</span>
+            <span class="text-brand-600 dark:text-brand-400 font-semibold" data-i18n="research.p2.status">Investigación en Curso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISO & GOVERNANCE MATRIX SECTION -->
+  <section id="iso-matrix" class="py-20 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="iso.kicker">Estándares Internacionales</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="iso.title">
+          Matriz de Gobernanza QHSE y Descarbonización
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/50 text-xs font-mono uppercase text-slate-500 dark:text-slate-400">
+              <th class="py-4 px-6" data-i18n="iso.col1">Norma / Marco</th>
+              <th class="py-4 px-6" data-i18n="iso.col2">Dominio Operativo</th>
+              <th class="py-4 px-6" data-i18n="iso.col3">Aplicación Estratégica y Entregables</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-sm">
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 9001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r1.domain">Gestión de Calidad y Procesos</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r1.app">Estandarización de procesos críticos, control estadístico, auditorías internas/externas y mejora continua (Lean / Six Sigma).</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 14001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r2.domain">Desempeño Ambiental</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r2.app">Evaluación de impacto de ciclo de vida, matrices de aspectos ambientales, control de residuos y cumplimiento legal en energía e infraestructura.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 45001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r3.domain">Seguridad y Salud Ocupacional</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r3.app">Identificación de peligros (IPERC), análisis de causa raíz (RCA), gestión de contratistas y protocolos de seguridad operacional en aviación e industria.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">PAS 2080 / EN 15978</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r4.domain">Carbono en Infraestructura</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r4.app">Cuantificación de carbono embebido (A1–A3), integración de factores de la base de datos ICE y evaluación de líneas base de descarbonización en obras civiles.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC & CAREER TRAJECTORY -->
+  <section id="trajectory" class="py-20 bg-white dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="traj.kicker">Evolución Profesional y Académica</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="traj.title">
+          Trayectoria Internacional
+        </h2>
+      </div>
+
+      <div class="relative border-l-2 border-brand-600/40 dark:border-brand-500/40 ml-4 sm:ml-6 pl-8 space-y-12">
+        <!-- Milestone 1 -->
+        <div class="relative">
+          <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-brand-600 border-4 border-white dark:border-slate-950"></div>
+          <span class="font-mono text-xs uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold" data-i18n="traj.t1.date">Actualidad · Reino Unido</span>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1" data-i18n="traj.t1.role">
+            Investigadora Doctoral (PhD) — Descarbonización y Fiabilidad de Infraestructura Vial
+          </h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 max-w-3xl leading-relaxed" data-i18n="traj.t1.desc">
+            Desarrollo de modelos empíricos y herramientas computacionales para evaluar el desempeño conjunto de costo, tiempo y carbono embebido en proyectos de infraestructura de transporte.
+          </p>
+        </div>
+
+        <!-- Milestone 2 -->
+        <div class="relative">
+          <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-slate-400 dark:bg-slate-600 border-4 border-white dark:border-slate-950"></div>
+          <span class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold" data-i18n="traj.t2.date">Reino Unido · Posgrado de Excelencia</span>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1" data-i18n="traj.t2.role">
+            Maestría en Ciencias (MSc) — University of Birmingham (Distinción al Mérito)
+          </h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 max-w-3xl leading-relaxed" data-i18n="traj.t2.desc">
+            Especialización avanzada en gestión de ingeniería, optimización de sistemas complejos, análisis de riesgos y sostenibilidad industrial.
+          </p>
+        </div>
+
+        <!-- Milestone 3 -->
+        <div class="relative">
+          <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-slate-400 dark:bg-slate-600 border-4 border-white dark:border-slate-950"></div>
+          <span class="font-mono text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-semibold" data-i18n="traj.t3.date">Experiencia Industrial · Aviación & Energía</span>
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mt-1" data-i18n="traj.t3.role">
+            Liderazgo en Sistemas QHSE e Ingeniería Industrial
+          </h3>
+          <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 max-w-3xl leading-relaxed" data-i18n="traj.t3.desc">
+            Dirección y aseguramiento de cumplimiento normativo, auditorías trinorma (ISO 9001, ISO 14001, ISO 45001), gestión de riesgos operacionales y mejora continua en operaciones críticas del sector energético y aeronáutico.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIC CONTACT / CTA -->
+  <section id="contact" class="py-20">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 dark:bg-slate-900 border border-slate-800 p-8 sm:p-14 text-white shadow-2xl relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl space-y-5">
+          <span class="font-mono text-xs uppercase tracking-widest text-brand-400" data-i18n="contact.kicker">Colaboración Estratégica Inmediata</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight" data-i18n="contact.title">
+            ¿Listo para transformar la gestión QHSE o descarbonizar proyectos de infraestructura?
+          </h2>
+          <p class="text-slate-300 text-base leading-relaxed" data-i18n="contact.desc">
+            Disponible para colaboraciones de investigación académica, consultoría en sistemas integrados ISO, auditorías técnicas y desarrollo de soluciones analíticas de carbono.
+          </p>
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-display font-semibold text-sm transition-all">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+              <span data-i18n="contact.linkedin">Conectar en LinkedIn</span>
+            </a>
+            <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-100 font-display font-semibold text-sm transition-all">
+              <i data-lucide="github" class="w-4 h-4"></i>
+              <span data-i18n="contact.github">Repositorios en GitHub</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p data-i18n="footer.rights">© 2026 Annie Cecy Espinoza Arispe. Todos los derechos reservados.</p>
+      <p class="font-mono" data-i18n="footer.tag">Portafolio Ejecutivo QHSE · Ingeniería Industrial · Investigación PhD</p>
+    </div>
+  </footer>
+
+  <!-- IN-PAGE LIGHTBOX MODAL FOR "Annie photo" -->
+  <div id="photo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/85 p-4 backdrop-blur-sm">
+    <div class="relative max-w-lg w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-800">
+        <div>
+          <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Annie Cecy Espinoza Arispe</h3>
+          <p class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="nav.subtitle">MSc · Investigadora PhD · Líder QHSE</p>
+        </div>
+        <button id="close-modal" type="button" aria-label="Close modal"
+          class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center min-h-[280px] max-h-[65vh]">
+        <img id="modal-img" src="Annie%20photo.jpg" alt="Annie Cecy Espinoza Arispe" class="hidden max-h-[65vh] w-auto object-contain" />
+        <div id="modal-fallback-msg" class="p-6 text-center space-y-2">
+          <p class="font-display font-bold text-lg text-slate-800 dark:text-slate-200" data-i18n="modal.notfound.title">Archivo de imagen no detectado en la ruta raíz</p>
+          <p class="text-xs font-mono text-slate-500 dark:text-slate-400" data-i18n="modal.notfound.desc">
+            Verifica en tu repositorio de GitHub que el archivo se llame exactamente "Annie photo.jpg" o "Annie photo.png" en la misma carpeta que index.html.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono">
+        <span id="resolved-path-label" class="text-slate-400 truncate max-w-[60%]">Annie photo</span>
+        <a id="direct-file-link" href="Annie%20photo.jpg" target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-brand-600 dark:text-brand-400 hover:underline font-semibold">
+          <span data-i18n="modal.openraw">Abrir archivo original</span>
+          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- BILINGUAL I18N, PARALLEL PHOTO PROBER & THEME ENGINE -->
+  <script>
+    // Parallel prober for "Annie photo" across case-sensitive extensions & folders on GitHub Pages
+    (function probeAnniePhoto() {
+      const baseNames = [
+        'Annie%20photo',
+        'annie%20photo',
+        'Annie_photo',
+        'annie_photo',
+        'Annie-photo',
+        'annie-photo',
+        'AnniePhoto',
+        'annie'
+      ];
+      const extensions = ['.jpg', '.JPG', '.jpeg', '.JPEG', '.png', '.PNG', '.webp', ''];
+      const folders = ['', 'images/', 'assets/', 'img/'];
+
+      const candidates = [];
+      folders.forEach(folder => {
+        baseNames.forEach(name => {
+          extensions.forEach(ext => {
+            candidates.push(folder + name + ext);
+          });
+        });
+      });
+
+      const portraitImg = document.getElementById('annie-portrait');
+      const portraitFallback = document.getElementById('portrait-fallback');
+      const navAvatar = document.getElementById('nav-avatar');
+      const navInitials = document.getElementById('nav-initials');
+      const modalImg = document.getElementById('modal-img');
+      const modalFallbackMsg = document.getElementById('modal-fallback-msg');
+      const directFileLink = document.getElementById('direct-file-link');
+      const resolvedPathLabel = document.getElementById('resolved-path-label');
+
+      let resolved = false;
+
+      candidates.forEach(candidateUrl => {
+        const tester = new Image();
+        tester.onload = function() {
+          if (resolved) return;
+          resolved = true;
+
+          // Bind verified working URL to all elements
+          portraitImg.src = candidateUrl;
+          portraitImg.classList.remove('hidden');
+          if (portraitFallback) portraitFallback.classList.add('hidden');
+
+          if (navAvatar) {
+            navAvatar.src = candidateUrl;
+            navAvatar.classList.remove('hidden');
+          }
+          if (navInitials) navInitials.classList.add('hidden');
+
+          if (modalImg) {
+            modalImg.src = candidateUrl;
+            modalImg.classList.remove('hidden');
+          }
+          if (modalFallbackMsg) modalFallbackMsg.classList.add('hidden');
+          if (directFileLink) directFileLink.href = candidateUrl;
+          if (resolvedPathLabel) resolvedPathLabel.textContent = decodeURIComponent(candidateUrl);
+        };
+        tester.src = candidateUrl;
+      });
+
+      // Lightbox Modal Controls
+      const modal = document.getElementById('photo-modal');
+      const trigger1 = document.getElementById('photo-trigger');
+      const trigger2 = document.getElementById('photo-text-trigger');
+      const closeBtn = document.getElementById('close-modal');
+
+      function openModal() {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+
+      if (trigger1) trigger1.addEventListener('click', openModal);
+      if (trigger2) trigger2.addEventListener('click', openModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+      });
+    })();
+
+    const translations = {
+      es: {
+        metaTitle: "Annie Cecy Espinoza Arispe | Líder QHSE, Investigadora PhD & Ingeniera Industrial",
+        metaDesc: "Portafolio ejecutivo y académico de Annie Cecy Espinoza Arispe. Ingeniera Industrial, MSc (University of Birmingham), Investigadora PhD en Descarbonización de Infraestructura Vial y Sistemas QHSE.",
+        "nav.subtitle": "MSc · Investigadora PhD · Líder QHSE",
+        "nav.pillars": "Pilares",
+        "nav.research": "Investigación & IA",
+        "nav.iso": "Sistemas ISO",
+        "nav.trajectory": "Trayectoria",
+        "nav.contact": "Contacto",
+        "hero.badge": "Reino Unido · Gobernanza QHSE, Descarbonización & Ciencia de Datos",
+        "hero.title.part1": "Ingeniería de Excelencia en",
+        "hero.title.part2": "Seguridad, Calidad, Medio Ambiente y Descarbonización.",
+        "hero.subtitle": "Ingeniera Industrial con Maestría (MSc) por la Universidad de Birmingham (con Distinción al Mérito) e Investigadora Doctoral (PhD) en descarbonización de infraestructura de transporte. Especialista en cumplimiento normativo crítico (aviación y energía), sistemas integrados ISO y modelado computacional de emisiones de carbono (A1–A3).",
+        "hero.cta.primary": "Colaboración Estratégica",
+        "hero.cta.secondary": "Explorar Investigación & Software",
+        "card.header": "Perfil Ejecutivo",
+        "card.role": "Arquitectura QHSE · Investigadora PhD · MSc",
+        "card.photolink": "Ver fotografía oficial (Annie photo)",
+        "card.item1.title": "Investigadora PhD (Reino Unido)",
+        "card.item1.desc": "Benchmarking de fiabilidad en costo, carbono y plazo en obras viales.",
+        "card.item2.title": "MSc University of Birmingham",
+        "card.item2.desc": "Graduada con Distinción al Mérito · Ingeniería Industrial.",
+        "card.item3.title": "Liderazgo Multisectorial QHSE",
+        "card.item3.desc": "Sistemas integrados ISO 9001, ISO 14001 e ISO 45001 en aviación y energía.",
+        "card.item4.title": "Ingeniería Computacional & IA",
+        "card.item4.desc": "Python, NLP, PyTorch, GCP Vertex AI y automatización de carbono embebido.",
+        "metrics.m1": "Auditoría e Implementación ISO 9001 · 14001 · 45001",
+        "metrics.m2": "Modelado Automatizado de Carbono Embebido (ICE Database)",
+        "metrics.m3": "Síntesis Metodológica Rigurosa y Benchmarking Empírico",
+        "metrics.m4": "Ejecución Técnica Bilingüe en Entornos Internacionales",
+        "pillars.kicker": "Arquitectura de Competencias",
+        "pillars.title": "Tres Dimensiones de Impacto Técnico",
+        "pillars.desc": "Integración de gobernanza operativa industrial, rigor metodológico doctoral e ingeniería de software orientada a datos.",
+        "pillars.p1.title": "1. Gobernanza QHSE & Cumplimiento Industrial",
+        "pillars.p1.body": "Diseño, auditoría y optimización de Sistemas Integrados de Gestión (Calidad, Seguridad y Salud Ocupacional, y Medio Ambiente) en sectores de alta criticidad como aviación y energía. Mitigación operativa de riesgos y cultura de cero incidentes.",
+        "pillars.p2.title": "2. Descarbonización de Infraestructura (PhD)",
+        "pillars.p2.body": "Desarrollo de marcos de fiabilidad empírica para evaluar compensaciones entre costo, emisiones de carbono y cronograma en proyectos de construcción vial. Contabilidad de carbono embebido (etapas A1–A3) alineada con estándares internacionales PAS 2080, EN 15978 y factores de la base de datos ICE.",
+        "pillars.p3.title": "3. Pipelines de Datos, NLP & IA Aplicada",
+        "pillars.p3.body": "Arquitectura de herramientas computacionales en Python para extracción automatizada de entidades en presupuestos de obra (BoQ), mapeo semántico de factores de emisión y despliegue de agentes inteligentes sobre infraestructura Google Cloud (Vertex AI / Cloud Run).",
+        "research.kicker": "I+D+i & Ingeniería de Software",
+        "research.title": "Proyectos de Investigación y Sistemas Computacionales",
+        "research.note": "Metodología empírica · Validación reproducible",
+        "research.p1.title": "boq2carbon: Inventario Automatizado de Carbono Embebido",
+        "research.p1.desc": "Pipeline modular en Python diseñado para ingerir presupuestos de construcción (Bill of Quantities en PDF y hojas de cálculo), normalizar unidades mediante diccionarios de datos estandarizados y vincular partidas con factores de emisión del Inventory of Carbon and Energy (ICE Database) para cuantificar emisiones A1–A3 con trazabilidad auditable.",
+        "research.p1.status": "Prototipo Validado",
+        "research.p2.title": "Marco de Fiabilidad para Infraestructura de Transporte",
+        "research.p2.desc": "Investigación doctoral enfocada en el benchmarking simultáneo de desviaciones de costo, cronograma e intensidad de carbono en proyectos viales. Incluye revisiones sistemáticas de literatura bajo directrices PRISMA y modelado predictivo para la toma de decisiones en etapas tempranas de diseño.",
+        "research.p2.status": "Investigación en Curso",
+        "iso.kicker": "Estándares Internacionales",
+        "iso.title": "Matriz de Gobernanza QHSE y Descarbonización",
+        "iso.col1": "Norma / Marco",
+        "iso.col2": "Dominio Operativo",
+        "iso.col3": "Aplicación Estratégica y Entregables",
+        "iso.r1.domain": "Gestión de Calidad y Procesos",
+        "iso.r1.app": "Estandarización de procesos críticos, control estadístico, auditorías internas/externas y mejora continua (Lean / Six Sigma).",
+        "iso.r2.domain": "Desempeño Ambiental",
+        "iso.r2.app": "Evaluación de impacto de ciclo de vida, matrices de aspectos ambientales, control de residuos y cumplimiento legal en energía e infraestructura.",
+        "iso.r3.domain": "Seguridad y Salud Ocupacional",
+        "iso.r3.app": "Identificación de peligros (IPERC), análisis de causa raíz (RCA), gestión de contratistas y protocolos de seguridad operacional en aviación e industria.",
+        "iso.r4.domain": "Carbono en Infraestructura",
+        "iso.r4.app": "Cuantificación de carbono embebido (A1–A3), integración de factores de la base de datos ICE y evaluación de líneas base de descarbonización en obras civiles.",
+        "traj.kicker": "Evolución Profesional y Académica",
+        "traj.title": "Trayectoria Internacional",
+        "traj.t1.date": "Actualidad · Reino Unido",
+        "traj.t1.role": "Investigadora Doctoral (PhD) — Descarbonización y Fiabilidad de Infraestructura Vial",
+        "traj.t1.desc": "Desarrollo de modelos empíricos y herramientas computacionales para evaluar el desempeño conjunto de costo, tiempo y carbono embebido en proyectos de infraestructura de transporte.",
+        "traj.t2.date": "Reino Unido · Posgrado de Excelencia",
+        "traj.t2.role": "Maestría en Ciencias (MSc) — University of Birmingham (Distinción al Mérito)",
+        "traj.t2.desc": "Especialización avanzada en gestión de ingeniería, optimización de sistemas complejos, análisis de riesgos y sostenibilidad industrial.",
+        "traj.t3.date": "Experiencia Industrial · Aviación & Energía",
+        "traj.t3.role": "Liderazgo en Sistemas QHSE e Ingeniería Industrial",
+        "traj.t3.desc": "Dirección y aseguramiento de cumplimiento normativo, auditorías trinorma (ISO 9001, ISO 14001, ISO 45001), gestión de riesgos operacionales y mejora continua en operaciones críticas del sector energético y aeronáutico.",
+        "contact.kicker": "Colaboración Estratégica Inmediata",
+        "contact.title": "¿Listo para transformar la gestión QHSE o descarbonizar proyectos de infraestructura?",
+        "contact.desc": "Disponible para colaboraciones de investigación académica, consultoría en sistemas integrados ISO, auditorías técnicas y desarrollo de soluciones analíticas de carbono.",
+        "contact.linkedin": "Conectar en LinkedIn",
+        "contact.github": "Repositorios en GitHub",
+        "footer.rights": "© 2026 Annie Cecy Espinoza Arispe. Todos los derechos reservados.",
+        "footer.tag": "Portafolio Ejecutivo QHSE · Ingeniería Industrial · Investigación PhD",
+        "modal.notfound.title": "Archivo de imagen no detectado en la ruta raíz",
+        "modal.notfound.desc": "Verifica en tu repositorio de GitHub que el archivo esté subido en la misma carpeta que index.html con el nombre 'Annie photo.jpg' o 'Annie photo.png'.",
+        "modal.openraw": "Abrir archivo original"
+      },
+      en: {
+        metaTitle: "Annie Cecy Espinoza Arispe | QHSE Leader, PhD Researcher & Industrial Engineer",
+        metaDesc: "Executive and academic portfolio of Annie Cecy Espinoza Arispe. Industrial Engineer, MSc (University of Birmingham, Distinction), PhD Researcher in Transport Infrastructure Decarbonization & QHSE Systems.",
+        "nav.subtitle": "MSc · PhD Researcher · QHSE Leader",
+        "nav.pillars": "Core Pillars",
+        "nav.research": "Research & AI",
+        "nav.iso": "ISO Matrix",
+        "nav.trajectory": "Trajectory",
+        "nav.contact": "Contact",
+        "hero.badge": "United Kingdom · QHSE Governance, Decarbonization & Data Science",
+        "hero.title.part1": "Engineering Excellence in",
+        "hero.title.part2": "Health, Safety, Quality, Environment & Decarbonization.",
+        "hero.subtitle": "Industrial Engineer holding an MSc from the University of Birmingham (with Merit/Distinction) and Doctoral Researcher (PhD) in transport infrastructure decarbonization. Specialist in high-consequence regulatory compliance (aviation and energy), integrated ISO management systems, and computational embodied carbon modeling (A1–A3).",
+        "hero.cta.primary": "Strategic Collaboration",
+        "hero.cta.secondary": "Explore Research & Software",
+        "card.header": "Executive Profile",
+        "card.role": "QHSE Architecture · PhD Researcher · MSc",
+        "card.photolink": "View official portrait (Annie photo)",
+        "card.item1.title": "PhD Researcher (United Kingdom)",
+        "card.item1.desc": "Reliability benchmarking across cost, carbon, and schedule metrics in road construction.",
+        "card.item2.title": "MSc University of Birmingham",
+        "card.item2.desc": "Graduated with Distinction/Merit · Industrial Engineering.",
+        "card.item3.title": "Cross-Sector QHSE Leadership",
+        "card.item3.desc": "Integrated ISO 9001, ISO 14001, and ISO 45001 governance across aviation and energy sectors.",
+        "card.item4.title": "Computational Engineering & AI",
+        "card.item4.desc": "Python, NLP, PyTorch, GCP Vertex AI, and automated embodied carbon accounting.",
+        "metrics.m1": "ISO 9001 · 14001 · 45001 Auditing & Implementation",
+        "metrics.m2": "Automated Embodied Carbon Accounting (ICE Database)",
+        "metrics.m3": "Systematic Evidence Synthesis & Empirical Benchmarking",
+        "metrics.m4": "Bilingual Technical Execution in Global Environments",
+        "pillars.kicker": "Competency Architecture",
+        "pillars.title": "Three Dimensions of Technical Impact",
+        "pillars.desc": "Synthesizing industrial operational governance, doctoral methodological rigor, and data-driven software engineering.",
+        "pillars.p1.title": "1. QHSE Governance & Industrial Compliance",
+        "pillars.p1.body": "Design, auditing, and optimization of Integrated Management Systems (Quality, Occupational Health & Safety, and Environment) in safety-critical aviation and energy operations. Proactive risk mitigation and zero-incident operational culture.",
+        "pillars.p2.title": "2. Infrastructure Decarbonization (PhD)",
+        "pillars.p2.body": "Developing empirical reliability frameworks to evaluate trade-offs between capital cost, carbon emissions, and schedule performance in highway infrastructure. Product-stage embodied carbon accounting (A1–A3) aligned with PAS 2080, EN 15978, and ICE Database factors.",
+        "pillars.p3.title": "3. Data Pipelines, NLP & Applied AI",
+        "pillars.p3.body": "Architecting Python computational pipelines for automated entity extraction from Bill of Quantities (BoQ), semantic emission-factor mapping, and deploying intelligent agent workflows on Google Cloud Platform (Vertex AI / Cloud Run).",
+        "research.kicker": "R&D & Software Engineering",
+        "research.title": "Research Projects & Computational Systems",
+        "research.note": "Empirical methodology · Reproducible validation",
+        "research.p1.title": "boq2carbon: Automated Embodied Carbon Inventorying",
+        "research.p1.desc": "Modular Python data pipeline engineered to parse construction Bills of Quantities (PDFs and spreadsheets), standardize measurement units via structured data dictionaries, and map line items to Inventory of Carbon and Energy (ICE Database) factors for auditable A1–A3 carbon accounting.",
+        "research.p1.status": "Validated Prototype",
+        "research.p2.title": "Transport Infrastructure Reliability Framework",
+        "research.p2.desc": "Doctoral research benchmarking simultaneous cost overruns, schedule slippage, and carbon intensity in road construction projects. Incorporates PRISMA-compliant systematic literature reviews and predictive modeling for early-stage design governance.",
+        "research.p2.status": "Active Research",
+        "iso.kicker": "International Standards",
+        "iso.title": "QHSE & Decarbonization Governance Matrix",
+        "iso.col1": "Standard / Framework",
+        "iso.col2": "Operational Domain",
+        "iso.col3": "Strategic Application & Deliverables",
+        "iso.r1.domain": "Quality & Process Governance",
+        "iso.r1.app": "Critical process standardization, statistical process control, internal/external auditing, and continuous improvement (Lean / Six Sigma).",
+        "iso.r2.domain": "Environmental Management",
+        "iso.r2.app": "Life-cycle environmental aspect matrices, waste minimization, regulatory compliance, and operational sustainability across energy and civil assets.",
+        "iso.r3.domain": "Occupational Health & Safety",
+        "iso.r3.app": "Hazard identification and risk assessment (HIRA), root cause analysis (RCA), contractor safety governance, and aviation/industrial safety protocols.",
+        "iso.r4.domain": "Infrastructure Carbon Management",
+        "iso.r4.app": "Cradle-to-gate embodied carbon quantification (A1–A3), ICE Database factor integration, and whole-life decarbonization baselining in civil works.",
+        "traj.kicker": "Academic & Executive Progression",
+        "traj.title": "International Trajectory",
+        "traj.t1.date": "Present · United Kingdom",
+        "traj.t1.role": "Doctoral Researcher (PhD) — Road Infrastructure Decarbonization & Reliability",
+        "traj.t1.desc": "Developing empirical frameworks and automated software pipelines to benchmark cost, schedule, and embodied carbon performance in transport infrastructure.",
+        "traj.t2.date": "United Kingdom · Postgraduate Distinction",
+        "traj.t2.role": "Master of Science (MSc) — University of Birmingham (With Merit/Distinction)",
+        "traj.t2.desc": "Advanced specialization in engineering management, complex systems optimization, risk governance, and industrial sustainability.",
+        "traj.t3.date": "Industrial Experience · Aviation & Energy",
+        "traj.t3.role": "QHSE Management Systems Leader & Industrial Engineer",
+        "traj.t3.desc": "Directed regulatory compliance, tri-standard ISO auditing (ISO 9001, ISO 14001, ISO 45001), operational risk management, and process excellence across high-reliability aviation and energy operations.",
+        "contact.kicker": "Immediate Strategic Collaboration",
+        "contact.title": "Ready to elevate QHSE governance or decarbonize infrastructure delivery?",
+        "contact.desc": "Available for academic research partnerships, integrated ISO management consultancy, technical audits, and computational carbon analytics.",
+        "contact.linkedin": "Connect on LinkedIn",
+        "contact.github": "GitHub Repositories",
+        "footer.rights": "© 2026 Annie Cecy Espinoza Arispe. All rights reserved.",
+        "footer.tag": "Executive QHSE Portfolio · Industrial Engineering · PhD Research",
+        "modal.notfound.title": "Image file not detected in root directory",
+        "modal.notfound.desc": "Verify in your GitHub repository that the file is uploaded in the same folder as index.html named 'Annie photo.jpg' or 'Annie photo.png'.",
+        "modal.openraw": "Open original file"
+      }
+    };
+
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Language State Management (URL Param > LocalStorage > Default 'es')
+    const urlParams = new URLSearchParams(window.location.search);
+    let currentLang = urlParams.get('lang') || localStorage.getItem('annie_lang') || 'es';
+    if (!['es', 'en'].includes(currentLang)) currentLang = 'es';
+
+    const langToggleBtn = document.getElementById('lang-toggle');
+    const langIndicator = document.getElementById('lang-indicator');
+
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+      document.getElementById('page-title').textContent = translations[lang].metaTitle;
+      document.getElementById('page-desc').setAttribute('content', translations[lang].metaDesc);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      langIndicator.textContent = lang === 'es' ? 'ES active · EN' : 'EN active · ES';
+      localStorage.setItem('annie_lang', lang);
+    }
+
+    langToggleBtn.addEventListener('click', () => {
+      currentLang = currentLang === 'es' ? 'en' : 'es';
+      applyLanguage(currentLang);
+    });
+
+    applyLanguage(currentLang);
+
+    // Dark / Light Theme Persistence
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('annie_theme');
+    if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      const isDark = document.documentElement.classList.contains('dark');
+      localStorage.setItem('annie_theme', isDark ? 'dark' : 'light');
+    });
+  </script>
+</body>
+</html>
