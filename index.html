@@ -8,12 +8,11 @@
   <meta name="author" content="Annie Cecy Espinoza Arispe" />
   <link rel="canonical" href="https://anniececy.com/" />
 
-  <!-- Open Graph / LinkedIn -->
+  <!-- Open Graph / LinkedIn (Raw photo link removed to prevent scrapers) -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://anniececy.com/" />
   <meta property="og:title" content="Annie Cecy Espinoza Arispe | QHSE, Decarbonization & Industrial Engineering" />
   <meta property="og:description" content="Ingeniería de Excelencia en Seguridad, Calidad, Medio Ambiente (QHSE) y Descarbonización de Infraestructura Basada en Datos." />
-  <meta property="og:image" content="https://anniececy.com/Annie%20Photo.jpg" />
 
   <!-- Google Fonts: Inter, Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,7 +56,6 @@
     "@type": "Person",
     "name": "Annie Cecy Espinoza Arispe",
     "url": "https://anniececy.com",
-    "image": "https://anniececy.com/Annie%20Photo.jpg",
     "jobTitle": "QHSE Leader, Industrial Engineer & PhD Researcher in Infrastructure Decarbonization",
     "alumniOf": [
       {
@@ -93,6 +91,17 @@
         linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
     }
+    /* Anti-Download Protection Locks */
+    .img-shield {
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      -khtml-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-user-drag: none !important;
+      pointer-events: none !important;
+    }
   </style>
 </head>
 
@@ -103,8 +112,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Brand Identity -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-lg bg-slate-900 dark:bg-brand-600 text-white flex items-center justify-center font-display font-bold text-lg tracking-tight shadow-sm group-hover:bg-brand-600 transition-colors overflow-hidden">
-          <img id="nav-avatar" src="Annie%20Photo.jpg" alt="Annie Cecy Espinoza Arispe" class="w-full h-full object-cover object-top" onerror="this.style.display='none'; document.getElementById('nav-initials').style.display='flex';" />
+        <div class="relative w-10 h-10 rounded-lg bg-slate-900 dark:bg-brand-600 text-white flex items-center justify-center font-display font-bold text-lg tracking-tight shadow-sm overflow-hidden select-none" oncontextmenu="return false;">
+          <!-- Transparent Protection Shield -->
+          <div class="absolute inset-0 z-10 cursor-default"></div>
+          <img id="nav-avatar" src="Annie%20Photo.jpg" alt="" draggable="false" class="img-shield w-full h-full object-cover object-top" onerror="this.style.display='none'; document.getElementById('nav-initials').style.display='flex';" />
           <span id="nav-initials" class="hidden w-full h-full items-center justify-center">AE</span>
         </div>
         <div>
@@ -181,35 +192,40 @@
         <div class="lg:col-span-5">
           <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-8 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none space-y-6">
             
-            <!-- Executive Portrait Block (Direct match to "Annie Photo.jpg") -->
+            <!-- Protected Executive Portrait Block -->
             <div class="flex flex-col sm:flex-row items-center gap-5 pb-6 border-b border-slate-100 dark:border-slate-800">
-              <button id="photo-trigger" type="button" title="Annie Cecy Espinoza Arispe"
-                class="relative group shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-600/40 dark:border-brand-500/40 shadow-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500">
-                <img id="annie-portrait" src="Annie%20Photo.jpg" alt="Annie Cecy Espinoza Arispe"
-                  class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300" />
+              
+              <!-- Image Container with Anti-Download Layer -->
+              <div class="relative shrink-0 w-28 h-28 sm:w-32 sm:h-32 rounded-2xl overflow-hidden border-2 border-brand-600/40 dark:border-brand-500/40 shadow-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center select-none"
+                   oncontextmenu="return false;"
+                   onselectstart="return false;"
+                   ondragstart="return false;">
+                
+                <!-- Transparent Shielding Overlay: intercepts right clicks, touches, and drag attempts -->
+                <div class="absolute inset-0 z-20 bg-transparent select-none"></div>
+
+                <!-- Protected Image -->
+                <img id="annie-portrait"
+                     src="Annie%20Photo.jpg"
+                     alt="Annie Cecy Espinoza Arispe"
+                     draggable="false"
+                     class="img-shield relative z-10 w-full h-full object-cover object-top"
+                     onerror="this.style.display='none'; document.getElementById('portrait-fallback').style.display='flex';" />
+
+                <!-- Text Initials Fallback if image path is unavailable -->
                 <div id="portrait-fallback" class="hidden flex-col items-center justify-center text-center p-2">
                   <span class="font-display font-bold text-2xl text-brand-600">AE</span>
-                  <span class="font-mono text-[10px] text-slate-400 mt-1">Annie Photo.jpg</span>
                 </div>
-                <span class="absolute bottom-1.5 right-1.5 p-1 rounded-md bg-slate-900/75 text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                  <i data-lucide="maximize-2" class="w-3.5 h-3.5"></i>
-                </span>
-              </button>
+              </div>
 
+              <!-- Executive Title block without direct file links -->
               <div class="text-center sm:text-left">
                 <p class="font-mono text-xs uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold" data-i18n="card.header">Perfil Ejecutivo</p>
                 <h2 class="font-display font-bold text-xl text-slate-900 dark:text-white mt-0.5">Annie Cecy Espinoza Arispe</h2>
                 <p class="text-xs text-slate-500 dark:text-slate-400 mt-1" data-i18n="card.role">Arquitectura QHSE · Investigadora PhD · MSc</p>
-                <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 mt-2.5">
-                  <button id="photo-text-trigger" type="button"
-                    class="inline-flex items-center gap-1.5 text-xs font-mono text-brand-600 dark:text-brand-400 hover:underline cursor-pointer">
-                    <i data-lucide="image" class="w-3.5 h-3.5"></i>
-                    <span data-i18n="card.photolink">Ver fotografía oficial</span>
-                  </button>
-                  <a id="direct-open-link" href="Annie%20Photo.jpg" target="_blank" rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1 text-xs font-mono text-slate-500 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-400">
-                    <i data-lucide="external-link" class="w-3 h-3"></i>
-                  </a>
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-mono mt-2.5">
+                  <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-400"></i>
+                  <span data-i18n="card.badge">Investigación & Industria</span>
                 </div>
               </div>
             </div>
@@ -548,46 +564,16 @@
     </div>
   </footer>
 
-  <!-- IN-PAGE LIGHTBOX MODAL FOR "Annie Photo.jpg" -->
-  <div id="photo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/85 p-4 backdrop-blur-sm">
-    <div class="relative max-w-lg w-full bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-2xl">
-      <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100 dark:border-slate-800">
-        <div>
-          <h3 class="font-display font-bold text-base text-slate-900 dark:text-white">Annie Cecy Espinoza Arispe</h3>
-          <p class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="nav.subtitle">MSc · Investigadora PhD · Líder QHSE</p>
-        </div>
-        <button id="close-modal" type="button" aria-label="Close modal"
-          class="p-1.5 rounded-lg text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-          <i data-lucide="x" class="w-5 h-5"></i>
-        </button>
-      </div>
-
-      <div class="rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 flex items-center justify-center min-h-[280px] max-h-[70vh]">
-        <img id="modal-img" src="Annie%20Photo.jpg" alt="Annie Cecy Espinoza Arispe" class="max-h-[70vh] w-auto object-contain" />
-      </div>
-
-      <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-mono">
-        <span id="resolved-path-label" class="text-slate-400 truncate max-w-[60%]">Annie Photo.jpg</span>
-        <a id="direct-file-link" href="Annie%20Photo.jpg" target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-brand-600 dark:text-brand-400 hover:underline font-semibold">
-          <span data-i18n="modal.openraw">Abrir archivo original</span>
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- BILINGUAL I18N, EXACT CASE PHOTO RESOLVER & THEME ENGINE -->
+  <!-- BILINGUAL I18N, SECURE PHOTO RESOLVER & THEME ENGINE -->
   <script>
-    // Prioritizes exact match "Annie Photo.jpg" (capital P) with fallback to other case/folder variants
-    (function resolveAnniePhoto() {
+    // Robust resolver for exact filename variants without generating downloadable link trails
+    (function initProtectedPhoto() {
       const candidates = [
         'Annie%20Photo.jpg',
         'Annie%20photo.jpg',
         'Annie%20Photo.jpeg',
         'Annie%20Photo.JPG',
         'Annie%20Photo.png',
-        'annie%20photo.jpg',
         'images/Annie%20Photo.jpg',
         'assets/Annie%20Photo.jpg'
       ];
@@ -596,10 +582,6 @@
       const portraitFallback = document.getElementById('portrait-fallback');
       const navAvatar = document.getElementById('nav-avatar');
       const navInitials = document.getElementById('nav-initials');
-      const modalImg = document.getElementById('modal-img');
-      const directFileLink = document.getElementById('direct-file-link');
-      const directOpenLink = document.getElementById('direct-open-link');
-      const resolvedPathLabel = document.getElementById('resolved-path-label');
 
       let resolved = false;
 
@@ -610,49 +592,16 @@
           resolved = true;
 
           portraitImg.src = candidateUrl;
-          portraitImg.classList.remove('hidden');
-          if (portraitFallback) portraitFallback.classList.add('hidden');
+          portraitImg.style.display = 'block';
+          if (portraitFallback) portraitFallback.style.display = 'none';
 
           if (navAvatar) {
             navAvatar.src = candidateUrl;
             navAvatar.style.display = 'block';
           }
           if (navInitials) navInitials.style.display = 'none';
-
-          if (modalImg) modalImg.src = candidateUrl;
-          if (directFileLink) directFileLink.href = candidateUrl;
-          if (directOpenLink) directOpenLink.href = candidateUrl;
-          if (resolvedPathLabel) resolvedPathLabel.textContent = decodeURIComponent(candidateUrl);
         };
         tester.src = candidateUrl;
-      });
-
-      // Lightbox Modal Controls
-      const modal = document.getElementById('photo-modal');
-      const trigger1 = document.getElementById('photo-trigger');
-      const trigger2 = document.getElementById('photo-text-trigger');
-      const closeBtn = document.getElementById('close-modal');
-
-      function openModal() {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
-      }
-
-      function closeModal() {
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
-      }
-
-      if (trigger1) trigger1.addEventListener('click', openModal);
-      if (trigger2) trigger2.addEventListener('click', openModal);
-      if (closeBtn) closeBtn.addEventListener('click', closeModal);
-      if (modal) {
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeModal();
-        });
-      }
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeModal();
       });
     })();
 
@@ -674,7 +623,7 @@
         "hero.cta.secondary": "Explorar Investigación & Software",
         "card.header": "Perfil Ejecutivo",
         "card.role": "Arquitectura QHSE · Investigadora PhD · MSc",
-        "card.photolink": "Ver fotografía oficial",
+        "card.badge": "Investigación & Industria",
         "card.item1.title": "Investigadora PhD (Reino Unido)",
         "card.item1.desc": "Benchmarking de fiabilidad en costo, carbono y plazo en obras viales.",
         "card.item2.title": "MSc University of Birmingham",
@@ -735,8 +684,7 @@
         "contact.linkedin": "Conectar en LinkedIn",
         "contact.github": "Repositorios en GitHub",
         "footer.rights": "© 2026 Annie Cecy Espinoza Arispe. Todos los derechos reservados.",
-        "footer.tag": "Portafolio Ejecutivo QHSE · Ingeniería Industrial · Investigación PhD",
-        "modal.openraw": "Abrir archivo original"
+        "footer.tag": "Portafolio Ejecutivo QHSE · Ingeniería Industrial · Investigación PhD"
       },
       en: {
         metaTitle: "Annie Cecy Espinoza Arispe | QHSE Leader, PhD Researcher & Industrial Engineer",
@@ -755,7 +703,7 @@
         "hero.cta.secondary": "Explore Research & Software",
         "card.header": "Executive Profile",
         "card.role": "QHSE Architecture · PhD Researcher · MSc",
-        "card.photolink": "View official portrait",
+        "card.badge": "Research & Industry",
         "card.item1.title": "PhD Researcher (United Kingdom)",
         "card.item1.desc": "Reliability benchmarking across cost, carbon, and schedule metrics in road construction.",
         "card.item2.title": "MSc University of Birmingham",
@@ -816,15 +764,14 @@
         "contact.linkedin": "Connect on LinkedIn",
         "contact.github": "GitHub Repositories",
         "footer.rights": "© 2026 Annie Cecy Espinoza Arispe. All rights reserved.",
-        "footer.tag": "Executive QHSE Portfolio · Industrial Engineering · PhD Research",
-        "modal.openraw": "Open original file"
+        "footer.tag": "Executive QHSE Portfolio · Industrial Engineering · PhD Research"
       }
     };
 
     // Initialize Lucide Icons
     lucide.createIcons();
 
-    // Language State Management (URL Param > LocalStorage > Default 'es')
+    // Language State Management
     const urlParams = new URLSearchParams(window.location.search);
     let currentLang = urlParams.get('lang') || localStorage.getItem('annie_lang') || 'es';
     if (!['es', 'en'].includes(currentLang)) currentLang = 'es';
