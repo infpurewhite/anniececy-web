@@ -97,4 +97,417 @@
     }
     /* Anti-Download Interaction Locks */
     .img-shield {
-      -webkit
+      -webkit-touch-callout: none !important;
+      -webkit-user-select: none !important;
+      -khtml-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-user-drag: none !important;
+      pointer-events: none !important;
+    }
+    /* Face Centering Precision */
+    .face-centered {
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased selection:bg-brand-600 selection:text-white transition-colors duration-200 grid-bg">
+
+  <!-- TOP NAVIGATION -->
+  <header class="sticky top-0 z-50 glass-nav bg-white/85 dark:bg-slate-900/85 border-b border-slate-200/80 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Identity -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-10 h-10 rounded-lg bg-slate-900 dark:bg-brand-600 text-white flex items-center justify-center font-display font-bold text-lg tracking-tight shadow-sm overflow-hidden select-none" oncontextmenu="return false;">
+          <!-- Transparent Shield Layer -->
+          <div class="absolute inset-0 z-10 cursor-default"></div>
+          <img id="nav-avatar" src="Annie%20Photo.jpg" alt="" draggable="false" class="img-shield face-centered w-full h-full" onerror="this.style.display='none'; document.getElementById('nav-initials').style.display='flex';" />
+          <span id="nav-initials" class="hidden w-full h-full items-center justify-center">AE</span>
+        </div>
+        <div>
+          <span class="font-display font-bold text-base sm:text-lg tracking-tight block leading-none text-slate-900 dark:text-white">
+            Annie Cecy Espinoza Arispe
+          </span>
+          <span class="font-mono text-xs text-slate-500 dark:text-slate-400 block mt-1" data-i18n="nav.subtitle">
+            MSc · Investigadora PhD · Líder QHSE
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#pillars" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors" data-i18n="nav.pillars">Pilares</a>
+        <a href="#research" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors" data-i18n="nav.research">Investigación & IA</a>
+        <a href="#iso-matrix" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors" data-i18n="nav.iso">Sistemas ISO</a>
+        <a href="#trajectory" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors" data-i18n="nav.trajectory">Trayectoria</a>
+        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-500 transition-colors" data-i18n="nav.contact">Contacto</a>
+      </nav>
+
+      <!-- Controls: Language + Theme -->
+      <div class="flex items-center gap-2.5">
+        <button id="lang-toggle" type="button" aria-label="Toggle Language"
+          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:border-brand-600 dark:hover:border-brand-500 transition-all">
+          <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-600 dark:text-brand-500"></i>
+          <span id="lang-indicator">ES | EN</span>
+        </button>
+
+        <button id="theme-toggle" type="button" aria-label="Toggle Dark Mode"
+          class="p-2 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:border-brand-600 transition-all">
+          <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+          <i data-lucide="sun" class="w-4 h-4 hidden dark:block text-amber-400"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative pt-14 pb-20 lg:pt-24 lg:pb-28 overflow-hidden border-b border-slate-200 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Executive Pitch -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/40 border border-brand-200 dark:border-brand-700/60 text-brand-700 dark:text-brand-300 text-xs font-mono font-medium">
+            <span class="w-2 h-2 rounded-full bg-brand-600 animate-pulse"></span>
+            <span data-i18n="hero.badge">Reino Unido · Gobernanza QHSE, Descarbonización & Ciencia de Datos</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.12]">
+            <span data-i18n="hero.title.part1">Ingeniería de Excelencia en</span>
+            <span class="text-brand-600 dark:text-brand-500 block mt-1" data-i18n="hero.title.part2">Seguridad, Calidad, Medio Ambiente y Descarbonización.</span>
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed" data-i18n="hero.subtitle">
+            Ingeniera Industrial con Maestría (MSc) por la Universidad de Birmingham (con Distinción al Mérito) e Investigadora Doctoral (PhD) en descarbonización de infraestructura de transporte. Especialista en cumplimiento normativo crítico (aviación y energía), sistemas integrados ISO y modelado computacional de emisiones de carbono (A1–A3).
+          </p>
+
+          <!-- Primary CTAs -->
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900 dark:bg-brand-600 text-white font-display font-semibold text-sm hover:bg-brand-600 dark:hover:bg-brand-500 shadow-sm transition-all">
+              <span data-i18n="hero.cta.primary">Colaboración Estratégica</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#research" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-display font-semibold text-sm hover:border-brand-600 dark:hover:border-brand-500 transition-all">
+              <i data-lucide="cpu" class="w-4 h-4 text-brand-600 dark:text-brand-500"></i>
+              <span data-i18n="hero.cta.secondary">Explorar Investigación & Software</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Compact Protected Profile Card with Centered Face -->
+        <div class="lg:col-span-5">
+          <div class="bg-white dark:bg-slate-900 rounded-2xl p-6 sm:p-7 border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none space-y-6">
+            
+            <!-- Compact Header with Small Centered Portrait -->
+            <div class="flex items-center gap-4 pb-5 border-b border-slate-100 dark:border-slate-800">
+              
+              <!-- Small Protected Portrait Frame (w-20 h-20 / 80x80px) -->
+              <div class="relative shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 border-brand-600/40 dark:border-brand-500/40 shadow-sm bg-slate-100 dark:bg-slate-800 flex items-center justify-center select-none"
+                   oncontextmenu="return false;"
+                   onselectstart="return false;"
+                   ondragstart="return false;">
+                
+                <!-- Transparent Shield: Blocks click, hold, drag, and context menu -->
+                <div class="absolute inset-0 z-20 bg-transparent select-none cursor-default"></div>
+
+                <!-- Protected Small Image Asset Centered at Facial Level -->
+                <img id="annie-portrait"
+                     src="Annie%20Photo.jpg"
+                     alt="Annie Cecy Espinoza Arispe"
+                     draggable="false"
+                     class="img-shield face-centered relative z-10 w-full h-full"
+                     onerror="this.style.display='none'; document.getElementById('portrait-fallback').style.display='flex';" />
+
+                <!-- Fallback Initials -->
+                <div id="portrait-fallback" class="hidden flex-col items-center justify-center text-center p-1">
+                  <span class="font-display font-bold text-xl text-brand-600">AE</span>
+                </div>
+              </div>
+
+              <!-- Executive Credentials Header -->
+              <div class="min-w-0">
+                <p class="font-mono text-xs uppercase tracking-wider text-brand-600 dark:text-brand-400 font-semibold" data-i18n="card.header">Perfil Ejecutivo</p>
+                <h2 class="font-display font-bold text-lg text-slate-900 dark:text-white truncate mt-0.5">Annie Cecy Espinoza Arispe</h2>
+                <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5" data-i18n="card.role">Arquitectura QHSE · Investigadora PhD · MSc</p>
+                
+                <!-- Social Profile Badges -->
+                <div class="flex items-center gap-2 mt-2">
+                  <a href="https://www.linkedin.com/in/annie-espinoza-3ab89686/" target="_blank" rel="noopener noreferrer"
+                     class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                    <i data-lucide="linkedin" class="w-3 h-3 text-[#0a66c2]"></i>
+                    <span>LinkedIn</span>
+                  </a>
+                  <a href="https://github.com/Anniececy" target="_blank" rel="noopener noreferrer"
+                     class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-mono font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+                    <i data-lucide="github" class="w-3 h-3"></i>
+                    <span>GitHub</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Credentials List -->
+            <ul class="space-y-3.5 text-sm">
+              <li class="flex items-start gap-3">
+                <i data-lucide="graduation-cap" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item1.title">Investigadora PhD (Reino Unido)</strong>
+                  <span class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm" data-i18n="card.item1.desc">Benchmarking de fiabilidad en costo, carbono y plazo en obras viales.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="award" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item2.title">MSc University of Birmingham</strong>
+                  <span class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm" data-i18n="card.item2.desc">Graduada con Distinción al Mérito · Ingeniería Industrial.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="layers" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item3.title">Liderazgo Multisectorial QHSE</strong>
+                  <span class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm" data-i18n="card.item3.desc">Sistemas integrados ISO 9001, ISO 14001 e ISO 45001 en aviación y energía.</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <i data-lucide="terminal" class="w-5 h-5 text-brand-600 shrink-0 mt-0.5"></i>
+                <div>
+                  <strong class="block text-slate-900 dark:text-white" data-i18n="card.item4.title">Ingeniería Computacional & IA</strong>
+                  <span class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm" data-i18n="card.item4.desc">Python, NLP, PyTorch, GCP Vertex AI y automatización de carbono embebido.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Key Metrics Bar -->
+      <div class="mt-14 pt-10 border-t border-slate-200/80 dark:border-slate-800 grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ISO 3x</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m1">Auditoría e Implementación ISO 9001 · 14001 · 45001</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-brand-600 dark:text-brand-500">A1–A3</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m2">Modelado Automatizado de Carbono Embebido (ICE Database)</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">PRISMA</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m3">Síntesis Metodológica Rigurosa y Benchmarking Empírico</p>
+        </div>
+        <div class="bg-white/70 dark:bg-slate-900/60 p-5 rounded-xl border border-slate-200/60 dark:border-slate-800">
+          <p class="font-mono text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">ES / EN</p>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1" data-i18n="metrics.m4">Ejecución Técnica Bilingüe en Entornos Internacionales</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE PILLARS SECTION -->
+  <section id="pillars" class="py-20 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="pillars.kicker">Arquitectura de Competencias</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="pillars.title">
+          Tres Dimensiones de Impacto Técnico
+        </h2>
+        <p class="text-slate-600 dark:text-slate-400 mt-3 text-base sm:text-lg" data-i18n="pillars.desc">
+          Integración de gobernanza operativa industrial, rigor metodológico doctoral e ingeniería de software orientada a datos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Pillar 1 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="shield" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p1.title">
+              1. Gobernanza QHSE & Cumplimiento Industrial
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p1.body">
+              Diseño, auditoría y optimización de Sistemas Integrados de Gestión (Calidad, Seguridad y Salud Ocupacional, y Medio Ambiente) en sectores de alta criticidad como aviación y energía. Mitigación operativa de riesgos y cultura de cero incidentes.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 9001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 14001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ISO 45001</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Risk Bowtie</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="scale" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p2.title">
+              2. Descarbonización de Infraestructura (PhD)
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p2.body">
+              Desarrollo de marcos de fiabilidad empírica para evaluar compensaciones entre costo, emisiones de carbono y cronograma en proyectos de construcción vial. Contabilidad de carbono embebido (etapas A1–A3) alineada con estándares internacionales PAS 2080, EN 15978 y factores de la base de datos ICE.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">LCA A1–A3</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">ICE Database</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">PRISMA SLR</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">PAS 2080</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 hover:border-brand-600/60 transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-xl bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center mb-6">
+              <i data-lucide="code-2" class="w-6 h-6 text-brand-500"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="pillars.p3.title">
+              3. Pipelines de Datos, NLP & IA Aplicada
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="pillars.p3.body">
+              Arquitectura de herramientas computacionales en Python para extracción automatizada de entidades en presupuestos de obra (BoQ), mapeo semántico de factores de emisión y despliegue de agentes inteligentes sobre infraestructura Google Cloud (Vertex AI / Cloud Run).
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Python / PyTorch</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">spaCy / Transformers</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">XGBoost</span>
+            <span class="px-2.5 py-1 text-xs font-mono bg-slate-100 dark:bg-slate-800 rounded-md">Vertex AI</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH & COMPUTATIONAL SYSTEMS SECTION -->
+  <section id="research" class="py-20 bg-white dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+        <div class="max-w-2xl">
+          <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="research.kicker">I+D+i & Ingeniería de Software</p>
+          <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="research.title">
+            Proyectos de Investigación y Sistemas Computacionales
+          </h2>
+        </div>
+        <p class="font-mono text-xs text-slate-500 dark:text-slate-400" data-i18n="research.note">
+          Metodología empírica · Validación reproducible
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Project 1: boq2carbon -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300">
+                Python Pipeline · Embodied Carbon
+              </span>
+              <span class="font-mono text-xs text-slate-400">ICE Database · A1–A3</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="research.p1.title">
+              boq2carbon: Inventario Automatizado de Carbono Embebido
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="research.p1.desc">
+              Pipeline modular en Python diseñado para ingerir presupuestos de construcción (Bill of Quantities en PDF y hojas de cálculo), normalizar unidades mediante diccionarios de datos estandarizados y vincular partidas con factores de emisión del Inventory of Carbon and Energy (ICE Database) para cuantificar emisiones A1–A3 con trazabilidad auditable.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Stack: Python · NLP Entity Mapping · Pandas</span>
+            <span class="text-brand-600 dark:text-brand-400 font-semibold" data-i18n="research.p1.status">Prototipo Validado</span>
+          </div>
+        </div>
+
+        <!-- Project 2: PhD Reliability Framework -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-4 mb-4">
+              <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                Doctoral Research · PRISMA
+              </span>
+              <span class="font-mono text-xs text-slate-400">Cost · Carbon · Time</span>
+            </div>
+            <h3 class="font-display text-2xl font-bold text-slate-900 dark:text-white mb-3" data-i18n="research.p2.title">
+              Marco de Fiabilidad para Infraestructura de Transporte
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6" data-i18n="research.p2.desc">
+              Investigación doctoral enfocada en el benchmarking simultáneo de desviaciones de costo, cronograma e intensidad de carbono en proyectos viales. Incluye revisiones sistemáticas de literatura bajo directrices PRISMA y modelado predictivo para la toma de decisiones en etapas tempranas de diseño.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-200/70 dark:border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+            <span>Methods: Econometrics · ML · PRISMA</span>
+            <span class="text-brand-600 dark:text-brand-400 font-semibold" data-i18n="research.p2.status">Investigación en Curso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ISO & GOVERNANCE MATRIX SECTION -->
+  <section id="iso-matrix" class="py-20 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="iso.kicker">Estándares Internacionales</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="iso.title">
+          Matriz de Gobernanza QHSE y Descarbonización
+        </h2>
+      </div>
+
+      <div class="overflow-x-auto bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
+        <table class="w-full text-left border-collapse">
+          <thead>
+            <tr class="border-b border-slate-200 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-800/50 text-xs font-mono uppercase text-slate-500 dark:text-slate-400">
+              <th class="py-4 px-6" data-i18n="iso.col1">Norma / Marco</th>
+              <th class="py-4 px-6" data-i18n="iso.col2">Dominio Operativo</th>
+              <th class="py-4 px-6" data-i18n="iso.col3">Aplicación Estratégica y Entregables</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 dark:divide-slate-800 text-sm">
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 9001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r1.domain">Gestión de Calidad y Procesos</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r1.app">Estandarización de procesos críticos, control estadístico, auditorías internas/externas y mejora continua (Lean / Six Sigma).</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 14001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r2.domain">Desempeño Ambiental</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r2.app">Evaluación de impacto de ciclo de vida, matrices de aspectos ambientales, control de residuos y cumplimiento legal en energía e infraestructura.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">ISO 45001</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r3.domain">Seguridad y Salud Ocupacional</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r3.app">Identificación de peligros (IPERC), análisis de causa raíz (RCA), gestión de contratistas y protocolos de seguridad operacional en aviación e industria.</td>
+            </tr>
+            <tr class="hover:bg-slate-50/60 dark:hover:bg-slate-800/30 transition-colors">
+              <td class="py-4 px-6 font-mono font-semibold text-brand-600 dark:text-brand-400 whitespace-nowrap">PAS 2080 / EN 15978</td>
+              <td class="py-4 px-6 font-medium text-slate-900 dark:text-white" data-i18n="iso.r4.domain">Carbono en Infraestructura</td>
+              <td class="py-4 px-6 text-slate-600 dark:text-slate-400" data-i18n="iso.r4.app">Cuantificación de carbono embebido (A1–A3), integración de factores de la base de datos ICE y evaluación de líneas base de descarbonización en obras civiles.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMIC & CAREER TRAJECTORY -->
+  <section id="trajectory" class="py-20 bg-white dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-14">
+        <p class="font-mono text-xs uppercase tracking-widest text-brand-600 dark:text-brand-500 font-semibold" data-i18n="traj.kicker">Evolución Profesional y Académica</p>
+        <h2 class="font-display text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mt-2" data-i18n="traj.title">
+          Trayectoria Internacional
+        </h2>
+      </div>
+
+      <div class="relative border-l-2 border-brand-600/40 dark:border-brand-500/40 ml-4 sm:ml-6 pl-8 space-y-12">
+        <!-- Milestone 1 -->
+        <div class="relative">
+          <div class="absolute -left-[41px] top-1 w-5 h-5 rounded-full bg-brand-600 border-4 border-white dark:border-slate-950"></div>
+          <span class="font-mono text
