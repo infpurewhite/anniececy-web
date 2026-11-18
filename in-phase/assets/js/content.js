@@ -176,6 +176,15 @@
     'level.low': t('low', 'nivel bajo'),
     'level.rising': t('rising', 'subiendo'),
     'level.high': t('high', 'nivel alto'),
+    'level.steady': t('steady', 'estable'),
+    'explore.title': t('Explore a day', 'Explora un día'),
+    'explore.hint': t(
+      'Drag the slider, or press play to watch the cycle unfold.',
+      'Mueve el control o pulsa reproducir para ver cómo avanza el ciclo.'
+    ),
+    'explore.slider': t('Cycle day to explore', 'Día del ciclo para explorar'),
+    'explore.play': t('Play', 'Reproducir'),
+    'explore.pause': t('Pause', 'Pausa'),
     'level.falling': t('falling', 'bajando'),
 
     'evidence.title': t('The short version', 'La versión corta'),
@@ -330,12 +339,18 @@
     table: [
       {
         phase: 'menstrual',
-        oestrogen: t('Low', 'Bajo'),
+        oestrogen: t(
+          'Low; in short cycles it can start to rise before bleeding ends',
+          'Bajo; en ciclos cortos puede empezar a subir antes de que termine el sangrado'
+        ),
         progesterone: t('Low', 'Baja')
       },
       {
         phase: 'follicular',
-        oestrogen: t('Rising steadily', 'Sube de forma sostenida'),
+        oestrogen: t(
+          'Low for a few days, then rises quickly towards ovulation',
+          'Bajo durante unos días y luego sube con rapidez hacia la ovulación'
+        ),
         progesterone: t('Low', 'Baja')
       },
       {
@@ -345,7 +360,10 @@
       },
       {
         phase: 'luteal',
-        oestrogen: t('Rises again, then falls before the next period', 'Vuelve a subir y luego baja antes del siguiente periodo'),
+        oestrogen: t(
+          'Rises again to a second, smaller peak mid-phase, then falls before the next period',
+          'Vuelve a subir hasta un segundo pico, más pequeño, a mitad de la fase y luego baja antes del siguiente periodo'
+        ),
         progesterone: t('Rises to its peak, then falls before the next period', 'Sube hasta su máximo y luego baja antes del siguiente periodo')
       }
     ]
@@ -516,8 +534,8 @@
       ),
       happening: {
         text: t(
-          'Once bleeding stops, oestrogen keeps rising as an egg matures in the ovary. Strictly, the follicular phase starts on day 1 and includes your period; here it means the days between bleeding and ovulation. This is the part of the cycle that varies most in length, which is why cycles differ from person to person and from month to month.',
-          'Cuando termina el sangrado, el estrógeno sigue subiendo mientras un óvulo madura en el ovario. En rigor, la fase folicular empieza el día 1 e incluye el periodo; aquí nos referimos a los días entre el sangrado y la ovulación. Es la parte del ciclo que más varía en duración, y por eso los ciclos difieren entre personas y de un mes a otro.'
+          'After bleeding stops, oestrogen stays low for a few days, then rises quickly as one follicle in the ovary takes the lead and its egg matures. Strictly, the follicular phase starts on day 1 and includes your period; here it means the days between bleeding and ovulation. This is the part of the cycle that varies most in length, which is why cycles differ from person to person and from month to month.',
+          'Cuando termina el sangrado, el estrógeno se mantiene bajo unos días y luego sube con rapidez, a medida que un folículo del ovario toma la delantera y su óvulo madura. En rigor, la fase folicular empieza el día 1 e incluye el periodo; aquí nos referimos a los días entre el sangrado y la ovulación. Es la parte del ciclo que más varía en duración, y por eso los ciclos difieren entre personas y de un mes a otro.'
         ),
         sources: ['nhsFertility', 'statpearls', 'bull2019']
       },
@@ -865,6 +883,7 @@
 
   var fit = [
     {
+      icon: 'pill',
       title: t('Hormonal contraception', 'Anticonceptivos hormonales'),
       text: t(
         'Methods such as the combined pill, the patch and the injection work by stopping ovulation, so the hormone pattern described here does not apply. Tracking how you feel is still useful.',
@@ -873,6 +892,7 @@
       sources: ['nhsPeriods']
     },
     {
+      icon: 'irregular',
       title: t('Irregular cycles', 'Ciclos irregulares'),
       text: t(
         'Periods count as irregular when the gap between them is less than 21 days or more than 35 days. Date-based estimates will not work well. A doctor can check for causes such as polycystic ovary syndrome (PCOS, now also called PMOS) or a thyroid problem.',
@@ -881,6 +901,7 @@
       sources: ['nhsIrregular']
     },
     {
+      icon: 'life',
       title: t('Puberty and the approach of menopause', 'Pubertad y cercanía de la menopausia'),
       text: t(
         'Irregular periods are common at both ends of the reproductive years, so phase estimates are less dependable then.',
@@ -889,6 +910,7 @@
       sources: ['nhsIrregular']
     },
     {
+      icon: 'mood',
       title: t('Pregnancy and after menopause', 'Embarazo y después de la menopausia'),
       text: t(
         'There is no menstrual cycle to follow, so this guide does not apply.',

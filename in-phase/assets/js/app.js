@@ -48,6 +48,53 @@
     track: [
       ['rect', { x: 4, y: 5, width: 16, height: 15, rx: 2 }],
       ['path', { d: 'M8 3v4M16 3v4M4 10h16M8.5 15l2.2 2.2 4.6-4.6' }]
+    ],
+    pill: [
+      ['rect', { x: 3.2, y: 8.3, width: 17.6, height: 7.4, rx: 3.7, transform: 'rotate(-35 12 12)' }],
+      ['path', { d: 'M9.9 9l4.2 6' }]
+    ],
+    irregular: [['path', { d: 'M3 15l3.5-6 3 9 3.5-12 3 8 2-4H21' }]],
+    life: [
+      ['path', { d: 'M7 3.5h10M7 20.5h10M8 3.5c0 4.5 4 5.5 4 8.5s-4 4-4 8.5M16 3.5c0 4.5-4 5.5-4 8.5s4 4 4 8.5' }]
+    ],
+    pause: [['path', { d: 'M9 6v12M15 6v12' }]],
+    play: [['path', { d: 'M8 5.5v13l10.5-6.5z' }]],
+    alert: [
+      ['path', { d: 'M12 3.5l9.5 16.5h-19z' }],
+      ['path', { d: 'M12 10v4.5M12 17.3v.2' }]
+    ]
+  };
+
+  /**
+   * Phase illustrations on a 64 x 64 grid. Each shape is drawn as a soft fill
+   * ('fill') or a line ('line') in the phase colour, set from CSS.
+   */
+  var PHASE_ART = {
+    menstrual: [
+      ['fill', 'path', { d: 'M32 7S15 27.5 15 39.5a17 17 0 0 0 34 0C49 27.5 32 7 32 7z' }],
+      ['line', 'path', { d: 'M32 7S15 27.5 15 39.5a17 17 0 0 0 34 0C49 27.5 32 7 32 7z' }],
+      ['line', 'path', { d: 'M24.5 40.5a8 8 0 0 0 6.5 7.5' }],
+      ['fill', 'circle', { cx: 52, cy: 15, r: 3.2 }],
+      ['fill', 'circle', { cx: 12, cy: 20, r: 2.2 }]
+    ],
+    follicular: [
+      ['fill', 'circle', { cx: 32, cy: 54, r: 7 }],
+      ['line', 'path', { d: 'M14 55.5h36M32 55V29' }],
+      ['fill', 'path', { d: 'M32 40c-10 0-16.5-6.5-16.5-15.5 10 0 16.5 6.5 16.5 15.5z' }],
+      ['line', 'path', { d: 'M32 40c-10 0-16.5-6.5-16.5-15.5 10 0 16.5 6.5 16.5 15.5z' }],
+      ['fill', 'path', { d: 'M32 30c0-10.5 6.5-18 17.5-18 0 11-7 18-17.5 18z' }],
+      ['line', 'path', { d: 'M32 30c0-10.5 6.5-18 17.5-18 0 11-7 18-17.5 18z' }]
+    ],
+    ovulatory: [
+      ['fill', 'circle', { cx: 32, cy: 32, r: 13 }],
+      ['line', 'circle', { cx: 32, cy: 32, r: 13 }],
+      ['line', 'circle', { cx: 32, cy: 32, r: 5 }],
+      ['line', 'path', { d: 'M32 5v7M32 52v7M5 32h7M52 32h7M12.9 12.9l5 5M46.1 46.1l5 5M51.1 12.9l-5 5M17.9 46.1l-5 5' }]
+    ],
+    luteal: [
+      ['fill', 'path', { d: 'M41 9a23.5 23.5 0 1 0 15.5 33A19 19 0 0 1 41 9z' }],
+      ['line', 'path', { d: 'M41 9a23.5 23.5 0 1 0 15.5 33A19 19 0 0 1 41 9z' }],
+      ['line', 'path', { d: 'M50 13.5v7M46.5 17h7M56 25.5v4M54 27.5h4' }]
     ]
   };
 
@@ -237,6 +284,25 @@
     return svg;
   }
 
+  /** Decorative phase illustration, coloured by the phase's CSS custom property. */
+  function art(phaseId, className) {
+    var svg = svgEl('svg', {
+      class: 'art' + (className ? ' ' + className : ''),
+      'data-phase': phaseId,
+      viewBox: '0 0 64 64',
+      'aria-hidden': 'true',
+      focusable: 'false'
+    });
+    appendArt(svg, phaseId);
+    return svg;
+  }
+
+  function appendArt(parent, phaseId) {
+    (PHASE_ART[phaseId] || []).forEach(function (shape) {
+      parent.appendChild(svgEl(shape[1], Object.assign({ class: 'art-' + shape[0] }, shape[2])));
+    });
+  }
+
   /** Evidence label: filled dots plus words, so it never relies on colour. */
   function chip(level) {
     var filled = { strong: 3, moderate: 2, limited: 1 }[level];
@@ -375,7 +441,23 @@
       arc.appendChild(
         svgEl('title', { text: tr(phaseById(segment.id).name) + ' · ' + daysLabel(segment) })
       );
+      arc.addEventListener('click', function () {
+        goToPhase(segment.id);
+      });
       svg.appendChild(arc);
+
+      /* Small illustration just inside the ring, at the middle of the segment. */
+      var spot = polar(cx, cy, radius - 36, (segment.start - 1 + segment.end) / 2 / length);
+      var size = 26;
+      var badge = svgEl('g', {
+        class: 'wheel-art',
+        'data-phase': segment.id,
+        transform:
+          'translate(' + (spot[0] - size / 2).toFixed(1) + ' ' + (spot[1] - size / 2).toFixed(1) + ') ' +
+          'scale(' + (size / 64).toFixed(4) + ')'
+      });
+      appendArt(badge, segment.id);
+      svg.appendChild(badge);
 
       var tick = polar(cx, cy, radius + 31, (segment.start - 0.5) / length);
       svg.appendChild(
@@ -432,6 +514,25 @@
     }
   }
 
+  /** Scroll to a phase card and move focus to it, for the wheel and legend. */
+  function goToPhase(id) {
+    var target = byId('phase-' + id);
+    if (!target) {
+      return;
+    }
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, '', '#phase-' + id);
+    }
+    target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
+    target.focus({ preventScroll: true });
+  }
+
+  function prefersReducedMotion() {
+    return Boolean(
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    );
+  }
+
   function renderLegend() {
     var list = clear(byId('wheel-legend'));
     var status = state.status;
@@ -446,8 +547,9 @@
       list.appendChild(
         el('li', { 'data-phase': phase.id, class: isCurrent ? 'is-current' : null }, [
           el('span', { class: 'swatch' }),
-          el('span', {
+          el('a', {
             class: 'legend-name',
+            href: '#phase-' + phase.id,
             'data-today': isCurrent ? ui('wheel.today') : null,
             text: tr(phase.name)
           }),
@@ -484,7 +586,7 @@
 
     panel.appendChild(
       el('div', { class: 'today-phase' }, [
-        el('span', { class: 'dot' }),
+        art(phase.id, 'art-sm'),
         el('h3', { text: tr(phase.name) }),
         el('span', { class: 'pill', text: ui('result.estimated') }),
         status.premenstrual ? el('span', { class: 'pill', text: ui('legend.premenstrual') }) : null
@@ -879,13 +981,16 @@
     host.appendChild(tip);
 
     chart.day = status ? status.day : ovulation;
+    renderExplorer(chart.day);
 
-    chart.show = function (rawDay) {
+    /** Show the cross-hair on a day; `quiet` skips the floating tip (the explorer card shows it). */
+    chart.show = function (rawDay, quiet) {
       var shown = clamp(Math.round(rawDay), 1, length);
       var levels = Cycle.hormoneLevels(shown, length);
       var position = Cycle.getPhaseForDay(shown, length, cycle.periodLength);
       var px = x(shown);
       chart.day = shown;
+      renderExplorer(shown);
 
       cross.removeAttribute('display');
       crossLine.setAttribute('x1', px.toFixed(1));
@@ -917,7 +1022,10 @@
           ])
         );
       });
-      tip.hidden = false;
+      tip.hidden = Boolean(quiet);
+      if (quiet) {
+        return;
+      }
 
       var tipWidth = tip.offsetWidth;
       var left = px + 14;
@@ -933,6 +1041,85 @@
     };
   }
 
+  /* ------------------------------------------------------------------ */
+  /* Day explorer: slider, play button and a picture of the chosen day    */
+  /* ------------------------------------------------------------------ */
+
+  var player = { timer: null };
+
+  function renderExplorer(day) {
+    var cycle = currentCycle();
+    var length = cycle.cycleLength;
+    var slider = byId('day-slider');
+    slider.max = String(length);
+    slider.value = String(day);
+    var position = Cycle.getPhaseForDay(day, length, cycle.periodLength);
+    var phase = phaseById(position.id);
+    slider.setAttribute('aria-valuetext', ui('chart.day', { day: day }) + ', ' + tr(phase.name));
+    var card = clear(byId('explorer-card'));
+    card.setAttribute('data-phase', phase.id);
+
+    card.appendChild(art(phase.id, 'art-md'));
+    var text = el('div', { class: 'explorer-text' }, [
+      el('p', { class: 'explorer-day' }, [
+        el('strong', { text: ui('chart.day', { day: day }) }),
+        ' · ',
+        tr(phase.name),
+        position.premenstrual ? ' · ' + ui('legend.premenstrual') : ''
+      ]),
+      el('p', { class: 'explorer-tagline', text: tr(phase.tagline) })
+    ]);
+    var levels = el('ul', { class: 'explorer-levels' });
+    HORMONES.forEach(function (hormone) {
+      var word = Cycle.describeHormone(hormone, day, length);
+      levels.appendChild(
+        el('li', { class: 'series-' + hormone, 'data-level': word }, [
+          el('span', { class: 'line-key' }),
+          ui('chart.' + hormone) + ': ',
+          el('strong', { text: ui('level.' + word) })
+        ])
+      );
+    });
+    text.appendChild(levels);
+    card.appendChild(text);
+  }
+
+  function setPlaying(playing) {
+    var button = byId('explore-play');
+    if (player.timer) {
+      window.clearInterval(player.timer);
+      player.timer = null;
+    }
+    if (playing) {
+      player.timer = window.setInterval(function () {
+        var length = currentCycle().cycleLength;
+        var next = (chart.day % length) + 1;
+        if (chart.show) {
+          chart.show(next, true);
+        }
+      }, prefersReducedMotion() ? 900 : 450);
+    }
+    button.setAttribute('aria-pressed', String(playing));
+    clear(button);
+    append(button, [
+      icon(playing ? 'pause' : 'play'),
+      el('span', { text: ui(playing ? 'explore.pause' : 'explore.play') })
+    ]);
+  }
+
+  function bindExplorer() {
+    var slider = byId('day-slider');
+    slider.addEventListener('input', function () {
+      setPlaying(false);
+      if (chart.show) {
+        chart.show(Number(slider.value), true);
+      }
+    });
+    byId('explore-play').addEventListener('click', function () {
+      setPlaying(!player.timer);
+    });
+  }
+
   function bindChart() {
     var host = byId('hormone-chart');
 
@@ -946,6 +1133,7 @@
       }
     });
     host.addEventListener('pointerdown', function (event) {
+      setPlaying(false);
       if (chart.show) {
         chart.show(dayFromPointer(event));
       }
@@ -1033,7 +1221,8 @@
 
   function renderPhase(phase, range, isCurrent) {
     var head = el('header', { class: 'phase-head' }, [
-      el('div', {}, [
+      art(phase.id, 'art-lg'),
+      el('div', { class: 'phase-head-text' }, [
         el('p', { class: 'phase-days', text: daysLabel(range) }),
         el('h3', { text: tr(phase.name) }),
         el('p', { class: 'phase-tagline', text: tr(phase.tagline) })
@@ -1074,7 +1263,12 @@
       })
     );
 
-    return el('article', { class: 'phase', id: 'phase-' + phase.id, 'data-phase': phase.id }, [
+    return el('article', {
+      class: 'phase',
+      id: 'phase-' + phase.id,
+      'data-phase': phase.id,
+      tabindex: '-1'
+    }, [
       head,
       el('div', { class: 'phase-body' }, [intro, note, columns])
     ]);
@@ -1109,7 +1303,7 @@
             'aria-current': isCurrent ? 'true' : null
           },
           [
-            el('span', { class: 'dot' }),
+            art(phase.id, 'art-xs'),
             tr(phase.short),
             days ? el('span', { class: 'nav-days', text: days }) : null
           ]
@@ -1137,7 +1331,10 @@
     var host = clear(byId('fit-list'));
     C.fit.forEach(function (item) {
       host.appendChild(
-        el('article', { class: 'fit-item' }, [el('h3', { text: tr(item.title) }), paragraph(item)])
+        el('article', { class: 'fit-item' }, [
+          el('h3', {}, [icon(item.icon), tr(item.title)]),
+          paragraph(item)
+        ])
       );
     });
   }
@@ -1152,6 +1349,10 @@
       cite(C.help.treatments.sources)
     ]);
     append(clear(byId('help-urgent')), [tr(C.help.urgent.text), cite(C.help.urgent.sources)]);
+    var urgentIcon = byId('urgent-icon');
+    if (urgentIcon && !urgentIcon.firstChild) {
+      urgentIcon.appendChild(icon('alert'));
+    }
   }
 
   function renderSources() {
@@ -1347,6 +1548,7 @@
     renderStatic();
     renderResult();
     renderHormones();
+    setPlaying(Boolean(player.timer));
     renderFindings();
     renderPhases();
     renderBasics();
@@ -1371,6 +1573,7 @@
     });
 
     bindChart();
+    bindExplorer();
     renderAll();
   }
 

@@ -269,9 +269,11 @@
   /**
    * Schematic relative hormone levels (0 to about 1) on a cycle day.
    *
-   * Illustrative shapes only: oestrogen peaks just before ovulation and rises again
-   * after it; progesterone rises after ovulation and falls before the next period.
-   * These are not measurements and carry no units.
+   * Illustrative shapes only. Oestrogen stays low in the early follicular days,
+   * rises slowly and then steeply to a peak about a day before ovulation, dips,
+   * and rises again to a second, smaller peak in the middle of the luteal phase
+   * before falling. Progesterone rises after ovulation, peaks mid-luteal and
+   * falls before the next period. These are not measurements and carry no units.
    *
    * @param {number} day Cycle day; fractions are allowed for drawing smooth curves.
    * @param {number} cycleLength
@@ -282,17 +284,27 @@
     var lutealPeak = ovulation + LUTEAL_DAYS / 2;
     return {
       oestrogen:
-        0.12 + 0.74 * gaussian(day, ovulation - 1, 2.4) + 0.36 * gaussian(day, lutealPeak, 3.4),
+        0.12 +
+        0.1 * gaussian(day, ovulation - 3, 3.2) +
+        0.66 * gaussian(day, ovulation - 1, 2.1) +
+        0.52 * gaussian(day, lutealPeak, 3.3),
       progesterone: 0.05 + 0.86 * gaussian(day, lutealPeak, 3.2)
     };
   }
 
+  /** Change in level per day below which a curve counts as flat. */
+  var FLAT_SLOPE = 0.035;
+
   /**
    * Describe a hormone's schematic level on a day in words.
+   *
+   * A flat stretch is "high" at a peak and "steady" lower down, so a plateau
+   * is never reported as rising or falling.
+   *
    * @param {'oestrogen'|'progesterone'} hormone
    * @param {number} day
    * @param {number} cycleLength
-   * @returns {'low'|'rising'|'high'|'falling'}
+   * @returns {'low'|'rising'|'high'|'steady'|'falling'}
    */
   function describeHormone(hormone, day, cycleLength) {
     var level = hormoneLevels(day, cycleLength)[hormone];
@@ -302,8 +314,8 @@
     if (level < 0.22) {
       return 'low';
     }
-    if (Math.abs(slope) <= 0.03 && level >= 0.6) {
-      return 'high';
+    if (Math.abs(slope) <= FLAT_SLOPE) {
+      return level >= 0.6 ? 'high' : 'steady';
     }
     return slope > 0 ? 'rising' : 'falling';
   }

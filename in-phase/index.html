@@ -112,6 +112,15 @@
         <figure class="card chart-card">
           <ul class="chart-legend" id="chart-legend"></ul>
           <div class="chart" id="hormone-chart" tabindex="0" role="img"></div>
+          <div class="explorer">
+            <div class="explorer-head">
+              <label for="day-slider" class="explorer-title" data-i18n="explore.title">Explore a day</label>
+              <button type="button" class="btn btn-quiet btn-play" id="explore-play" aria-pressed="false" aria-controls="explorer-card"></button>
+            </div>
+            <input type="range" class="day-slider" id="day-slider" min="1" max="28" step="1" value="14" aria-describedby="explore-hint" data-i18n-attr="aria-label:explore.slider">
+            <p class="hint" id="explore-hint" data-i18n="explore.hint">Drag the slider, or press play to watch the cycle unfold.</p>
+            <div class="explorer-card" id="explorer-card"></div>
+          </div>
           <figcaption data-i18n="chart.caption">Illustrative sketch of relative hormone levels. It is not to scale and is not a measurement of your own hormones.</figcaption>
           <details class="chart-table">
             <summary data-i18n="chart.tableSummary">Show this chart as a table</summary>
@@ -180,7 +189,7 @@
           <p class="help-treatments" id="help-treatments"></p>
         </div>
         <aside class="urgent" aria-labelledby="urgent-title">
-          <h3 id="urgent-title" data-i18n="help.urgentTitle">Get help now</h3>
+          <h3 id="urgent-title"><span class="urgent-icon" id="urgent-icon"></span><span data-i18n="help.urgentTitle">Get help now</span></h3>
           <p id="help-urgent"></p>
         </aside>
       </div>
