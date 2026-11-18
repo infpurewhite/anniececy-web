@@ -1705,3 +1705,177 @@ thead th {
     display: none;
   }
 }
+
+/* ---------- Other phases: preview cards and windows ---------- */
+
+.phase-others {
+  margin-top: 2.5rem;
+}
+
+.phase-others[hidden] {
+  display: none;
+}
+
+.others-title {
+  font-size: 1.5rem;
+}
+
+.others-intro {
+  margin-top: 0.3rem;
+  color: var(--ink-2);
+}
+
+.phase-previews {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+
+.phase-preview {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.2rem;
+  background: color-mix(in srgb, var(--phase) 7%, var(--surface));
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--phase);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.phase-preview:hover {
+  transform: translateY(-2px);
+  border-color: var(--phase);
+}
+
+.phase-preview:focus-visible {
+  outline: 3px solid var(--phase);
+  outline-offset: 3px;
+}
+
+.preview-text {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.preview-days {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+
+.preview-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.preview-tagline {
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.preview-open {
+  margin-top: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--phase);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.phase-dialog {
+  width: min(60rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+  overflow: auto;
+}
+
+.phase-dialog::backdrop {
+  background: rgba(23, 20, 28, 0.55);
+}
+
+.phase-dialog .phase {
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.dialog-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface);
+  border-bottom: 1px solid var(--line);
+}
+
+.dialog-close {
+  appearance: none;
+  font: inherit;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.5rem;
+  padding: 0.35rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+}
+
+.dialog-close:hover {
+  border-color: var(--ink-2);
+}
+
+.dialog-close .icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  stroke: var(--ink);
+}
+
+@media (max-width: 520px) {
+  .phase-dialog {
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100vh;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .phase-preview {
+    transition: none;
+  }
+}
+
+@media print {
+  .phase-others,
+  .phase-dialog {
+    display: none;
+  }
+}

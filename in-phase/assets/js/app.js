@@ -59,6 +59,7 @@
     ],
     pause: [['path', { d: 'M9 6v12M15 6v12' }]],
     play: [['path', { d: 'M8 5.5v13l10.5-6.5z' }]],
+    close: [['path', { d: 'M6 6l12 12M18 6L6 18' }]],
     alert: [
       ['path', { d: 'M12 3.5l9.5 16.5h-19z' }],
       ['path', { d: 'M12 10v4.5M12 17.3v.2' }]
@@ -516,6 +517,9 @@
 
   /** Scroll to a phase card and move focus to it, for the wheel and legend. */
   function goToPhase(id) {
+    if (openPhaseWindow(id)) {
+      return;
+    }
     var target = byId('phase-' + id);
     if (!target) {
       return;
@@ -525,6 +529,11 @@
     }
     target.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' });
     target.focus({ preventScroll: true });
+  }
+
+  function phaseLink(link) {
+    link.addEventListener('click', onPhaseLink);
+    return link;
   }
 
   function prefersReducedMotion() {
@@ -547,12 +556,15 @@
       list.appendChild(
         el('li', { 'data-phase': phase.id, class: isCurrent ? 'is-current' : null }, [
           el('span', { class: 'swatch' }),
-          el('a', {
-            class: 'legend-name',
-            href: '#phase-' + phase.id,
-            'data-today': isCurrent ? ui('wheel.today') : null,
-            text: tr(phase.name)
-          }),
+          phaseLink(
+            el('a', {
+              class: 'legend-name',
+              href: '#phase-' + phase.id,
+              'aria-haspopup': status && !isCurrent ? 'dialog' : null,
+              'data-today': isCurrent ? ui('wheel.today') : null,
+              text: tr(phase.name)
+            })
+          ),
           el('span', { class: 'legend-days', text: daysLabel(range) })
         ])
       );
@@ -1224,7 +1236,7 @@
       art(phase.id, 'art-lg'),
       el('div', { class: 'phase-head-text' }, [
         el('p', { class: 'phase-days', text: daysLabel(range) }),
-        el('h3', { text: tr(phase.name) }),
+        el('h3', { id: 'phase-' + phase.id + '-title', text: tr(phase.name) }),
         el('p', { class: 'phase-tagline', text: tr(phase.tagline) })
       ]),
       isCurrent ? el('span', { class: 'here', text: ui('phase.here') }) : null
@@ -1278,39 +1290,140 @@
     var status = state.status;
     var ranges = segmentMap();
 
+    byId('phases-title').textContent = status ? ui('phases.titleYours') : ui('phases.title');
     byId('phases-intro').textContent = status
       ? ui('phases.introYours', { length: status.cycleLength })
       : ui('phases.introExample');
 
     var nav = clear(byId('phase-nav'));
     var list = clear(byId('phase-list'));
+    var others = clear(byId('phase-others'));
+    var dialogs = clear(byId('phase-dialogs'));
+    var previews = el('div', { class: 'phase-previews' });
 
+    /* Every phase is rendered in page order, so sources keep their numbers. */
     C.phases.forEach(function (phase) {
       var range = ranges[phase.id];
       var isCurrent = Boolean(status && status.phase === phase.id);
+      var inWindow = Boolean(status) && !isCurrent;
       var days = range
         ? range.start === range.end
           ? String(range.start)
           : range.start + '–' + range.end
         : '';
 
-      nav.appendChild(
-        el(
-          'a',
-          {
-            href: '#phase-' + phase.id,
-            'data-phase': phase.id,
-            'aria-current': isCurrent ? 'true' : null
-          },
-          [
-            art(phase.id, 'art-xs'),
-            tr(phase.short),
-            days ? el('span', { class: 'nav-days', text: days }) : null
-          ]
-        )
+      var link = el(
+        'a',
+        {
+          href: '#phase-' + phase.id,
+          'data-phase': phase.id,
+          'aria-current': isCurrent ? 'true' : null,
+          'aria-haspopup': inWindow ? 'dialog' : null
+        },
+        [
+          art(phase.id, 'art-xs'),
+          tr(phase.short),
+          days ? el('span', { class: 'nav-days', text: days }) : null
+        ]
       );
-      list.appendChild(renderPhase(phase, range, isCurrent));
+      link.addEventListener('click', onPhaseLink);
+      nav.appendChild(link);
+
+      var article = renderPhase(phase, range, isCurrent);
+      if (!inWindow) {
+        list.appendChild(article);
+        return;
+      }
+      dialogs.appendChild(phaseDialog(phase, article));
+      previews.appendChild(phasePreview(phase, range));
     });
+
+    others.hidden = !status;
+    if (status) {
+      others.appendChild(el('h3', { class: 'others-title', text: ui('phases.othersTitle') }));
+      others.appendChild(el('p', { class: 'others-intro', text: ui('phases.othersIntro') }));
+      others.appendChild(previews);
+    }
+  }
+
+  /** A card that opens a phase's full guidance in its own window. */
+  function phasePreview(phase, range) {
+    var button = el(
+      'button',
+      {
+        type: 'button',
+        class: 'phase-preview',
+        'data-phase': phase.id,
+        'aria-haspopup': 'dialog'
+      },
+      [
+        art(phase.id, 'art-md'),
+        el('span', { class: 'preview-text' }, [
+          el('span', { class: 'preview-days', text: range ? daysLabel(range) : '' }),
+          el('span', { class: 'preview-name', text: tr(phase.name) }),
+          el('span', { class: 'preview-tagline', text: tr(phase.tagline) }),
+          el('span', { class: 'preview-open', text: ui('phases.open') })
+        ])
+      ]
+    );
+    button.addEventListener('click', function () {
+      openPhaseWindow(phase.id);
+    });
+    return button;
+  }
+
+  /** A modal window holding one phase's full card. */
+  function phaseDialog(phase, article) {
+    var close = el('button', { type: 'button', class: 'dialog-close' }, [
+      icon('close'),
+      el('span', { text: ui('dialog.close') })
+    ]);
+    var dialog = el(
+      'dialog',
+      {
+        class: 'phase-dialog',
+        id: 'dialog-' + phase.id,
+        'data-phase': phase.id,
+        'aria-labelledby': 'phase-' + phase.id + '-title'
+      },
+      [el('div', { class: 'dialog-bar' }, [close]), article]
+    );
+    close.addEventListener('click', function () {
+      dialog.close();
+    });
+    /* A click on the backdrop lands on the dialog element itself. */
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) {
+        dialog.close();
+      }
+    });
+    /* Source links point at the list behind the window, so close it first. */
+    dialog.addEventListener('click', function (event) {
+      var target = event.target.closest ? event.target.closest('a[href^="#source-"]') : null;
+      if (target) {
+        dialog.close();
+      }
+    });
+    return dialog;
+  }
+
+  /** Open a phase window; returns false when that phase is not in a window. */
+  function openPhaseWindow(id) {
+    var dialog = byId('dialog-' + id);
+    if (!dialog || typeof dialog.showModal !== 'function') {
+      return false;
+    }
+    if (!dialog.open) {
+      dialog.showModal();
+      dialog.scrollTop = 0;
+    }
+    return true;
+  }
+
+  function onPhaseLink(event) {
+    var href = event.currentTarget.getAttribute('href') || '';
+    event.preventDefault();
+    goToPhase(href.replace('#phase-', ''));
   }
 
   function renderBasics() {
@@ -1575,6 +1688,9 @@
     bindChart();
     bindExplorer();
     renderAll();
+    if (/^#phase-/.test(window.location.hash)) {
+      openPhaseWindow(window.location.hash.replace('#phase-', ''));
+    }
   }
 
   if (document.readyState === 'loading') {

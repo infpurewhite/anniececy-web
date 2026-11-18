@@ -203,10 +203,18 @@
       'Day numbers are for a 28-day cycle. Enter your dates above to see your own.',
       'Los días corresponden a un ciclo de 28 días. Ingresa tus fechas arriba para ver los tuyos.'
     ),
+    'phases.titleYours': t('Your phase now', 'Tu fase ahora'),
     'phases.introYours': t(
-      'Day numbers are estimated from your {length}-day cycle.',
-      'Los días se estiman a partir de tu ciclo de {length} días.'
+      'This is the guidance for where you are in your {length}-day cycle. The other phases open in their own window.',
+      'Esta es la guía para el punto en que estás de tu ciclo de {length} días. Las otras fases se abren en su propia ventana.'
     ),
+    'phases.othersTitle': t('The other phases', 'Las otras fases'),
+    'phases.othersIntro': t(
+      'Choose a phase to open its full guidance.',
+      'Elige una fase para abrir su guía completa.'
+    ),
+    'phases.open': t('Open this phase', 'Abrir esta fase'),
+    'dialog.close': t('Close', 'Cerrar'),
     'phases.nav': t('Jump to a phase', 'Ir a una fase'),
     'phase.happening': t('What is happening', 'Qué está pasando'),
     'phase.feel': t('How you may feel', 'Cómo puedes sentirte'),
