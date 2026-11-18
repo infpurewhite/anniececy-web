@@ -1,0 +1,4 @@
+In Phase · En fase (bilingual menstrual cycle guide)
+Copied from https://github.com/infpurewhite/Pomodoro at commit aeedce1 on 2026-11-18.
+Do not edit these files here: change the source repository, then copy
+index.html and assets/ into this directory again.

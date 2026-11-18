@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>In Phase · Understand your cycle, phase by phase</title>
+  <meta name="description" content="A plain-language guide to the menstrual cycle in English and Spanish: what your hormones are doing, how mood can change, and what the evidence says about nutrition, exercise and productivity in each phase.">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#fbf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#17141c" media="(prefers-color-scheme: dark)">
+  <meta name="referrer" content="no-referrer">
+  <!-- Everything is served from this folder: no analytics, fonts or scripts from other sites. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'none'">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="In Phase · Understand your cycle, phase by phase">
+  <meta property="og:description" content="An evidence-labelled guide to mood, nutrition, exercise and productivity across the menstrual cycle. English and Spanish.">
+  <link rel="alternate" hreflang="en" href="?lang=en">
+  <link rel="alternate" hreflang="es" href="?lang=es">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+          <path class="mark-menstrual" d="M17.59 4.61A11.5 11.5 0 0 1 25.57 9.62"/>
+          <path class="mark-follicular" d="M26.95 12.50A11.5 11.5 0 0 1 22.38 25.57"/>
+          <path class="mark-ovulatory" d="M19.50 26.95A11.5 11.5 0 0 1 15.02 27.46"/>
+          <path class="mark-luteal" d="M11.91 26.75A11.5 11.5 0 0 1 14.41 4.61"/>
+        </svg>
+        <span data-i18n="site.name">In Phase</span>
+      </a>
+      <nav class="site-nav" aria-label="Sections" data-i18n-attr="aria-label:nav.label">
+        <a href="#tool" data-i18n="nav.today">Your cycle today</a>
+        <a href="#hormones" data-i18n="nav.hormones">Hormones</a>
+        <a href="#phases" data-i18n="nav.phases">Phases</a>
+        <a href="#help" data-i18n="nav.help">When to get help</a>
+        <a href="#sources" data-i18n="nav.sources">Sources</a>
+      </nav>
+      <div class="lang-switch" role="group" aria-label="Language" data-i18n-attr="aria-label:lang.label">
+        <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="true">English</button>
+        <button type="button" class="lang-btn" data-lang="es" lang="es" aria-pressed="false">Español</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="hero.eyebrow">A plain-language guide with evidence labels</p>
+          <h1 id="hero-title" data-i18n="hero.title">Understand your cycle, phase by phase</h1>
+          <p class="lead" data-i18n="hero.lead">What your hormones are doing, how that can affect your mood and energy, and what is worth trying for food, movement and work in each phase. Every recommendation says how strong the research behind it is.</p>
+
+          <form class="card tool" id="tool" novalidate aria-labelledby="tool-title">
+            <h2 class="tool-title" id="tool-title" data-i18n="tool.title">Where are you today?</h2>
+            <div class="field">
+              <label for="last-start" data-i18n="tool.lastStart">First day of your last period</label>
+              <input type="date" id="last-start" name="lastStart" autocomplete="off" aria-describedby="last-start-error">
+              <p class="field-error" id="last-start-error" hidden></p>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="cycle-length" data-i18n="tool.cycleLength">Cycle length (days)</label>
+                <input type="number" id="cycle-length" name="cycleLength" inputmode="numeric" min="21" max="35" step="1" value="28" autocomplete="off" aria-describedby="cycle-length-hint cycle-length-error">
+                <p class="field-error" id="cycle-length-error" hidden></p>
+              </div>
+              <div class="field">
+                <label for="period-length" data-i18n="tool.periodLength">Days of bleeding</label>
+                <input type="number" id="period-length" name="periodLength" inputmode="numeric" min="2" max="8" step="1" value="5" autocomplete="off" aria-describedby="period-length-error">
+                <p class="field-error" id="period-length-error" hidden></p>
+              </div>
+            </div>
+            <p class="hint" id="cycle-length-hint" data-i18n="tool.cycleHint">From the first day of one period to the day before the next. Not sure? Use 28.</p>
+            <label class="check" for="remember">
+              <input type="checkbox" id="remember" name="remember">
+              <span data-i18n="tool.remember">Remember this on this device</span>
+            </label>
+            <div class="actions">
+              <button type="submit" class="btn btn-primary" data-i18n="tool.submit">Show my phase</button>
+              <button type="button" class="btn btn-quiet" id="forget" hidden data-i18n="tool.forget">Forget my data</button>
+            </div>
+            <p class="privacy">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M7 11V8a5 5 0 0 1 10 0v3"/><rect x="5" y="11" width="14" height="9" rx="2"/></svg>
+              <span data-i18n="tool.privacy">Your dates never leave this browser. No account, no tracking, no cookies.</span>
+            </p>
+          </form>
+        </div>
+
+        <div class="hero-result">
+          <div class="card result" id="result">
+            <p class="result-kicker" id="result-kicker"></p>
+            <div class="wheel" id="wheel"></div>
+            <ul class="legend" id="wheel-legend"></ul>
+            <div class="today" id="today-panel"></div>
+            <p class="note" id="tool-note"></p>
+          </div>
+          <p class="visually-hidden" id="result-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hormones" aria-labelledby="hormones-title">
+      <div class="container split">
+        <div class="split-copy">
+          <h2 id="hormones-title" data-i18n="hormones.title">What your hormones are doing</h2>
+          <div class="prose" id="hormones-prose"></div>
+        </div>
+        <figure class="card chart-card">
+          <ul class="chart-legend" id="chart-legend"></ul>
+          <div class="chart" id="hormone-chart" tabindex="0" role="img"></div>
+          <figcaption data-i18n="chart.caption">Illustrative sketch of relative hormone levels. It is not to scale and is not a measurement of your own hormones.</figcaption>
+          <details class="chart-table">
+            <summary data-i18n="chart.tableSummary">Show this chart as a table</summary>
+            <div class="table-scroll" id="hormone-table"></div>
+          </details>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="evidence" aria-labelledby="evidence-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="evidence-title" data-i18n="evidence.title">The short version</h2>
+          <p class="section-intro" data-i18n="evidence.intro">Much online advice about “syncing” food, training and work with your cycle goes further than the research does. This is what studies support so far.</p>
+        </div>
+        <div class="findings" id="findings"></div>
+        <div class="key" aria-labelledby="key-title">
+          <div class="key-head">
+            <h3 id="key-title" data-i18n="key.title">How to read the labels</h3>
+            <p data-i18n="key.intro">Each recommendation below carries one of three labels.</p>
+          </div>
+          <dl class="key-list" id="evidence-key"></dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="phases" aria-labelledby="phases-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="phases-title" data-i18n="phases.title">The four phases</h2>
+          <p class="section-intro" id="phases-intro"></p>
+        </div>
+        <nav class="phase-nav" id="phase-nav" aria-label="Jump to a phase" data-i18n-attr="aria-label:phases.nav"></nav>
+        <div class="phase-list" id="phase-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="basics" aria-labelledby="basics-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="basics-title" data-i18n="basics.title">The basics, whatever the phase</h2>
+          <p class="section-intro" data-i18n="basics.intro">These have stronger evidence behind them than any phase-specific tip, so put them in place first.</p>
+        </div>
+        <div class="basics" id="basics-list"></div>
+      </div>
+    </section>
+
+    <section class="section" id="fit" aria-labelledby="fit-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="fit-title" data-i18n="fit.title">If this guide does not fit you</h2>
+          <p class="section-intro" data-i18n="fit.intro">The four phases describe a natural cycle of 21 to 35 days. They are a poor fit in these situations.</p>
+        </div>
+        <div class="fit" id="fit-list"></div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="help" aria-labelledby="help-title">
+      <div class="container help-grid">
+        <div>
+          <div class="section-head">
+            <h2 id="help-title" data-i18n="help.title">When to talk to a health professional</h2>
+            <p class="section-intro" data-i18n="help.intro">Painful, heavy or distressing periods are common, but that does not mean you have to put up with them. Book an appointment if any of these apply.</p>
+          </div>
+          <ul class="help-list" id="help-list"></ul>
+          <p class="help-treatments" id="help-treatments"></p>
+        </div>
+        <aside class="urgent" aria-labelledby="urgent-title">
+          <h3 id="urgent-title" data-i18n="help.urgentTitle">Get help now</h3>
+          <p id="help-urgent"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="sources" aria-labelledby="sources-title">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="sources-title" data-i18n="sources.title">Sources</h2>
+          <p class="section-intro" data-i18n="sources.intro">Sources were last checked in November 2026. Research on the menstrual cycle is still thin in places; where studies disagree or are weak, this guide says so.</p>
+        </div>
+        <ol class="source-list" id="source-list"></ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-strong" data-i18n="footer.disclaimer">This page offers general information and is not medical advice. It does not replace a consultation with a health professional.</p>
+      <p data-i18n="footer.inclusive">Written for women and for anyone who menstruates.</p>
+      <p data-i18n="footer.privacy">This page makes no external requests and sets no cookies.</p>
+      <p data-i18n="footer.reviewed">Last reviewed: November 2026</p>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">
+      <span lang="en">This guide needs JavaScript to show the phase calculator, the Spanish version and the detailed recommendations.</span>
+      <span lang="es">Esta guía necesita JavaScript para mostrar la calculadora de fases, la versión en español y las recomendaciones detalladas.</span>
+    </p>
+  </noscript>
+
+  <script src="assets/js/cycle.js" defer></script>
+  <script src="assets/js/content.js" defer></script>
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
